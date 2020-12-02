@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          MyFirstWidget(),
-          const MyFirstStatefulWidget()
-        ],
+      title: 'First app',
+      home: new Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            MyFirstWidget(),
+            MyFirstStatefulWidget()
+          ],
+        ),
       )
     );
   }
@@ -47,6 +46,11 @@ class MySmallText extends StatelessWidget {
 class MyFirstWidget extends StatelessWidget {
   int count = 0;
 
+  // Контекста нету в полях класса StatelessWidget, ошибка компиляции
+  // getContextRuntimeType() {
+  //   return context.runtimeType;
+  // }
+
   @override
   Widget build(BuildContext context) {
     count += 1;
@@ -71,8 +75,14 @@ class MyFirstStatefulWidget extends StatefulWidget {
 class _MyFirstStatefulWidgetState extends State<MyFirstStatefulWidget> {
   int count = 0;
 
+  getContextRuntimeType() {
+    return context.runtimeType;
+  }
+
   @override
   Widget build(BuildContext context) {
+    print(getContextRuntimeType());
+
     count += 1;
     print('Statefull counter is $count and it always grow up!');
     return Container(
