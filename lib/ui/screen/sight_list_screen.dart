@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/shared/places_texts.dart';
 
 class SightListScreen extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class _SightListWidgetState extends State<SightListScreen> {
     return Scaffold(
       body: Container(),
       appBar: AppBar(
-        title: Text('Список интересных мест')
+        title: Text(PlacesTexts.AppTitle)
       ),
     );
   }
