@@ -13,7 +13,6 @@ class _SightListWidgetState extends State<SightListScreen> {
     return Scaffold(
       body: Container(),
       appBar: AppBar(
-        // Не знаю надо ли было делать отступы как в макете, сделал
         title: Padding(
           padding: EdgeInsets.only(top: 40, bottom: 16),
           child: Text(
