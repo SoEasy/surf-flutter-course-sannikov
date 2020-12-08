@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:places/mocks.dart';
 import 'package:places/shared/places_colors.dart';
+import 'package:places/shared/places_fonts.dart';
+import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
+import 'package:places/ui/screen/sight_card.dart';
 
 class SightListScreen extends StatefulWidget {
   @override
@@ -11,7 +15,6 @@ class _SightListWidgetState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(),
       appBar: AppBar(
         title: Padding(
           padding: EdgeInsets.only(top: 40, bottom: 16),
@@ -19,12 +22,8 @@ class _SightListWidgetState extends State<SightListScreen> {
             PlacesTexts.SightListTitleBreak,
             textAlign: TextAlign.start,
             maxLines: 2,
-            style: TextStyle(
+            style: PlacesFonts.size32_weightBold.copyWith(
               color: PlacesColors.White_Main,
-              fontSize: 32,
-              height: 1.125, // line-height 36
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.w700,
             ),
           ),
         ),
@@ -32,7 +31,19 @@ class _SightListWidgetState extends State<SightListScreen> {
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         toolbarHeight: 128,
-      )
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: PlacesSizes.PrimaryPadding),
+          child: Column(
+            children: [
+              SightCard(mocks[2]),
+              SightCard(mocks[1]),
+              SightCard(mocks[0]),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

@@ -2,11 +2,11 @@ import 'domain/sight.dart';
 
 final List<Sight> mocks = [
   new Sight(
-    nameSights: 'Заброшенный оперный',
+    nameSights: 'Горхол',
     lat: 59.446667,
     lon: 24.752778,
     url: 'https://i.ytimg.com/vi/3W4hWG12Pdg/maxresdefault.jpg',
-    details: 'Заброшка в Таллине, где снимали Довод',
+    details: 'Заброшка в Таллине, созданная под оперный театр. Театр не удался, зато там снимали Довод',
     type: 'Строение'
   ),
   new Sight(
@@ -18,11 +18,11 @@ final List<Sight> mocks = [
     type: 'Строение'
   ),
   new Sight(
-    nameSights: 'Сен-Жерменский дворец',
+    nameSights: 'Сен-Жерменский дворец и его предместья',
     lat: 48.881389,
     lon: 2.096389,
     url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Ch%C3%A2teau_de_Saint-Germain-en-Laye01.jpg',
-    details: 'Знаменитый дворец во Франции',
+    details: 'Знаменитый дворец во Франции, в окрестностях которого писал великий Виктор Гюго',
     type: 'Территория'
   )
 ];
