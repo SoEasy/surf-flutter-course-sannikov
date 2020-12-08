@@ -10,4 +10,12 @@ class PlacesTexts {
   static String get SightListTitle {
     return PlacesTexts.SightListTitleBreak.replaceFirst('\n', '');
   }
+
+  static String get SchedulePlace {
+    return 'Запланировать';
+  }
+
+  static String get MarkAsFavourite {
+    return 'В Избранное';
+  }
 }

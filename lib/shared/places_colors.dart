@@ -16,4 +16,12 @@ class PlacesColors {
   static Color get White_Background {
     return Color(0xfff5f5f5);
   }
+
+  static Color get White_PrimaryButton {
+    return Color(0xff4caf50);
+  }
+
+  static Color get White_Inactive {
+    return Color(0x907c7e92);
+  }
 }

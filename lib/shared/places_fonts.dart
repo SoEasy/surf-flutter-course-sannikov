@@ -21,10 +21,22 @@ class PlacesFonts {
   }
 
   static TextStyle get size16 {
-    return TextStyle(
-        fontFamily: 'Roboto',
+    return PlacesFonts._roboto.copyWith(
         fontSize: 16,
         height: 1.25,
+    );
+  }
+
+  static TextStyle get size24 {
+    return PlacesFonts._roboto.copyWith(
+      fontSize: 24,
+      height: 1.25,
+    );
+  }
+
+  static TextStyle get size24_weightBold {
+    return PlacesFonts.size24.copyWith(
+      fontWeight: FontWeight.bold
     );
   }
   
