@@ -5,6 +5,7 @@ import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 
+/// Виджет карточки интересного места для отображения в списке
 class SightCard extends StatelessWidget {
   final Sight sight;
 
@@ -45,11 +46,11 @@ class SightCard extends StatelessWidget {
                   )
               ),
               Positioned(
-                top: PlacesSizes.PrimaryPadding,
-                left: PlacesSizes.PrimaryPadding,
+                top: PlacesSizes.primaryPadding,
+                left: PlacesSizes.primaryPadding,
                 child: Text(
                   this.sight.type,
-                  style: PlacesFonts.size14_weightBold.copyWith(
+                  style: PlacesFonts.size14WeightBold.copyWith(
                     color: Colors.white
                   ),
                 )
@@ -61,16 +62,16 @@ class SightCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: PlacesColors.White_Background,
             ),
-            padding: EdgeInsets.all(PlacesSizes.PrimaryPadding),
+            padding: EdgeInsets.all(PlacesSizes.primaryPadding),
             width: double.infinity,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  this.sight.nameSights,
+                  this.sight.name,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: PlacesFonts.size16_weight500.copyWith(
+                  style: PlacesFonts.size16Weight500.copyWith(
                     color: PlacesColors.White_Secondary
                   )
                 ),

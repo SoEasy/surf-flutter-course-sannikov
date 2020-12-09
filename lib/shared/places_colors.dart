@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+/// Цветовая палитра для проекта "Список интересных мест"
+/// Цвета именуются в соответствии с метками в Figma для консистентности
 class PlacesColors {
   static Color get White_Main {
     return Color(0xff252849);

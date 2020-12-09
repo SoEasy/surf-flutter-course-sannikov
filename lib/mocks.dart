@@ -1,5 +1,6 @@
 import 'domain/sight.dart';
 
+/// Моковые данные
 final List<Sight> mocks = [
   new Sight(
     name: 'Горхол',
