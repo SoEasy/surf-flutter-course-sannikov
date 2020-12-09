@@ -12,7 +12,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: PlacesTexts.AppTitle,
+      title: PlacesTexts.appTitle,
       // home: SightListScreen()
       home: SightDetails(mocks[2])
     );

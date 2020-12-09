@@ -1,8 +1,9 @@
 import 'domain/sight.dart';
 
+/// Моковые данные
 final List<Sight> mocks = [
   new Sight(
-    nameSights: 'Горхол',
+    name: 'Горхол',
     lat: 59.446667,
     lon: 24.752778,
     url: 'https://i.ytimg.com/vi/3W4hWG12Pdg/maxresdefault.jpg',
@@ -10,7 +11,7 @@ final List<Sight> mocks = [
     type: 'Строение'
   ),
   new Sight(
-    nameSights: 'Аэродром Смирных',
+    name: 'Аэродром Смирных',
     lat: 49.738889,
     lon: 142.861111,
     url: 'https://avatars.mds.yandex.net/get-zen_doc/1586459/pub_5dec9bdd3d873600ae285314_5dec9c03e6cb9b00aee527e9/scale_1200',
@@ -18,7 +19,7 @@ final List<Sight> mocks = [
     type: 'Строение'
   ),
   new Sight(
-    nameSights: 'Сен-Жерменский дворец и его предместья',
+    name: 'Сен-Жерменский дворец и его предместья',
     lat: 48.881389,
     lon: 2.096389,
     url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Ch%C3%A2teau_de_Saint-Germain-en-Laye01.jpg',

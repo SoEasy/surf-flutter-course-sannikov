@@ -6,6 +6,7 @@ import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/screen/sight_card.dart';
 
+/// Виджет экрана со списком карточек интересных мест
 class SightListScreen extends StatefulWidget {
   @override
   _SightListWidgetState createState() => _SightListWidgetState();
@@ -19,10 +20,10 @@ class _SightListWidgetState extends State<SightListScreen> {
         title: Padding(
           padding: EdgeInsets.only(top: 40, bottom: 16),
           child: Text(
-            PlacesTexts.SightListTitleBreak,
+            PlacesTexts.sightListTitleBreak,
             textAlign: TextAlign.start,
             maxLines: 2,
-            style: PlacesFonts.size32_weightBold.copyWith(
+            style: PlacesFonts.size32WeightBold.copyWith(
               color: PlacesColors.White_Main,
             ),
           ),
@@ -34,7 +35,7 @@ class _SightListWidgetState extends State<SightListScreen> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: PlacesSizes.PrimaryPadding),
+          padding: EdgeInsets.symmetric(horizontal: PlacesSizes.primaryPadding),
           child: Column(
             children: [
               SightCard(mocks[2]),

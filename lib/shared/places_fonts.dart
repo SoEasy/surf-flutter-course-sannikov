@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Алиасы для типографики
 class PlacesFonts {
   static TextStyle get _roboto {
     return TextStyle(
@@ -14,7 +15,7 @@ class PlacesFonts {
     );
   }
 
-  static TextStyle get size14_weightBold {
+  static TextStyle get size14WeightBold {
     return PlacesFonts.size14.copyWith(
       fontWeight: FontWeight.bold
     );
@@ -40,7 +41,7 @@ class PlacesFonts {
     );
   }
   
-  static TextStyle get size16_weight500 {
+  static TextStyle get size16Weight500 {
     return PlacesFonts.size16.copyWith(
       fontWeight: FontWeight.w500
     );
@@ -53,7 +54,7 @@ class PlacesFonts {
     );
   }
 
-  static TextStyle get size32_weightBold {
+  static TextStyle get size32WeightBold {
     return PlacesFonts.size32.copyWith(
       fontWeight: FontWeight.w700,
     );
