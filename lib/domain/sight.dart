@@ -6,6 +6,7 @@ class Sight {
   final String url;
   final String details;
   final String type;
+  final String workTime;
 
   Sight({
     this.name,
@@ -13,6 +14,7 @@ class Sight {
     this.lon,
     this.url,
     this.details,
-    this.type
+    this.type,
+    this.workTime
   });
 }

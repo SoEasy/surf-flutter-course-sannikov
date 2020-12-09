@@ -5,16 +5,9 @@ import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
 
-enum PlacesButtonSize {
-  Small,
-  Normal
-}
-
-enum PlacesButtonType {
-  Primary,
-  Secondary
-}
-
+/// Виджет для рисования большой зеленой кнопки на странице информации о месте
+/// Потом станет настоящей кнопкой
+/// TODO потом проработать primary/secondary button & button group
 class PlacesButton extends StatelessWidget {
   final Widget child;
 
@@ -32,7 +25,7 @@ class PlacesButton extends StatelessWidget {
           color: PlacesColors.White_PrimaryButton
       ),
       child: DefaultTextStyle(
-        style: PlacesFonts.size14_weightBold.copyWith(
+        style: PlacesFonts.size14WeightBold.copyWith(
           color: Colors.white,
         ),
         child: Center(
@@ -45,12 +38,13 @@ class PlacesButton extends StatelessWidget {
   }
 }
 
+/// Виджет кнопок действий(запланировать, избранное) с интересным местом, для экрана информации о месте
 class SightDetailsActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        new Expanded(
+        Expanded(
             flex: 1,
             child: Container(
                 height: 40,
@@ -76,7 +70,7 @@ class SightDetailsActions extends StatelessWidget {
                 )
             )
         ),
-        new Expanded(
+        Expanded(
             flex: 1,
             child: Container(
                 height: 40,
@@ -106,7 +100,7 @@ class SightDetailsActions extends StatelessWidget {
   }
 }
 
-
+/// Виджет страницы детальной информации интересного места
 class SightDetails extends StatelessWidget {
   final Sight sight;
 
@@ -118,7 +112,7 @@ class SightDetails extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(
                 children: [
@@ -131,34 +125,34 @@ class SightDetails extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(
-                    PlacesSizes.PrimaryPadding,
-                    PlacesSizes.PrimaryAndHalfPadding,
-                    PlacesSizes.PrimaryPadding, 0
+                    PlacesSizes.primaryPadding,
+                    PlacesSizes.primaryAndHalfPadding,
+                    PlacesSizes.primaryPadding, 0
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                        this.sight.nameSights,
+                        this.sight.name,
                         style: PlacesFonts.size24_weightBold.copyWith(
                             color: PlacesColors.White_Secondary
                         )
                     ),
                     Padding(
-                      padding: EdgeInsets.only(bottom: PlacesSizes.PrimaryAndHalfPadding),
+                      padding: EdgeInsets.only(bottom: PlacesSizes.primaryAndHalfPadding),
                       child: Row(
                         children: [
                           Padding(
-                              padding: EdgeInsets.only(right: PlacesSizes.PrimaryPadding),
+                              padding: EdgeInsets.only(right: PlacesSizes.primaryPadding),
                               child: Text(
                                   this.sight.type,
-                                  style: PlacesFonts.size14_weightBold.copyWith(
+                                  style: PlacesFonts.size14WeightBold.copyWith(
                                       color: PlacesColors.White_Secondary
                                   )
                               )
                           ),
                           Text(
-                              'Закрыто до 16:00',
+                              this.sight.workTime,
                               style: PlacesFonts.size14.copyWith(
                                   color: PlacesColors.White_Secondary2
                               )
@@ -171,7 +165,7 @@ class SightDetails extends StatelessWidget {
                         style: PlacesFonts.size14
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: PlacesSizes.PrimaryAndHalfPadding),
+                      padding: EdgeInsets.symmetric(vertical: PlacesSizes.primaryAndHalfPadding),
                       child: PlacesButton(
                           Text('Построить маршрут')
                       ),
@@ -179,9 +173,9 @@ class SightDetails extends StatelessWidget {
                     Divider(
                         color: PlacesColors.White_Inactive
                     ),
-                    Padding(padding: EdgeInsets.only(bottom: PlacesSizes.PrimaryHalfPadding)),
+                    Padding(padding: EdgeInsets.only(bottom: PlacesSizes.primaryHalfPadding)),
                     SightDetailsActions(),
-                    Padding(padding: EdgeInsets.only(bottom: PlacesSizes.PrimaryPadding)),
+                    Padding(padding: EdgeInsets.only(bottom: PlacesSizes.primaryPadding)),
                   ],
                 ),
               )
