@@ -40,20 +40,17 @@ class SightCard extends StatelessWidget {
                   child: Container(
                     width: 20,
                     height: 20,
-                    decoration: BoxDecoration(
-                        color: Colors.purple
-                    ),
-                  )
-              ),
+                    decoration: BoxDecoration(color: Colors.purple),
+                  )),
               Positioned(
                 top: PlacesSizes.primaryPadding,
                 left: PlacesSizes.primaryPadding,
                 child: Text(
                   this.sight.type,
                   style: PlacesFonts.size14WeightBold.copyWith(
-                    color: Colors.white
+                    color: Colors.white,
                   ),
-                )
+                ),
               )
             ],
           ),
@@ -72,20 +69,20 @@ class SightCard extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: PlacesFonts.size16Weight500.copyWith(
-                    color: PlacesColors.White_Secondary
-                  )
+                    color: PlacesColors.White_Secondary,
+                  ),
                 ),
                 Text(
                   this.sight.details,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: PlacesFonts.size14.copyWith(
-                    color: PlacesColors.White_Secondary2
+                    color: PlacesColors.White_Secondary2,
                   ),
                 ),
               ],
-            )
-          )
+            ),
+          ),
         ],
       ),
     );

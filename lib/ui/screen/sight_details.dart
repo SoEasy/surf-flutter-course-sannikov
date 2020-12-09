@@ -12,8 +12,8 @@ class PlacesButton extends StatelessWidget {
   final Widget child;
 
   PlacesButton(
-      this.child,
-      );
+    this.child,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +22,15 @@ class PlacesButton extends StatelessWidget {
       height: 48,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: PlacesColors.White_PrimaryButton
-      ),
+          color: PlacesColors.White_PrimaryButton),
       child: DefaultTextStyle(
         style: PlacesFonts.size14WeightBold.copyWith(
           color: Colors.white,
         ),
         child: Center(
-            child: Container(
-              child: this.child,
-            )
+          child: Container(
+            child: this.child,
+          ),
         ),
       ),
     );
@@ -45,55 +44,55 @@ class SightDetailsActions extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-            flex: 1,
-            child: Container(
-                height: 40,
-                width: double.infinity,
-                child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 22,
-                          height: 19,
-                          color: PlacesColors.White_Inactive,
-                          margin: EdgeInsets.only(right: 10),
-                        ),
-                        Text(
-                            PlacesTexts.SchedulePlace,
-                            style: PlacesFonts.size14.copyWith(
-                                color: PlacesColors.White_Inactive
-                            )
-                        )
-                      ],
-                    )
-                )
-            )
+          flex: 1,
+          child: Container(
+            height: 40,
+            width: double.infinity,
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 22,
+                    height: 19,
+                    color: PlacesColors.White_Inactive,
+                    margin: EdgeInsets.only(right: 10),
+                  ),
+                  Text(
+                    PlacesTexts.schedulePlace,
+                    style: PlacesFonts.size14.copyWith(
+                      color: PlacesColors.White_Inactive,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
         Expanded(
-            flex: 1,
-            child: Container(
-                height: 40,
-                child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 20,
-                          height: 18,
-                          color: PlacesColors.White_Secondary,
-                          margin: EdgeInsets.only(right: 10),
-                        ),
-                        Text(
-                            PlacesTexts.MarkAsFavourite,
-                            style: PlacesFonts.size14.copyWith(
-                                color: PlacesColors.White_Secondary
-                            )
-                        )
-                      ],
-                    )
-                )
-            )
+          flex: 1,
+          child: Container(
+            height: 40,
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 20,
+                    height: 18,
+                    color: PlacesColors.White_Secondary,
+                    margin: EdgeInsets.only(right: 10),
+                  ),
+                  Text(
+                    PlacesTexts.markAsFavourite,
+                    style: PlacesFonts.size14.copyWith(
+                      color: PlacesColors.White_Secondary,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
         ),
       ],
     );
@@ -125,60 +124,75 @@ class SightDetails extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(
-                    PlacesSizes.primaryPadding,
-                    PlacesSizes.primaryAndHalfPadding,
-                    PlacesSizes.primaryPadding, 0
+                  PlacesSizes.primaryPadding,
+                  PlacesSizes.primaryAndHalfPadding,
+                  PlacesSizes.primaryPadding,
+                  0,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                        this.sight.name,
-                        style: PlacesFonts.size24_weightBold.copyWith(
-                            color: PlacesColors.White_Secondary
-                        )
+                      this.sight.name,
+                      style: PlacesFonts.size24_weightBold.copyWith(
+                        color: PlacesColors.White_Secondary,
+                      ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(bottom: PlacesSizes.primaryAndHalfPadding),
+                      padding: EdgeInsets.only(
+                        bottom: PlacesSizes.primaryAndHalfPadding,
+                      ),
                       child: Row(
                         children: [
                           Padding(
-                              padding: EdgeInsets.only(right: PlacesSizes.primaryPadding),
-                              child: Text(
-                                  this.sight.type,
-                                  style: PlacesFonts.size14WeightBold.copyWith(
-                                      color: PlacesColors.White_Secondary
-                                  )
-                              )
+                            padding: EdgeInsets.only(
+                              right: PlacesSizes.primaryPadding,
+                            ),
+                            child: Text(
+                              this.sight.type,
+                              style: PlacesFonts.size14WeightBold.copyWith(
+                                color: PlacesColors.White_Secondary,
+                              ),
+                            ),
                           ),
                           Text(
-                              this.sight.workTime,
-                              style: PlacesFonts.size14.copyWith(
-                                  color: PlacesColors.White_Secondary2
-                              )
+                            this.sight.workTime,
+                            style: PlacesFonts.size14.copyWith(
+                              color: PlacesColors.White_Secondary2,
+                            ),
                           )
                         ],
                       ),
                     ),
                     Text(
-                        this.sight.details,
-                        style: PlacesFonts.size14
+                      this.sight.details,
+                      style: PlacesFonts.size14,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: PlacesSizes.primaryAndHalfPadding),
+                      padding: EdgeInsets.symmetric(
+                        vertical: PlacesSizes.primaryAndHalfPadding,
+                      ),
                       child: PlacesButton(
-                          Text('Построить маршрут')
+                        Text('Построить маршрут'),
                       ),
                     ),
                     Divider(
-                        color: PlacesColors.White_Inactive
+                      color: PlacesColors.White_Inactive,
                     ),
-                    Padding(padding: EdgeInsets.only(bottom: PlacesSizes.primaryHalfPadding)),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        bottom: PlacesSizes.primaryHalfPadding,
+                      ),
+                    ),
                     SightDetailsActions(),
-                    Padding(padding: EdgeInsets.only(bottom: PlacesSizes.primaryPadding)),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        bottom: PlacesSizes.primaryPadding,
+                      ),
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
