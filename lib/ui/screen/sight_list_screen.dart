@@ -24,7 +24,7 @@ class _SightListWidgetState extends State<SightListScreen> {
             textAlign: TextAlign.start,
             maxLines: 2,
             style: PlacesFonts.size32WeightBold.copyWith(
-              color: PlacesColors.White_Main,
+              color: PlacesColors.whiteMain,
             ),
           ),
         ),
