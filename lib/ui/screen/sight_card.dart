@@ -11,6 +11,66 @@ class SightCard extends StatelessWidget {
 
   SightCard(this.sight);
 
+  Widget _image() {
+    return Stack(
+      children: [
+        // В задании было слово Image, а дальше гугл, дело-то не хитрое :)
+        Image.network(
+          sight.url,
+          fit: BoxFit.cover,
+          width: double.infinity,
+          height: 96,
+        ),
+        Positioned(
+            top: 19,
+            right: 18,
+            child: Container(
+              width: 20,
+              height: 20,
+              decoration: BoxDecoration(color: Colors.purple),
+            )),
+        Positioned(
+          top: PlacesSizes.primaryPadding,
+          left: PlacesSizes.primaryPadding,
+          child: Text(
+            sight.type,
+            style: PlacesFonts.size14WeightBold.copyWith(color: Colors.white),
+          ),
+        )
+      ],
+    );
+  }
+
+  Container _content() {
+    return Container(
+      height: 92,
+      decoration: BoxDecoration(
+        color: PlacesColors.White_Background,
+      ),
+      padding: EdgeInsets.all(PlacesSizes.primaryPadding),
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            this.sight.name,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: PlacesFonts.size16Weight500
+                .copyWith(color: PlacesColors.White_Secondary),
+          ),
+          Text(
+            this.sight.details,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: PlacesFonts.size14
+                .copyWith(color: PlacesColors.White_Secondary2),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,66 +84,7 @@ class SightCard extends StatelessWidget {
       // и нашел вот это
       clipBehavior: Clip.hardEdge,
       child: Column(
-        children: [
-          Stack(
-            children: [
-              // В задании было слово Image, а дальше гугл, дело-то не хитрое :)
-              Image.network(
-                this.sight.url,
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: 96,
-              ),
-              Positioned(
-                  top: 19,
-                  right: 18,
-                  child: Container(
-                    width: 20,
-                    height: 20,
-                    decoration: BoxDecoration(color: Colors.purple),
-                  )),
-              Positioned(
-                top: PlacesSizes.primaryPadding,
-                left: PlacesSizes.primaryPadding,
-                child: Text(
-                  this.sight.type,
-                  style: PlacesFonts.size14WeightBold.copyWith(
-                    color: Colors.white,
-                  ),
-                ),
-              )
-            ],
-          ),
-          Container(
-            height: 92,
-            decoration: BoxDecoration(
-              color: PlacesColors.White_Background,
-            ),
-            padding: EdgeInsets.all(PlacesSizes.primaryPadding),
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  this.sight.name,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: PlacesFonts.size16Weight500.copyWith(
-                    color: PlacesColors.White_Secondary,
-                  ),
-                ),
-                Text(
-                  this.sight.details,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: PlacesFonts.size14.copyWith(
-                    color: PlacesColors.White_Secondary2,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+        children: [_image(), _content()],
       ),
     );
   }

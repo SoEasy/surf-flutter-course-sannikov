@@ -5,11 +5,11 @@ class PlacesTexts {
   }
 
   static String get sightListTitleBreak {
-    return 'Список \nинтересных мест';
+    return 'Список\nинтересных мест';
   }
 
   static String get sightListTitle {
-    return PlacesTexts.sightListTitleBreak.replaceFirst('\n', '');
+    return PlacesTexts.sightListTitleBreak.replaceFirst('\n', ' ');
   }
 
   static String get schedulePlace {
