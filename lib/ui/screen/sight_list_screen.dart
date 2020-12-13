@@ -4,6 +4,7 @@ import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
+import 'package:places/ui/screen/sight_app_bar.dart';
 import 'package:places/ui/screen/sight_card.dart';
 
 /// Виджет экрана со списком карточек интересных мест
@@ -16,23 +17,7 @@ class _SightListWidgetState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Padding(
-          padding: EdgeInsets.only(top: 40, bottom: 16),
-          child: Text(
-            PlacesTexts.sightListTitleBreak,
-            textAlign: TextAlign.start,
-            maxLines: 2,
-            style: PlacesFonts.size32WeightBold.copyWith(
-              color: PlacesColors.whiteMain,
-            ),
-          ),
-        ),
-        centerTitle: false,
-        backgroundColor: Colors.transparent,
-        shadowColor: Colors.transparent,
-        toolbarHeight: 128,
-      ),
+      appBar: SightAppBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: PlacesSizes.primaryPadding),
