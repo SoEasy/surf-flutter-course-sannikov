@@ -4,17 +4,12 @@ import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
 
-class SightAppBar extends StatefulWidget implements PreferredSizeWidget {
-  @override
-  _SightAppBarState createState() => _SightAppBarState();
-
+class SightAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize {
     return Size(double.infinity, 128);
   }
-}
 
-class _SightAppBarState extends State<SightAppBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
