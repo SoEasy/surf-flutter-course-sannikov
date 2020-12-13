@@ -60,20 +60,30 @@ class SightCard extends StatelessWidget {
             width: double.infinity,
             height: PlacesSizes.primaryPadding,
           ),
-          Text(
-            this.sight.name,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: PlacesFonts.size16Weight500.copyWith(
-              color: PlacesColors.whiteSecondary,
+          // По заданию надо до 50% урезать текст, но ConstrainedBox про другое
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: 160,
+            ),
+            child: Text(
+              this.sight.name,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: PlacesFonts.size16Weight500.copyWith(
+                color: PlacesColors.whiteSecondary,
+              ),
             ),
           ),
-          Text(
-            this.sight.details,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: PlacesFonts.size14.copyWith(
-              color: PlacesColors.whiteSecondary2,
+          // А вот эта штука умеет до 50% обрезать
+          FractionallySizedBox(
+            widthFactor: 0.5,
+            child: Text(
+              this.sight.details,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: PlacesFonts.size14.copyWith(
+                color: PlacesColors.whiteSecondary2,
+              ),
             ),
           ),
         ],
