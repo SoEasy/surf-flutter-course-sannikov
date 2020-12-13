@@ -48,17 +48,18 @@ class SightCard extends StatelessWidget {
 
   Container _content() {
     return Container(
-      height: 92,
-      decoration: BoxDecoration(
-        color: PlacesColors.whiteBackground,
-      ),
-      padding: EdgeInsets.all(
-        PlacesSizes.primaryPadding,
+      padding: EdgeInsets.only(
+        left: PlacesSizes.primaryPadding,
+        right: PlacesSizes.primaryPadding,
       ),
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            width: double.infinity,
+            height: PlacesSizes.primaryPadding,
+          ),
           Text(
             this.sight.name,
             maxLines: 2,
@@ -87,13 +88,17 @@ class SightCard extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
+        color: PlacesColors.whiteBackground,
       ),
       // Искал как заставить контейнер имитировать что-то типа overflow: hidden в CSS
       // Чтоб контейнеру задал borderRadius, и никто его не перекрывал
       // и нашел вот это
       clipBehavior: Clip.hardEdge,
-      child: Column(
-        children: [_image(), _content()],
+      child: AspectRatio(
+        aspectRatio: 3 / 2,
+        child: Column(
+          children: [_image(), _content()],
+        ),
       ),
     );
   }
