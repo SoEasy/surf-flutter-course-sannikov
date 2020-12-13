@@ -11,4 +11,12 @@ class PlacesTexts {
   static String get sightListTitle {
     return PlacesTexts.sightListTitleBreak.replaceFirst('\n', ' ');
   }
+
+  static String get schedulePlace {
+    return 'Запланировать';
+  }
+
+  static String get markAsFavourite {
+    return 'В Избранное';
+  }
 }

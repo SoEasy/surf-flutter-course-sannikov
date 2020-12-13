@@ -22,19 +22,24 @@ class SightCard extends StatelessWidget {
           height: 96,
         ),
         Positioned(
-            top: 19,
-            right: 18,
-            child: Container(
-              width: 20,
-              height: 20,
-              decoration: BoxDecoration(color: Colors.purple),
-            )),
+          top: 19,
+          right: 18,
+          child: Container(
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(
+              color: Colors.purple,
+            ),
+          ),
+        ),
         Positioned(
           top: PlacesSizes.primaryPadding,
           left: PlacesSizes.primaryPadding,
           child: Text(
             sight.type,
-            style: PlacesFonts.size14WeightBold.copyWith(color: Colors.white),
+            style: PlacesFonts.size14WeightBold.copyWith(
+              color: Colors.white,
+            ),
           ),
         )
       ],
@@ -45,9 +50,11 @@ class SightCard extends StatelessWidget {
     return Container(
       height: 92,
       decoration: BoxDecoration(
-        color: PlacesColors.White_Background,
+        color: PlacesColors.whiteBackground,
       ),
-      padding: EdgeInsets.all(PlacesSizes.primaryPadding),
+      padding: EdgeInsets.all(
+        PlacesSizes.primaryPadding,
+      ),
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,15 +63,17 @@ class SightCard extends StatelessWidget {
             this.sight.name,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: PlacesFonts.size16Weight500
-                .copyWith(color: PlacesColors.White_Secondary),
+            style: PlacesFonts.size16Weight500.copyWith(
+              color: PlacesColors.whiteSecondary,
+            ),
           ),
           Text(
             this.sight.details,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: PlacesFonts.size14
-                .copyWith(color: PlacesColors.White_Secondary2),
+            style: PlacesFonts.size14.copyWith(
+              color: PlacesColors.whiteSecondary2,
+            ),
           ),
         ],
       ),

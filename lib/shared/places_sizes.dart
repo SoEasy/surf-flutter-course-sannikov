@@ -3,4 +3,12 @@ class PlacesSizes {
   static double get primaryPadding {
     return 16;
   }
+
+  static double get primaryAndHalfPadding {
+    return PlacesSizes.primaryPadding * 1.5;
+  }
+
+  static double get primaryHalfPadding {
+    return PlacesSizes.primaryPadding * 0.5;
+  }
 }
