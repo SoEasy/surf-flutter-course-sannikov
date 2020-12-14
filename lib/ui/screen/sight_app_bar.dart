@@ -4,10 +4,11 @@ import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
 
+/// Кастомный аппбар, чтобы научитсья работать с размерами
 class SightAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize {
-    return Size(double.infinity, 128);
+    return Size.fromHeight(128);
   }
 
   @override
