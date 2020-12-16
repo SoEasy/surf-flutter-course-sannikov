@@ -48,31 +48,42 @@ class SightCard extends StatelessWidget {
 
   Container _content() {
     return Container(
-      height: 92,
-      decoration: BoxDecoration(
-        color: PlacesColors.whiteBackground,
-      ),
-      padding: EdgeInsets.all(
-        PlacesSizes.primaryPadding,
+      padding: EdgeInsets.only(
+        left: PlacesSizes.primaryPadding,
+        right: PlacesSizes.primaryPadding,
       ),
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            this.sight.name,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: PlacesFonts.size16Weight500.copyWith(
-              color: PlacesColors.whiteSecondary,
+          SizedBox(
+            width: double.infinity,
+            height: PlacesSizes.primaryPadding,
+          ),
+          // По заданию надо до 50% урезать текст, но ConstrainedBox про другое
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: 160,
+            ),
+            child: Text(
+              this.sight.name,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: PlacesFonts.size16Weight500.copyWith(
+                color: PlacesColors.whiteSecondary,
+              ),
             ),
           ),
-          Text(
-            this.sight.details,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: PlacesFonts.size14.copyWith(
-              color: PlacesColors.whiteSecondary2,
+          // А вот эта штука умеет до 50% обрезать
+          FractionallySizedBox(
+            widthFactor: 0.5,
+            child: Text(
+              this.sight.details,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: PlacesFonts.size14.copyWith(
+                color: PlacesColors.whiteSecondary2,
+              ),
             ),
           ),
         ],
@@ -87,13 +98,17 @@ class SightCard extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
+        color: PlacesColors.whiteBackground,
       ),
       // Искал как заставить контейнер имитировать что-то типа overflow: hidden в CSS
       // Чтоб контейнеру задал borderRadius, и никто его не перекрывал
       // и нашел вот это
       clipBehavior: Clip.hardEdge,
-      child: Column(
-        children: [_image(), _content()],
+      child: AspectRatio(
+        aspectRatio: 3 / 2,
+        child: Column(
+          children: [_image(), _content()],
+        ),
       ),
     );
   }
