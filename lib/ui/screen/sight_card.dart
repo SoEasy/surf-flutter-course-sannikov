@@ -23,7 +23,7 @@ class SightCard extends StatelessWidget {
             sight.url,
             fit: BoxFit.cover,
             width: double.infinity,
-            loadingBuilder: SightImagePreloader,
+            loadingBuilder: sightImagePreloader,
           ),
         ),
         Positioned(

@@ -77,7 +77,7 @@ class SightDetails extends StatelessWidget {
           child: Image.network(
             this.sight.url,
             fit: BoxFit.cover,
-            loadingBuilder: SightImagePreloader,
+            loadingBuilder: sightImagePreloader,
           ),
         ),
         Positioned(
