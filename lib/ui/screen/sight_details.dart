@@ -4,6 +4,7 @@ import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
+import 'package:places/ui/common/sigth_image_preloader.dart';
 
 /// Виджет для рисования большой зеленой кнопки на странице информации о месте
 /// Потом станет настоящей кнопкой
@@ -69,10 +70,15 @@ class SightDetails extends StatelessWidget {
   Stack _gallery() {
     return Stack(
       children: [
-        Image.network(
-          this.sight.url,
-          height: 360,
-          fit: BoxFit.cover,
+        Container(
+          constraints: BoxConstraints(
+            minHeight: 360,
+          ),
+          child: Image.network(
+            this.sight.url,
+            fit: BoxFit.cover,
+            loadingBuilder: sightImagePreloader,
+          ),
         ),
         Positioned(
           left: 16,
