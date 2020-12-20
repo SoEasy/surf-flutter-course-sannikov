@@ -3,10 +3,14 @@ import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
+import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/common/switch_tab_indicator.dart';
 import 'package:places/ui/navigation/sight_bottom_navigator.dart';
 import 'package:places/ui/screen/cards/sight_favourite_card.dart';
 import 'package:places/ui/screen/cards/sight_visited_card.dart';
+import 'package:places/ui/screen/empty_screens/empty_screen.dart';
+import 'package:places/ui/screen/empty_screens/planned_empty_screen.dart';
+import 'package:places/ui/screen/empty_screens/visited_empty_screen.dart';
 
 import '../../mocks.dart';
 
@@ -61,6 +65,7 @@ class _VisitingScreenState extends State<VisitingScreen>
         child: TabBarView(
           controller: tabController,
           children: [
+            // PlannedEmptyScreen(),
             SingleChildScrollView(
               child: Container(
                 padding:
@@ -74,6 +79,7 @@ class _VisitingScreenState extends State<VisitingScreen>
                 ),
               ),
             ),
+            // VisitedEmptyScreen(),
             SingleChildScrollView(
               child: Container(
                 padding:

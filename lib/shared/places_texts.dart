@@ -47,4 +47,16 @@ class PlacesTexts {
   static String get achievedAt {
     return 'Цель достигнута';
   }
+
+  static String get emptyScreenTitle {
+    return 'Пусто';
+  }
+
+  static String get emptyPlannedText {
+    return 'Отмечайте понравившиеся\nместа и они появиятся здесь.';
+  }
+
+  static String get emptyVisitedText {
+    return 'Завершите маршрут,\nчтобы место попало сюда.';
+  }
 }
