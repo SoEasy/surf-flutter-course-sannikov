@@ -12,6 +12,10 @@ class PlacesTexts {
     return PlacesTexts.sightListTitleBreak.replaceFirst('\n', ' ');
   }
 
+  static String get favouritesTitle {
+    return 'Избранное';
+  }
+
   static String get schedulePlace {
     return 'Запланировать';
   }
@@ -25,6 +29,13 @@ class PlacesTexts {
   }
 
   static String get menuFavourites {
-    return 'Избранное';
+    return PlacesTexts.favouritesTitle;
+  }
+
+  static String get visitingPlanned {
+    return 'Хочу посетить';
+  }
+  static String get visitingVisited {
+    return 'Посетил';
   }
 }

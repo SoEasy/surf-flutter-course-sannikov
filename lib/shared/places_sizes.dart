@@ -11,4 +11,8 @@ class PlacesSizes {
   static double get primaryHalfPadding {
     return PlacesSizes.primaryPadding * 0.5;
   }
+
+  static double get switchRadius {
+    return 40;
+  }
 }
