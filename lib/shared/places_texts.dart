@@ -35,7 +35,16 @@ class PlacesTexts {
   static String get visitingPlanned {
     return 'Хочу посетить';
   }
+
   static String get visitingVisited {
     return 'Посетил';
+  }
+
+  static String get plannedTo {
+    return 'Запланировано на';
+  }
+
+  static String get achievedAt {
+    return 'Цель достигнута';
   }
 }

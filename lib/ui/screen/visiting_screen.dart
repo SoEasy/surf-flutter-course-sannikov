@@ -5,6 +5,10 @@ import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/switch_tab_indicator.dart';
 import 'package:places/ui/navigation/sight_bottom_navigator.dart';
+import 'package:places/ui/screen/cards/sight_favourite_card.dart';
+import 'package:places/ui/screen/cards/sight_visited_card.dart';
+
+import '../../mocks.dart';
 
 /// Класс для экрана "Избранное"
 /// Включает два таба - "хочу посетить" и "посетил"
@@ -49,12 +53,42 @@ class _VisitingScreenState extends State<VisitingScreen>
           ),
         ),
       ),
-      body: TabBarView(
-        controller: tabController,
-        children: [
-          Center(child: Text('1')),
-          Center(child: Text('2')),
-        ],
+      body: Padding(
+        // Дизайн в Map и в 4.6 разнятся про этот отступ
+        // В 4.6 правильный - полуторный отступ
+        // В Map - 30, какое-то непонятное значение
+        padding: EdgeInsets.only(top: PlacesSizes.primaryAndHalfPadding),
+        child: TabBarView(
+          controller: tabController,
+          children: [
+            SingleChildScrollView(
+              child: Container(
+                padding:
+                    EdgeInsets.symmetric(horizontal: PlacesSizes.primaryPadding),
+                child: Column(
+                  children: [
+                    SightFavouriteCard(mocks[2]),
+                    SightFavouriteCard(mocks[1]),
+                    SightFavouriteCard(mocks[0]),
+                  ],
+                ),
+              ),
+            ),
+            SingleChildScrollView(
+              child: Container(
+                padding:
+                EdgeInsets.symmetric(horizontal: PlacesSizes.primaryPadding),
+                child: Column(
+                  children: [
+                    SightVisitedCard(mocks[0]),
+                    SightVisitedCard(mocks[1]),
+                    SightVisitedCard(mocks[2]),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: SightBottomNavigator(),
     );
