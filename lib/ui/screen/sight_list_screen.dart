@@ -4,6 +4,7 @@ import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
+import 'package:places/ui/navigation/sight_bottom_navigator.dart';
 import 'package:places/ui/screen/sight_app_bar.dart';
 import 'package:places/ui/screen/sight_card.dart';
 
@@ -30,6 +31,7 @@ class _SightListWidgetState extends State<SightListScreen> {
           ),
         ),
       ),
+      bottomNavigationBar: SightBottomNavigator(),
     );
   }
 }

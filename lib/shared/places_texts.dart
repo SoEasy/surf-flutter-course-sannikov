@@ -19,4 +19,12 @@ class PlacesTexts {
   static String get markAsFavourite {
     return 'В Избранное';
   }
+
+  static String get menuList {
+    return PlacesTexts.sightListTitle;
+  }
+
+  static String get menuFavourites {
+    return 'Избранное';
+  }
 }
