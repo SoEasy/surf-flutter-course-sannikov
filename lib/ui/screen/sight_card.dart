@@ -18,6 +18,7 @@ class SightCard extends StatelessWidget {
         Container(
           constraints: BoxConstraints(
             minHeight: 96,
+            maxHeight: 96,
           ),
           child: Image.network(
             sight.url,
