@@ -4,7 +4,7 @@ import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 
 /// базовая декорация для контейнера с закругленными угламим на 40dip
-BoxDecoration roundedBoxDecoration = BoxDecoration(
+BoxDecoration _roundedBoxDecoration = BoxDecoration(
   borderRadius: BorderRadius.circular(PlacesSizes.switchRadius),
 );
 
@@ -28,7 +28,7 @@ class SwitchTabIndicator extends StatelessWidget {
       child: Container(
         height: PlacesSizes.switchRadius,
         width: double.infinity,
-        decoration: roundedBoxDecoration.copyWith(
+        decoration: _roundedBoxDecoration.copyWith(
           color: PlacesColors.whiteBackground,
         ),
         clipBehavior: Clip.hardEdge,
@@ -38,7 +38,7 @@ class SwitchTabIndicator extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Container(
-                  decoration: roundedBoxDecoration.copyWith(
+                  decoration: _roundedBoxDecoration.copyWith(
                     color: i == _tabController.index
                         ? PlacesColors.whiteSecondary
                         : Colors.transparent,

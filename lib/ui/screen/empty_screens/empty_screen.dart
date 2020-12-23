@@ -3,6 +3,9 @@ import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 
+/// Базовый компонент для экрана, на котором надо показать пользователю
+/// "ничего нету"
+/// Принимает иконку, заголовок и текст
 class EmptyScreen extends StatelessWidget {
   final Widget icon;
   final String title;
@@ -24,7 +27,7 @@ class EmptyScreen extends StatelessWidget {
           children: [icon],
         ),
         SizedBox(
-          height: PlacesSizes.primaryPadding * 2,
+          height: PlacesSizes.doublePrimaryPadding,
         ),
         Text(
           title,

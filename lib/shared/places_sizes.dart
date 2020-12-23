@@ -12,6 +12,10 @@ class PlacesSizes {
     return PlacesSizes.primaryPadding * 0.5;
   }
 
+  static double get doublePrimaryPadding {
+    return PlacesSizes.primaryPadding * 2;
+  }
+
   static double get switchRadius {
     return 40;
   }

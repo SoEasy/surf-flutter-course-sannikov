@@ -26,14 +26,11 @@ class SightCardBase extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          constraints: BoxConstraints(
-            minHeight: 96,
-            maxHeight: 96,
-          ),
           child: Image.network(
             sight.url,
             fit: BoxFit.cover,
             width: double.infinity,
+            height: 96,
             loadingBuilder: sightImagePreloader,
           ),
         ),
@@ -65,7 +62,7 @@ class SightCardBase extends StatelessWidget {
     );
   }
 
-  Container _content() {
+  Widget _content() {
     return Container(
       padding: EdgeInsets.fromLTRB(
         PlacesSizes.primaryPadding,
