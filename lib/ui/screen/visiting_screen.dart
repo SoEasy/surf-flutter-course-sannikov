@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
@@ -54,9 +53,6 @@ class _VisitingScreenState extends State<VisitingScreen>
         ),
       ),
       body: Padding(
-        // Дизайн в Map и в 4.6 разнятся про этот отступ
-        // В 4.6 правильный - полуторный отступ
-        // В Map - 30, какое-то непонятное значение
         padding: EdgeInsets.only(top: PlacesSizes.primaryAndHalfPadding),
         child: TabBarView(
           controller: tabController,

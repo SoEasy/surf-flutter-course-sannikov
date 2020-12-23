@@ -39,6 +39,10 @@ class PlacesColors {
     return Color(0xff7c7e92);
   }
 
+  static Color get textSecondary2Opacity {
+    return Color(0xff7c7e92).withOpacity(0.56);
+  }
+
   static Color get whitePrimaryButton {
     return Color(0xff4caf50);
   }

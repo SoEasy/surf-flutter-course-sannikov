@@ -21,6 +21,9 @@ class SwitchTabIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// Так как это кастомный контрол - не вижу смысла впихивать его термины
+    /// в термины темы. Поэтому просто использую определение - светлая или темная,
+    /// и от этого использую нужные цвета
     final _isLightTheme = Theme.of(context).brightness == Brightness.light;
 
     return Padding(
@@ -51,7 +54,7 @@ class SwitchTabIndicator extends StatelessWidget {
                       style: PlacesFonts.size14WeightBold.copyWith(
                           color: i == _tabController.index
                               ? _isLightTheme ? Colors.white : PlacesColors.secondaryLight
-                              : PlacesColors.whiteInactive),
+                              : PlacesColors.textSecondary2Opacity),
                     ),
                   ),
                 ),

@@ -1,64 +1,92 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:places/shared/places_sizes.dart';
+import 'package:places/shared/places_colors.dart';
 
 /// Базовый класс иконки
 class SightIconBase extends StatelessWidget {
+  /// Обязательный параметр из классов-наследников
   final String asset;
-  final bool isDark;
+
+  /// Необязательный параметр, по умолчанию false.
+  /// Наследник, если ему надо, может его передавать, и тогда иконка будет
+  /// вместе с темой менять свой цвет, совпадает с цветом текста для темы.
+  /// ВАЖНО! Если иконка цветная - хз че будет.
+  final bool withTheme;
+
+  /// Активные иконки имеют другую форму, для них лежат отдельные svg
   final bool isActive;
+
+  /// Необязательный параметр, по умолчанию false.
+  /// Если будет true - иконка окрасится в полупрозрачный цвет secondary2
+  final bool disabled;
+
   final double width;
   final double height;
 
   const SightIconBase({
     this.asset,
-    this.isDark = false,
+    this.withTheme = false,
     this.isActive = false,
+    this.disabled = false,
     this.width = 24,
     this.height = 24,
   });
 
   @override
   Widget build(BuildContext context) {
+    final _isLight = Theme.of(context).brightness == Brightness.light;
+    Color iconColor;
+
+    if (disabled) {
+      iconColor = PlacesColors.textSecondary2Opacity;
+    } else {
+      iconColor = withTheme
+          ? _isLight
+              ? PlacesColors.textMainLight
+              : PlacesColors.textMainDark
+          : null;
+    }
+
     return SvgPicture.asset(
-      '$asset${isDark ? '_dark' : ''}${isActive ? '_filled' : ''}.svg',
+      '$asset${isActive ? '_filled' : ''}.svg',
       width: width,
       height: height,
+      color: iconColor,
     );
   }
 }
 
 /// Класс иконки избранного
 class SightIconHeart extends SightIconBase {
-  final bool isDark;
   final bool isActive;
 
-  const SightIconHeart({this.isDark = false, this.isActive = false})
+  const SightIconHeart({withTheme = false, this.isActive = false})
       : super(
           asset: 'res/icons/icon_heart',
-          isDark: isDark,
+          withTheme: withTheme,
           isActive: isActive,
         );
 }
 
 /// Класс иконки листа
 class SightIconList extends SightIconBase {
-  final bool isDark;
   final bool isActive;
 
-  const SightIconList({this.isDark = false, this.isActive = false})
+  const SightIconList({withTheme = false, this.isActive = false})
       : super(
           asset: 'res/icons/icon_list',
-          isDark: isDark,
+          withTheme: withTheme,
           isActive: isActive,
         );
 }
 
 /// Класс иконки календаря
 class SightIconCalendar extends SightIconBase {
-  const SightIconCalendar()
+  const SightIconCalendar({withTheme = false, disabled = false})
       : super(
           asset: 'res/icons/icon_calendar',
+          withTheme: withTheme,
+          disabled: disabled,
         );
 }
 
@@ -92,8 +120,8 @@ class SightIconCard extends SightIconBase {
 class SightIconGo extends SightIconBase {
   const SightIconGo()
       : super(
-    asset: 'res/icons/icon_go',
-    width: 64,
-    height: 64,
-  );
+          asset: 'res/icons/icon_go',
+          width: 64,
+          height: 64,
+        );
 }
