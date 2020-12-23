@@ -3,14 +3,10 @@ import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
-import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/common/switch_tab_indicator.dart';
 import 'package:places/ui/navigation/sight_bottom_navigator.dart';
 import 'package:places/ui/screen/cards/sight_favourite_card.dart';
 import 'package:places/ui/screen/cards/sight_visited_card.dart';
-import 'package:places/ui/screen/empty_screens/empty_screen.dart';
-import 'package:places/ui/screen/empty_screens/planned_empty_screen.dart';
-import 'package:places/ui/screen/empty_screens/visited_empty_screen.dart';
 
 import '../../mocks.dart';
 
@@ -52,9 +48,9 @@ class _VisitingScreenState extends State<VisitingScreen>
         ),
         title: Text(
           PlacesTexts.favouritesTitle,
-          style: PlacesFonts.size18.copyWith(
-            color: PlacesColors.whiteMain,
-          ),
+          style: Theme.of(context).textTheme.bodyText1.merge(
+                PlacesFonts.size18,
+              ),
         ),
       ),
       body: Padding(
@@ -68,8 +64,8 @@ class _VisitingScreenState extends State<VisitingScreen>
             // PlannedEmptyScreen(),
             SingleChildScrollView(
               child: Container(
-                padding:
-                    EdgeInsets.symmetric(horizontal: PlacesSizes.primaryPadding),
+                padding: EdgeInsets.symmetric(
+                    horizontal: PlacesSizes.primaryPadding),
                 child: Column(
                   children: [
                     SightFavouriteCard(mocks[2]),
@@ -82,8 +78,8 @@ class _VisitingScreenState extends State<VisitingScreen>
             // VisitedEmptyScreen(),
             SingleChildScrollView(
               child: Container(
-                padding:
-                EdgeInsets.symmetric(horizontal: PlacesSizes.primaryPadding),
+                padding: EdgeInsets.symmetric(
+                    horizontal: PlacesSizes.primaryPadding),
                 child: Column(
                   children: [
                     SightVisitedCard(mocks[0]),

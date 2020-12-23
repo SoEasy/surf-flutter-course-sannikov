@@ -111,7 +111,7 @@ class SightDetails extends StatelessWidget {
           Text(
             this.sight.name,
             style: PlacesFonts.size24_weightBold.copyWith(
-              color: PlacesColors.whiteSecondary,
+              color: PlacesColors.secondaryLight,
             ),
           ),
           Padding(
@@ -127,14 +127,14 @@ class SightDetails extends StatelessWidget {
                   child: Text(
                     this.sight.type,
                     style: PlacesFonts.size14WeightBold.copyWith(
-                      color: PlacesColors.whiteSecondary,
+                      color: PlacesColors.secondaryLight,
                     ),
                   ),
                 ),
                 Text(
                   this.sight.workTime,
                   style: PlacesFonts.size14.copyWith(
-                    color: PlacesColors.whiteSecondary2,
+                    color: PlacesColors.textSecondary2,
                   ),
                 )
               ],
@@ -205,13 +205,13 @@ class SightDetails extends StatelessWidget {
                       Container(
                         width: 20,
                         height: 18,
-                        color: PlacesColors.whiteSecondary,
+                        color: PlacesColors.secondaryLight,
                         margin: EdgeInsets.only(right: 10),
                       ),
                       Text(
                         PlacesTexts.markAsFavourite,
                         style: PlacesFonts.size14.copyWith(
-                          color: PlacesColors.whiteSecondary,
+                          color: PlacesColors.secondaryLight,
                         ),
                       )
                     ],

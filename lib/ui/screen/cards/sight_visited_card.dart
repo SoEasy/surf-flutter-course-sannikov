@@ -8,52 +8,59 @@ import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/common/sight_card_base.dart';
 
-/// Виджет карточки интересного места для отображения в списке
-class SightVisitedCard extends StatelessWidget {
-  final Sight sight;
+class _VisitedCardContent extends StatelessWidget {
+  final Sight _sight;
 
-  SightVisitedCard(this.sight);
+  _VisitedCardContent(this._sight);
 
-  Column _content() {
+  @override
+  Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          sight.name,
+          _sight.name,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: PlacesFonts.size16Weight500.copyWith(
-            color: PlacesColors.whiteSecondary,
-          ),
+          style: Theme.of(context).textTheme.bodyText1.merge(
+                PlacesFonts.size16Weight500,
+              ),
         ),
         Text(
-          '${PlacesTexts.achievedAt} ${sight.achievedAt}',
+          '${PlacesTexts.achievedAt} ${_sight.achievedAt}',
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: PlacesFonts.size14.copyWith(
-            color: PlacesColors.whiteSecondary2,
+            color: PlacesColors.textSecondary2,
           ),
         ),
         SizedBox(
           height: PlacesSizes.primaryHalfPadding,
         ),
         Text(
-          sight.details,
+          _sight.details,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: PlacesFonts.size14.copyWith(
-            color: PlacesColors.whiteSecondary2,
+            color: PlacesColors.textSecondary2,
           ),
         ),
       ],
     );
   }
+}
+
+/// Виджет карточки интересного места для отображения в списке
+class SightVisitedCard extends StatelessWidget {
+  final Sight _sight;
+
+  SightVisitedCard(this._sight);
 
   @override
   Widget build(BuildContext context) {
     return SightCardBase(
-      sight,
-      content: _content(),
+      _sight,
+      content: _VisitedCardContent(_sight),
       actions: [
         SightIconShare(),
         SightIconClose(),

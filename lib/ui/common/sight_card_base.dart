@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/ui/common/sigth_image_preloader.dart';
@@ -68,7 +67,7 @@ class SightCardBase extends StatelessWidget {
         PlacesSizes.primaryPadding,
         PlacesSizes.primaryPadding,
         PlacesSizes.primaryPadding,
-        PlacesSizes.primaryAndHalfPadding
+        PlacesSizes.primaryAndHalfPadding,
       ),
       width: double.infinity,
       child: this.content
@@ -82,7 +81,7 @@ class SightCardBase extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: PlacesColors.whiteBackground,
+        color: Theme.of(context).backgroundColor,
       ),
       clipBehavior: Clip.hardEdge,
       child: Column(
