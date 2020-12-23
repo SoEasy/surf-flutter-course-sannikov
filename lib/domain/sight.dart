@@ -7,13 +7,18 @@ class Sight {
   final String details;
   final String type;
   final String workTime;
+  final String plannedTo;
+  final String achievedAt;
 
-  Sight(
-      {this.name,
-      this.lat,
-      this.lon,
-      this.url,
-      this.details,
-      this.type,
-      this.workTime});
+  Sight({
+    this.name,
+    this.lat,
+    this.lon,
+    this.url,
+    this.details,
+    this.type,
+    this.workTime,
+    this.plannedTo,
+    this.achievedAt,
+  });
 }
