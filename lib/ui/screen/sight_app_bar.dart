@@ -23,10 +23,9 @@ class SightAppBar extends StatelessWidget implements PreferredSizeWidget {
         PlacesTexts.sightListTitleBreak,
         textAlign: TextAlign.start,
         maxLines: 2,
-        style: Theme.of(context)
-            .textTheme
-            .headline1
-            .merge(PlacesFonts.size32WeightBold),
+        style: PlacesFonts.size32WeightBold.copyWith(
+          color: Theme.of(context).textTheme.headline1.color,
+        ),
       ),
     );
   }

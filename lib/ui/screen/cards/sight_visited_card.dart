@@ -22,9 +22,9 @@ class _VisitedCardContent extends StatelessWidget {
           _sight.name,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: Theme.of(context).textTheme.bodyText1.merge(
-                PlacesFonts.size16Weight500,
-              ),
+          style: PlacesFonts.size16Weight500.copyWith(
+            color: Theme.of(context).textTheme.bodyText1.color,
+          ),
         ),
         Text(
           '${PlacesTexts.achievedAt} ${_sight.achievedAt}',

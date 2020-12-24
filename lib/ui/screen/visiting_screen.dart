@@ -47,9 +47,9 @@ class _VisitingScreenState extends State<VisitingScreen>
         ),
         title: Text(
           PlacesTexts.favouritesTitle,
-          style: Theme.of(context).textTheme.bodyText1.merge(
-                PlacesFonts.size18,
-              ),
+          style: PlacesFonts.size18.copyWith(
+            color: Theme.of(context).textTheme.bodyText1.color,
+          ),
         ),
       ),
       body: Padding(

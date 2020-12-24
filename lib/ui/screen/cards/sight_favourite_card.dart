@@ -22,8 +22,8 @@ class _FavouriteCardContent extends StatelessWidget {
           _sight.name,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: Theme.of(context).textTheme.bodyText1.merge(
-            PlacesFonts.size16Weight500,
+          style: PlacesFonts.size16Weight500.copyWith(
+            color: Theme.of(context).textTheme.bodyText1.color,
           ),
         ),
         Text(
@@ -48,7 +48,6 @@ class _FavouriteCardContent extends StatelessWidget {
     );
   }
 }
-
 
 /// Виджет карточки интересного места для отображения в списке
 class SightFavouriteCard extends StatelessWidget {

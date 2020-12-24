@@ -95,9 +95,9 @@ class _DetailsContent extends StatelessWidget {
         children: [
           Text(
             this._sight.name,
-            style: Theme.of(context).textTheme.bodyText1.merge(
-                  PlacesFonts.size24_weightBold,
-                ),
+            style: PlacesFonts.size24_weightBold.copyWith(
+              color: Theme.of(context).textTheme.bodyText1.color,
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(
@@ -109,10 +109,12 @@ class _DetailsContent extends StatelessWidget {
                   padding: EdgeInsets.only(
                     right: PlacesSizes.primaryPadding,
                   ),
-                  child: Text(_sight.type,
-                      style: PlacesFonts.size14WeightBold.copyWith(
-                        color: PlacesColors.textSecondary2,
-                      )),
+                  child: Text(
+                    _sight.type,
+                    style: PlacesFonts.size14WeightBold.copyWith(
+                      color: PlacesColors.textSecondary2,
+                    ),
+                  ),
                 ),
                 Text(
                   _sight.workTime,
