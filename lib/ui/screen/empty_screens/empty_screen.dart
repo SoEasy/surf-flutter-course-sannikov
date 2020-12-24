@@ -33,7 +33,7 @@ class EmptyScreen extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
           style: PlacesFonts.size18.copyWith(
-            color: PlacesColors.whiteInactive,
+            color: PlacesColors.textSecondary2Opacity,
           ),
         ),
         SizedBox(
@@ -43,7 +43,7 @@ class EmptyScreen extends StatelessWidget {
           text,
           textAlign: TextAlign.center,
           style: PlacesFonts.size14.copyWith(
-            color: PlacesColors.whiteInactive,
+            color: PlacesColors.textSecondary2Opacity,
           ),
         )
       ],

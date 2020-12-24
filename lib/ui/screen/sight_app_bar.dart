@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
@@ -25,7 +24,7 @@ class SightAppBar extends StatelessWidget implements PreferredSizeWidget {
         textAlign: TextAlign.start,
         maxLines: 2,
         style: PlacesFonts.size32WeightBold.copyWith(
-          color: PlacesColors.whiteMain,
+          color: Theme.of(context).textTheme.headline1.color,
         ),
       ),
     );

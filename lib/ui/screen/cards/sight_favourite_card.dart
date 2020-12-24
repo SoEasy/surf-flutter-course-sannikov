@@ -8,26 +8,26 @@ import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/common/sight_card_base.dart';
 
-/// Виджет карточки интересного места для отображения в списке
-class SightFavouriteCard extends StatelessWidget {
-  final Sight sight;
+class _FavouriteCardContent extends StatelessWidget {
+  final Sight _sight;
 
-  SightFavouriteCard(this.sight);
+  _FavouriteCardContent(this._sight);
 
-  Column _content() {
+  @override
+  Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          sight.name,
+          _sight.name,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: PlacesFonts.size16Weight500.copyWith(
-            color: PlacesColors.whiteSecondary,
+            color: Theme.of(context).textTheme.bodyText1.color,
           ),
         ),
         Text(
-          '${PlacesTexts.plannedTo} ${sight.plannedTo}',
+          '${PlacesTexts.plannedTo} ${_sight.plannedTo}',
           maxLines: 1,
           style: PlacesFonts.size14.copyWith(
             color: PlacesColors.whitePrimaryButton,
@@ -37,22 +37,29 @@ class SightFavouriteCard extends StatelessWidget {
           height: PlacesSizes.primaryHalfPadding,
         ),
         Text(
-          sight.details,
+          _sight.details,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: PlacesFonts.size14.copyWith(
-            color: PlacesColors.whiteSecondary2,
+            color: PlacesColors.textSecondary2,
           ),
         ),
       ],
     );
   }
+}
+
+/// Виджет карточки интересного места для отображения в списке
+class SightFavouriteCard extends StatelessWidget {
+  final Sight _sight;
+
+  SightFavouriteCard(this._sight);
 
   @override
   Widget build(BuildContext context) {
     return SightCardBase(
-      sight,
-      content: _content(),
+      _sight,
+      content: _FavouriteCardContent(_sight),
       actions: [
         SightIconCalendar(),
         SightIconClose(),

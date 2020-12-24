@@ -11,23 +11,23 @@ class SightBottomNavigator extends StatelessWidget {
       showUnselectedLabels: false,
       items: [
         BottomNavigationBarItem(
-          icon: const SightIconList(
-            isDark: true,
+          icon: SightIconList(
+            withTheme: true,
             isActive: false,
           ),
-          activeIcon: const SightIconList(
-            isDark: true,
+          activeIcon: SightIconList(
+            withTheme: true,
             isActive: true,
           ),
           label: PlacesTexts.menuList,
         ),
         BottomNavigationBarItem(
-          icon: const SightIconHeart(
-            isDark: true,
+          icon: SightIconHeart(
+            withTheme: true,
             isActive: false,
           ),
-          activeIcon: const SightIconHeart(
-            isDark: true,
+          activeIcon: SightIconHeart(
+            withTheme: true,
             isActive: true,
           ),
           label: PlacesTexts.menuFavourites,
