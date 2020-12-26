@@ -4,6 +4,7 @@ import 'package:places/domain/sight.dart';
 import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/ui/common/icons.dart';
+import 'package:places/ui/common/sight_card_action_button.dart';
 import 'package:places/ui/common/sight_card_base.dart';
 
 class _ListCardContent extends StatelessWidget {
@@ -58,7 +59,14 @@ class SightListCard extends StatelessWidget {
     return SightCardBase(
       _sight,
       content: _ListCardContent(_sight),
-      actions: [SightIconHeart()],
+      actions: [
+        SightCardActionButton(
+          icon: SightIconHeart(),
+          onPressed: () {
+            print('Like card on list screen');
+          },
+        ),
+      ],
     );
   }
 }
