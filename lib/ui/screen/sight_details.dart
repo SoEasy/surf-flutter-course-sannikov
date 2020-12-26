@@ -12,29 +12,22 @@ import 'package:places/ui/common/sigth_image_preloader.dart';
 /// TODO потом проработать primary/secondary button & button group
 class PlacesButton extends StatelessWidget {
   final Widget child;
+  final VoidCallback onPressed;
 
-  PlacesButton(
-    this.child,
-  );
+  PlacesButton({this.child, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 48,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+      child: RaisedButton(
         color: PlacesColors.whitePrimaryButton,
-      ),
-      child: DefaultTextStyle(
-        style: PlacesFonts.size14WeightBold.copyWith(
-          color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
         ),
-        child: Center(
-          child: Container(
-            child: this.child,
-          ),
-        ),
+        child: child,
+        onPressed: onPressed,
       ),
     );
   }
@@ -62,12 +55,20 @@ class _DetailsGallery extends StatelessWidget {
         Positioned(
           left: 16,
           top: 36,
-          child: Container(
+          child: SizedBox(
             width: 32,
             height: 32,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+            child: RaisedButton(
               color: Colors.white,
+              padding: EdgeInsets.zero,
+              elevation: 0,
+              onPressed: () {
+                print('Back from gallery');
+              },
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Center(child: SightIconArrowLeft()),
             ),
           ),
         )
@@ -133,7 +134,19 @@ class _DetailsContent extends StatelessWidget {
               vertical: PlacesSizes.primaryAndHalfPadding,
             ),
             child: PlacesButton(
-              Text('Построить маршрут'),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SightIconGo(width: 24.0, height: 24.0, color: Colors.white),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text('Построить маршрут'.toUpperCase()),
+                ],
+              ),
+              onPressed: () {
+                print('Make route to place');
+              },
             ),
           ),
         ],
@@ -145,76 +158,85 @@ class _DetailsContent extends StatelessWidget {
 class _DetailsActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(
-            bottom: PlacesSizes.primaryHalfPadding,
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: PlacesSizes.primaryPadding,
+      ),
+      child: Column(
+        children: [
+          SizedBox(
+            height: PlacesSizes.primaryHalfPadding,
           ),
-        ),
-        Row(
-          children: [
-            Expanded(
-              flex: 1,
-              child: Container(
-                height: 40,
-                width: double.infinity,
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(right: 10),
-                        child: SightIconCalendar(
-                          withTheme: true,
-                          disabled: true,
+          Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: Container(
+                  height: 40,
+                  width: double.infinity,
+                  child: FlatButton(
+                    onPressed: () {
+                      print('Schedule');
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(right: 10),
+                          child: SightIconCalendar(
+                            withTheme: true,
+                            disabled: true,
+                          ),
                         ),
-                      ),
-                      Text(
-                        PlacesTexts.schedulePlace,
-                        style: PlacesFonts.size14.copyWith(
-                          color: PlacesColors.textSecondary2Opacity,
+                        Text(
+                          PlacesTexts.schedulePlace,
+                          style: PlacesFonts.size14.copyWith(
+                            color: PlacesColors.textSecondary2Opacity,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                height: 40,
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(right: 10),
-                        child: SightIconHeart(
-                          withTheme: true,
-                          isActive: true,
+              Expanded(
+                flex: 1,
+                child: Container(
+                  height: 40,
+                  child: FlatButton(
+                    onPressed: () {
+                      print('Favourite');
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(right: 10),
+                          child: SightIconHeart(
+                            withTheme: true,
+                            isActive: true,
+                          ),
                         ),
-                      ),
-                      Text(
-                        PlacesTexts.markAsFavourite,
-                        style: PlacesFonts.size14.copyWith(
-                          color: Theme.of(context).textTheme.bodyText1.color,
-                        ),
-                      )
-                    ],
+                        Text(
+                          PlacesTexts.markAsFavourite,
+                          style: PlacesFonts.size14.copyWith(
+                            color: Theme.of(context).textTheme.bodyText1.color,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-            bottom: PlacesSizes.primaryPadding,
+            ],
           ),
-        ),
-      ],
+          Padding(
+            padding: EdgeInsets.only(
+              bottom: PlacesSizes.primaryPadding,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

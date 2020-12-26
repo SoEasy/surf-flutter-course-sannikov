@@ -21,6 +21,10 @@ class SightIconBase extends StatelessWidget {
   /// Сильный параметр, если true - будет проигнорирована тема
   final bool disabled;
 
+  /// Необязательный параметр, позволяет хардкорно задать цвет и игнорировать
+  /// тему и disabled
+  final Color color;
+
   final double width;
   final double height;
 
@@ -31,6 +35,7 @@ class SightIconBase extends StatelessWidget {
     this.disabled = false,
     this.width = 24,
     this.height = 24,
+    this.color,
   });
 
   @override
@@ -40,6 +45,8 @@ class SightIconBase extends StatelessWidget {
 
     if (disabled) {
       iconColor = PlacesColors.textSecondary2Opacity;
+    } else if (color != null) {
+      iconColor = color;
     } else {
       iconColor = withTheme
           ? _isLight
@@ -119,10 +126,23 @@ class SightIconCard extends SightIconBase {
 
 /// Класс иконки для пустого списка посещенных мест
 class SightIconGo extends SightIconBase {
-  const SightIconGo()
-      : super(
-          asset: 'res/icons/icon_go',
-          width: 64,
-          height: 64,
-        );
+  const SightIconGo({
+    width = 64.0,
+    height = 64.0,
+    color,
+  }) : super(
+            asset: 'res/icons/icon_go',
+            width: width,
+            height: height,
+            color: color);
+}
+
+/// Иконка стрелки влево
+class SightIconArrowLeft extends SightIconBase {
+  const SightIconArrowLeft({
+    color,
+  }): super(
+    asset: 'res/icons/icon_arrow_left',
+    color: color
+  );
 }
