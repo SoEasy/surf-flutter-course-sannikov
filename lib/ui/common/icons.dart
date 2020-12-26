@@ -141,8 +141,79 @@ class SightIconGo extends SightIconBase {
 class SightIconArrowLeft extends SightIconBase {
   const SightIconArrowLeft({
     color,
+    withTheme,
   }): super(
     asset: 'res/icons/icon_arrow_left',
-    color: color
+    color: color,
+    withTheme: withTheme,
+  );
+}
+
+class SightIconChoiceLight extends SightIconBase {
+  const SightIconChoiceLight(): super(
+    asset: 'res/icons/icon_choice_light',
+  );
+}
+
+class SightIconChoiceDark extends SightIconBase {
+  const SightIconChoiceDark(): super(
+    asset: 'res/icons/icon_choice_dark',
+  );
+}
+
+class SightIconChoice extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    bool _isLight = Theme.of(context).brightness == Brightness.light;
+    return _isLight ? SightIconChoiceLight() : SightIconChoiceDark();
+  }
+}
+
+
+class SightIconCatalogCafe extends SightIconBase {
+  const SightIconCatalogCafe(): super(
+    asset: 'res/icons/icon_catalog_cafe',
+    width: 32,
+    height: 32,
+  );
+}
+
+class SightIconCatalogHotel extends SightIconBase {
+  const SightIconCatalogHotel(): super(
+    asset: 'res/icons/icon_catalog_hotel',
+    width: 32,
+    height: 32,
+  );
+}
+
+class SightIconCatalogMuseum extends SightIconBase {
+  const SightIconCatalogMuseum(): super(
+    asset: 'res/icons/icon_catalog_museum',
+    width: 32,
+    height: 32,
+  );
+}
+
+class SightIconCatalogPark extends SightIconBase {
+  const SightIconCatalogPark(): super(
+    asset: 'res/icons/icon_catalog_park',
+    width: 32,
+    height: 32,
+  );
+}
+
+class SightIconCatalogRestaurant extends SightIconBase {
+  const SightIconCatalogRestaurant(): super(
+    asset: 'res/icons/icon_catalog_restaurant',
+    width: 32,
+    height: 32,
+  );
+}
+
+class SightIconCatalogSpecial extends SightIconBase {
+  const SightIconCatalogSpecial(): super(
+    asset: 'res/icons/icon_catalog_special',
+    width: 32,
+    height: 32,
   );
 }

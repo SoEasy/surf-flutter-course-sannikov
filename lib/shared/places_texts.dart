@@ -59,4 +59,32 @@ class PlacesTexts {
   static String get emptyVisitedText {
     return 'Завершите маршрут,\nчтобы место попало сюда.';
   }
+
+  static String get filterDistanceTitle {
+    return 'Расстояние';
+  }
+
+  static String get sightTypeHotel {
+    return 'Отель';
+  }
+
+  static String get sightTypeRestaurant {
+    return 'Ресторан';
+  }
+
+  static String get sightTypeSpecial {
+    return 'Особое место';
+  }
+
+  static String get sightTypePark {
+    return 'Парк';
+  }
+
+  static String get sightTypeMuseum {
+    return 'Музей';
+  }
+
+  static String get sightTypeCafe {
+    return 'Кафе';
+  }
 }

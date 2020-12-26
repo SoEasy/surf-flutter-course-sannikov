@@ -8,6 +8,13 @@ class PlacesFonts {
     );
   }
 
+  static TextStyle get size12 {
+    return PlacesFonts._roboto.copyWith(
+      fontSize: 12,
+      height: 1.33,
+    );
+  }
+
   static TextStyle get size14 {
     return PlacesFonts._roboto.copyWith(
         fontSize: 14,

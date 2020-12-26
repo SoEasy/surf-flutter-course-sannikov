@@ -43,8 +43,16 @@ class PlacesColors {
     return Color(0xff7c7e92).withOpacity(0.56);
   }
 
-  static Color get whitePrimaryButton {
+  static Color get primaryButtonLight {
     return Color(0xff4caf50);
+  }
+
+  static Color get primaryButtonDark {
+    return Color(0xff6ada6f);
+  }
+
+  static Color get green {
+    return Color(0xff6ada6f);
   }
 
   static Color get whiteInactive {

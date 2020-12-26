@@ -31,7 +31,7 @@ class _FavouriteCardContent extends StatelessWidget {
           '${PlacesTexts.plannedTo} ${_sight.plannedTo}',
           maxLines: 1,
           style: PlacesFonts.size14.copyWith(
-            color: PlacesColors.whitePrimaryButton,
+            color: PlacesColors.primaryButtonLight,
           ),
         ),
         SizedBox(

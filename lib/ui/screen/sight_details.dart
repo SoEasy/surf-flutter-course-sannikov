@@ -5,33 +5,8 @@ import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/icons.dart';
+import 'package:places/ui/common/places_green_button.dart';
 import 'package:places/ui/common/sigth_image_preloader.dart';
-
-/// Виджет для рисования большой зеленой кнопки на странице информации о месте
-/// Потом станет настоящей кнопкой
-/// TODO потом проработать primary/secondary button & button group
-class PlacesButton extends StatelessWidget {
-  final Widget child;
-  final VoidCallback onPressed;
-
-  PlacesButton({this.child, this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 48,
-      child: RaisedButton(
-        color: PlacesColors.whitePrimaryButton,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: child,
-        onPressed: onPressed,
-      ),
-    );
-  }
-}
 
 class _DetailsGallery extends StatelessWidget {
   final Sight _sight;
@@ -133,7 +108,7 @@ class _DetailsContent extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               vertical: PlacesSizes.primaryAndHalfPadding,
             ),
-            child: PlacesButton(
+            child: PlacesGreenButton(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
