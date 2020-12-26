@@ -16,6 +16,10 @@ class PlacesTexts {
     return 'Избранное';
   }
 
+  static String get settingsTitle {
+    return 'Настройки';
+  }
+
   static String get schedulePlace {
     return 'Запланировать';
   }
@@ -30,6 +34,10 @@ class PlacesTexts {
 
   static String get menuFavourites {
     return PlacesTexts.favouritesTitle;
+  }
+
+  static String get menuSettings {
+    return PlacesTexts.settingsTitle;
   }
 
   static String get visitingPlanned {
@@ -86,5 +94,13 @@ class PlacesTexts {
 
   static String get sightTypeCafe {
     return 'Кафе';
+  }
+
+  static String get settingsDarkTheme {
+    return 'Тёмная тема';
+  }
+
+  static String get settingsShowTutorial {
+    return 'Смотреть туториал';
   }
 }
