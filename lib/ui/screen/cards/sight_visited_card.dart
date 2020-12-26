@@ -6,6 +6,7 @@ import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/icons.dart';
+import 'package:places/ui/common/sight_card_action_button.dart';
 import 'package:places/ui/common/sight_card_base.dart';
 
 class _VisitedCardContent extends StatelessWidget {
@@ -62,8 +63,18 @@ class SightVisitedCard extends StatelessWidget {
       _sight,
       content: _VisitedCardContent(_sight),
       actions: [
-        SightIconShare(),
-        SightIconClose(),
+        SightCardActionButton(
+          icon: SightIconShare(),
+          onPressed: () {
+            print('Click share on visited card');
+          },
+        ),
+        SightCardActionButton(
+          icon: SightIconClose(),
+          onPressed: () {
+            print('Click remove on visited card');
+          },
+        ),
       ],
     );
   }

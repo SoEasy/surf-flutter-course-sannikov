@@ -6,6 +6,7 @@ import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/icons.dart';
+import 'package:places/ui/common/sight_card_action_button.dart';
 import 'package:places/ui/common/sight_card_base.dart';
 
 class _FavouriteCardContent extends StatelessWidget {
@@ -61,8 +62,19 @@ class SightFavouriteCard extends StatelessWidget {
       _sight,
       content: _FavouriteCardContent(_sight),
       actions: [
-        SightIconCalendar(),
-        SightIconClose(),
+        SightCardActionButton(
+          icon: SightIconCalendar(),
+          onPressed: () {
+            print('Click calendar on favourite card');
+          },
+        ),
+        SightCardActionButton(
+          icon: SightIconClose(),
+          onPressed: () {
+            print('Click remove on favourite card');
+          },
+        ),
+
       ],
     );
   }

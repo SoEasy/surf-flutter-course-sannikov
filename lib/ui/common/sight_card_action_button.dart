@@ -7,7 +7,10 @@ class SightCardActionButton extends StatelessWidget {
   final SightIconBase icon;
   final VoidCallback onPressed;
 
-  SightCardActionButton({this.icon, this.onPressed});
+  SightCardActionButton({
+    this.icon,
+    this.onPressed
+  });
 
   @override
   Widget build(BuildContext context) {
