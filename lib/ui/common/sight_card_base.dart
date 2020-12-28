@@ -51,7 +51,7 @@ class SightCardBase extends StatelessWidget {
           top: PlacesSizes.primaryPadding,
           left: PlacesSizes.primaryPadding,
           child: Text(
-            sight.type,
+            sight.typeVerbose,
             style: PlacesFonts.size14WeightBold.copyWith(
               color: Colors.white,
             ),

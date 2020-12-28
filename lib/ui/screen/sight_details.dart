@@ -86,7 +86,7 @@ class _DetailsContent extends StatelessWidget {
                     right: PlacesSizes.primaryPadding,
                   ),
                   child: Text(
-                    _sight.type,
+                    _sight.typeVerbose,
                     style: PlacesFonts.size14WeightBold.copyWith(
                       color: PlacesColors.textSecondary2,
                     ),

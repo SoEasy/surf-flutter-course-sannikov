@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:places/domain/sight.dart';
 import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/ui/common/icons.dart';
-
-/// Типы интересных мест
-enum SightType {
-  hotel,
-  restaurant,
-  special,
-  park,
-  museum,
-  cafe
-}
 
 /// Чекбокс-киконка для экрана фильтров
 class SightFilterCheckbox extends StatefulWidget {
