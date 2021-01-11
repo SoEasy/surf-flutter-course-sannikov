@@ -88,9 +88,7 @@ class SightCardBase extends StatelessWidget {
           child: InkWell(
             onTap: () {
               print('On pressed card');
-              if (onPressed != null) {
-                onPressed(sight);
-              }
+              onPressed?.call(sight);
             },
             child: Column(
               children: [_image(), _content()],
