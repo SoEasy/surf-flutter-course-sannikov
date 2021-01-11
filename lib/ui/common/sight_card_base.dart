@@ -14,11 +14,13 @@ class SightCardBase extends StatelessWidget {
   final Sight sight;
   final Widget content;
   final List<Widget> actions;
+  final Function(Sight sight) onPressed;
 
   SightCardBase(
     this.sight, {
     this.content,
     this.actions = const [],
+    this.onPressed,
   });
 
   Widget _image() {
@@ -77,15 +79,22 @@ class SightCardBase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16),
+      margin: EdgeInsets.only(bottom: PlacesSizes.primaryPadding),
       width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: Theme.of(context).backgroundColor,
-      ),
-      clipBehavior: Clip.hardEdge,
-      child: Column(
-        children: [_image(), _content()],
+      child: Material(
+        borderRadius: BorderRadius.circular(PlacesSizes.primaryPadding),
+        clipBehavior: Clip.hardEdge,
+        child: Ink(
+          child: InkWell(
+            onTap: () {
+              print('On pressed card');
+              onPressed?.call(sight);
+            },
+            child: Column(
+              children: [_image(), _content()],
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -71,7 +71,7 @@ class _DetailsContent extends StatelessWidget {
         children: [
           Text(
             this._sight.name,
-            style: PlacesFonts.size24_weightBold.copyWith(
+            style: PlacesFonts.size24WeightBold.copyWith(
               color: Theme.of(context).textTheme.bodyText1.color,
             ),
           ),
