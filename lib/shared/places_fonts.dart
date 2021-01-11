@@ -8,23 +8,30 @@ class PlacesFonts {
     );
   }
 
+  static TextStyle get size12 {
+    return PlacesFonts._roboto.copyWith(
+      fontSize: 12,
+      height: 1.33,
+    );
+  }
+
   static TextStyle get size14 {
     return PlacesFonts._roboto.copyWith(
-        fontSize: 14,
-        height: 1.28,
+      fontSize: 14,
+      height: 1.28,
     );
   }
 
   static TextStyle get size14WeightBold {
     return PlacesFonts.size14.copyWith(
-      fontWeight: FontWeight.bold
+      fontWeight: FontWeight.bold,
     );
   }
 
   static TextStyle get size16 {
     return PlacesFonts._roboto.copyWith(
-        fontSize: 16,
-        height: 1.25,
+      fontSize: 16,
+      height: 1.25,
     );
   }
 
@@ -35,6 +42,12 @@ class PlacesFonts {
     );
   }
 
+  static TextStyle get size18Weight500 {
+    return PlacesFonts.size18.copyWith(
+      fontWeight: FontWeight.w500,
+    );
+  }
+
   static TextStyle get size24 {
     return PlacesFonts._roboto.copyWith(
       fontSize: 24,
@@ -42,15 +55,15 @@ class PlacesFonts {
     );
   }
 
-  static TextStyle get size24_weightBold {
+  static TextStyle get size24WeightBold {
     return PlacesFonts.size24.copyWith(
-      fontWeight: FontWeight.bold
+      fontWeight: FontWeight.bold,
     );
   }
 
   static TextStyle get size16Weight500 {
     return PlacesFonts.size16.copyWith(
-      fontWeight: FontWeight.w500
+      fontWeight: FontWeight.w500,
     );
   }
 

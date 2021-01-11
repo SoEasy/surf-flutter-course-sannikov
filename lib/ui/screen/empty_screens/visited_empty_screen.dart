@@ -8,7 +8,9 @@ class VisitedEmptyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EmptyScreen(
-      icon: SightIconGo(),
+      icon: SightIconGo(
+        color: Colors.white.withOpacity(0.56),
+      ),
       title: PlacesTexts.emptyScreenTitle,
       text: PlacesTexts.emptyVisitedText,
     );

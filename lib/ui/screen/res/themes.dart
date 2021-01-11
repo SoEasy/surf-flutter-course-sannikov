@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:places/shared/places_colors.dart';
 
+final sightSliderTheme = SliderThemeData(
+  activeTrackColor: PlacesColors.primaryButtonLight,
+  inactiveTrackColor: PlacesColors.textSecondary2Opacity,
+  thumbColor: Colors.white,
+  trackHeight: 2,
+  activeTickMarkColor: Colors.transparent,
+  inactiveTickMarkColor: Colors.transparent,
+);
+
 /// светлая тема.. Боже, зачем этот комментарий, все же умеют читать на англицком )))
 final lightTheme = ThemeData(
   brightness: Brightness.light,
@@ -20,6 +29,8 @@ final lightTheme = ThemeData(
       color: PlacesColors.textSecondary2.withOpacity(0.56),
     ),
   ),
+  sliderTheme: sightSliderTheme,
+  buttonColor: PlacesColors.primaryButtonLight,
 );
 
 /// темная тема
@@ -44,4 +55,6 @@ final darkTheme = ThemeData(
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     backgroundColor: PlacesColors.bgMainDark,
   ),
+  sliderTheme: sightSliderTheme,
+  buttonColor: PlacesColors.primaryButtonDark,
 );
