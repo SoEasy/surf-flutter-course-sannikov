@@ -7,6 +7,7 @@ import 'package:places/shared/theme_notifier.dart';
 import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/navigation/sight_bottom_navigator.dart';
 
+/// Свич для темы с оповещалкой всего приложения
 class ThemeSwitch extends StatefulWidget {
   @override
   _ThemeSwitchState createState() => _ThemeSwitchState();
