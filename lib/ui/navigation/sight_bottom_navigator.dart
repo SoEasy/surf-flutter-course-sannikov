@@ -32,6 +32,15 @@ class SightBottomNavigator extends StatelessWidget {
           ),
           label: PlacesTexts.menuFavourites,
         ),
+        BottomNavigationBarItem(
+          icon: SightIconSettings(
+            isActive: false,
+          ),
+          activeIcon: SightIconSettings(
+            isActive: true,
+          ),
+          label: PlacesTexts.menuSettings,
+        ),
       ],
     );
   }
