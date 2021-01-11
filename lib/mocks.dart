@@ -9,7 +9,7 @@ final List<Sight> mocks = [
     url: 'https://i.ytimg.com/vi/3W4hWG12Pdg/maxresdefault.jpg',
     details:
         'Заброшка в Таллине, созданная под оперный театр. Театр не удался, зато там снимали Довод',
-    type: 'Строение',
+    type: SightType.special,
     workTime: 'С 9 до 18',
     plannedTo: '34 дек. 2222',
     achievedAt: 'вчера',
@@ -21,7 +21,7 @@ final List<Sight> mocks = [
     url:
         'https://avatars.mds.yandex.net/get-zen_doc/1586459/pub_5dec9bdd3d873600ae285314_5dec9c03e6cb9b00aee527e9/scale_1200',
     details: 'Аэропорт на острове',
-    type: 'Строение',
+    type: SightType.special,
     workTime: 'Круглостуочно',
     plannedTo: '11 мар. 2222',
     achievedAt: 'вчера',
@@ -34,7 +34,7 @@ final List<Sight> mocks = [
         'https://upload.wikimedia.org/wikipedia/commons/3/31/Ch%C3%A2teau_de_Saint-Germain-en-Laye01.jpg',
     details:
         'Знаменитый дворец во Франции, в окрестностях которого писал великий Виктор Гюго',
-    type: 'Территория',
+    type: SightType.park,
     workTime: 'Круглосуточно',
     plannedTo: '31 фев. 2222',
     achievedAt: 'вчера',

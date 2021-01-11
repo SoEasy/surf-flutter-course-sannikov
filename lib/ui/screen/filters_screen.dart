@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/domain/sight.dart';
 import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
@@ -28,28 +29,28 @@ class _FiltersScreenState extends State<FiltersScreen> {
   RangeValues _searchDistance =
       RangeValues(searchMinDistance, searchMaxDistance);
 
-  Map<String, bool> _selectedTypes = {
-    'hotel': false,
-    'restaurant': false,
-    'special': false,
-    'park': false,
-    'museum': false,
-    'cafe': false,
+  Map<SightType, bool> _selectedTypes = {
+    SightType.hotel: false,
+    SightType.restaurant: false,
+    SightType.special: false,
+    SightType.park: false,
+    SightType.museum: false,
+    SightType.cafe: false,
   };
 
-  _handleChangeDistance(RangeValues values) {
+  void _handleChangeDistance(RangeValues values) {
     setState(() {
       _searchDistance = values;
     });
   }
 
-  _handleSelectType(String typeName) {
+  void _handleSelectType(SightType selectedType) {
     setState(() {
-      _selectedTypes[typeName] = !_selectedTypes[typeName];
+      _selectedTypes[selectedType] = !_selectedTypes[selectedType];
     });
   }
 
-  _handleResetClick() {
+  void _handleResetClick() {
     setState(() {
       _selectedTypes.forEach((key, _) {
         _selectedTypes[key] = false;
@@ -106,22 +107,22 @@ class _FiltersScreenState extends State<FiltersScreen> {
             children: [
               SightFilterCheckbox(
                 icon: SightIconCatalogHotel(),
-                value: _selectedTypes['hotel'],
-                name: 'hotel',
+                value: _selectedTypes[SightType.hotel],
+                sightType: SightType.hotel,
                 onChanged: _handleSelectType,
                 title: PlacesTexts.sightTypeHotel,
               ),
               SightFilterCheckbox(
                 icon: SightIconCatalogRestaurant(),
-                value: _selectedTypes['restaurant'],
-                name: 'restaurant',
+                value: _selectedTypes[SightType.restaurant],
+                sightType: SightType.restaurant,
                 onChanged: _handleSelectType,
                 title: PlacesTexts.sightTypeRestaurant,
               ),
               SightFilterCheckbox(
                 icon: SightIconCatalogSpecial(),
-                value: _selectedTypes['special'],
-                name: 'special',
+                value: _selectedTypes[SightType.special],
+                sightType: SightType.special,
                 onChanged: _handleSelectType,
                 title: PlacesTexts.sightTypeSpecial,
               ),
@@ -135,22 +136,22 @@ class _FiltersScreenState extends State<FiltersScreen> {
             children: [
               SightFilterCheckbox(
                 icon: SightIconCatalogPark(),
-                value: _selectedTypes['park'],
-                name: 'park',
+                value: _selectedTypes[SightType.park],
+                sightType: SightType.park,
                 onChanged: _handleSelectType,
                 title: PlacesTexts.sightTypePark,
               ),
               SightFilterCheckbox(
                 icon: SightIconCatalogMuseum(),
-                value: _selectedTypes['museum'],
-                name: 'museum',
+                value: _selectedTypes[SightType.museum],
+                sightType: SightType.museum,
                 onChanged: _handleSelectType,
                 title: PlacesTexts.sightTypeMuseum,
               ),
               SightFilterCheckbox(
                 icon: SightIconCatalogCafe(),
-                value: _selectedTypes['cafe'],
-                name: 'cafe',
+                value: _selectedTypes[SightType.cafe],
+                sightType: SightType.cafe,
                 onChanged: _handleSelectType,
                 title: PlacesTexts.sightTypeCafe,
               ),
