@@ -14,6 +14,7 @@ class SightListScreen extends StatefulWidget {
 class _SightListWidgetState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
+    print('build list');
     return Scaffold(
       appBar: SightAppBar(),
       body: SingleChildScrollView(
@@ -21,9 +22,10 @@ class _SightListWidgetState extends State<SightListScreen> {
           padding: EdgeInsets.symmetric(horizontal: PlacesSizes.primaryPadding),
           child: Column(
             children: [
-              SightListCard(mocks[2]),
-              SightListCard(mocks[1]),
-              SightListCard(mocks[0]),
+              for (var i = 0; i < mocks.length; i++) SightListCard(mocks[i])
+              // SightListCard(mocks[2]),
+              // SightListCard(mocks[1]),
+              // SightListCard(mocks[0]),
             ],
           ),
         ),

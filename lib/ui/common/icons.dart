@@ -157,6 +157,17 @@ class SightIconArrowLeft extends SightIconBase {
         );
 }
 
+class SightIconArrowRight extends SightIconBase {
+  const SightIconArrowRight({
+    color,
+    withTheme,
+  }) : super(
+    asset: 'res/icons/icon_arrow_right',
+    color: color,
+    withTheme: withTheme,
+  );
+}
+
 class SightIconChoiceLight extends SightIconBase {
   const SightIconChoiceLight()
       : super(

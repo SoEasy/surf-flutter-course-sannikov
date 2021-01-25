@@ -1,106 +1,52 @@
 /// Тексты, используемые в проекте "Список интересных мест"
 class PlacesTexts {
-  static String get appTitle {
-    return 'Places';
-  }
+  static const String appTitle = 'Places';
 
-  static String get sightListTitleBreak {
-    return 'Список\nинтересных мест';
-  }
+  static const String sightListTitleBreak = 'Список\nинтересных мест';
 
-  static String get sightListTitle {
-    return PlacesTexts.sightListTitleBreak.replaceFirst('\n', ' ');
-  }
+  static final String sightListTitle = PlacesTexts.sightListTitleBreak.replaceFirst('\n', ' ');
 
-  static String get favouritesTitle {
-    return 'Избранное';
-  }
+  static const String favouritesTitle = 'Избранное';
 
-  static String get settingsTitle {
-    return 'Настройки';
-  }
+  static const String settingsTitle = 'Настройки';
 
-  static String get schedulePlace {
-    return 'Запланировать';
-  }
+  static const String schedulePlace = 'Запланировать';
 
-  static String get markAsFavourite {
-    return 'В Избранное';
-  }
+  static const String markAsFavourite = 'В Избранное';
 
-  static String get menuList {
-    return PlacesTexts.sightListTitle;
-  }
+  static final String menuList = PlacesTexts.sightListTitle;
 
-  static String get menuFavourites {
-    return PlacesTexts.favouritesTitle;
-  }
+  static const String menuFavourites = PlacesTexts.favouritesTitle;
 
-  static String get menuSettings {
-    return PlacesTexts.settingsTitle;
-  }
+  static const String menuSettings = PlacesTexts.settingsTitle;
 
-  static String get visitingPlanned {
-    return 'Хочу посетить';
-  }
+  static const String visitingPlanned = 'Хочу посетить';
 
-  static String get visitingVisited {
-    return 'Посетил';
-  }
+  static const String visitingVisited = 'Посетил';
 
-  static String get plannedTo {
-    return 'Запланировано на';
-  }
+  static const String plannedTo = 'Запланировано на';
 
-  static String get achievedAt {
-    return 'Цель достигнута';
-  }
+  static const String achievedAt = 'Цель достигнута';
 
-  static String get emptyScreenTitle {
-    return 'Пусто';
-  }
+  static const String emptyScreenTitle = 'Пусто';
+  static const String emptyPlannedText = 'Отмечайте понравившиеся\nместа и они появиятся здесь.';
+  static const String emptyVisitedText = 'Завершите маршрут,\nчтобы место попало сюда.';
 
-  static String get emptyPlannedText {
-    return 'Отмечайте понравившиеся\nместа и они появиятся здесь.';
-  }
+  static const String filterDistanceTitle = 'Расстояние';
 
-  static String get emptyVisitedText {
-    return 'Завершите маршрут,\nчтобы место попало сюда.';
-  }
+  static const String sightTypeHotel = 'Отель';
+  static const String sightTypeRestaurant = 'Ресторан';
+  static const String sightTypeSpecial = 'Особое место';
+  static const String sightTypePark = 'Парк';
+  static const String sightTypeMuseum = 'Музей';
+  static const String sightTypeCafe = 'Кафе';
 
-  static String get filterDistanceTitle {
-    return 'Расстояние';
-  }
+  static const String settingsDarkTheme = 'Тёмная тема';
+  static const String settingsShowTutorial = 'Смотреть туториал';
 
-  static String get sightTypeHotel {
-    return 'Отель';
-  }
+  static const String addPlaceTitle = 'Новое место';
 
-  static String get sightTypeRestaurant {
-    return 'Ресторан';
-  }
-
-  static String get sightTypeSpecial {
-    return 'Особое место';
-  }
-
-  static String get sightTypePark {
-    return 'Парк';
-  }
-
-  static String get sightTypeMuseum {
-    return 'Музей';
-  }
-
-  static String get sightTypeCafe {
-    return 'Кафе';
-  }
-
-  static String get settingsDarkTheme {
-    return 'Тёмная тема';
-  }
-
-  static String get settingsShowTutorial {
-    return 'Смотреть туториал';
-  }
+  static const String actionCancel = 'Отмена';
+  static const String actionCreate = 'Создать';
+  static const String actionSelectOnMap = 'Указать на карте';
 }
