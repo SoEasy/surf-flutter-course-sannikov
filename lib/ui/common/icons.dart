@@ -162,10 +162,17 @@ class SightIconArrowRight extends SightIconBase {
     color,
     withTheme,
   }) : super(
-    asset: 'res/icons/icon_arrow_right',
-    color: color,
-    withTheme: withTheme,
-  );
+          asset: 'res/icons/icon_arrow_right',
+          color: color,
+          withTheme: withTheme,
+        );
+}
+
+class SightIconPlus extends SightIconBase {
+  const SightIconPlus()
+      : super(
+          asset: 'res/icons/icon_plus',
+        );
 }
 
 class SightIconChoiceLight extends SightIconBase {
@@ -245,8 +252,9 @@ class SightIconCatalogSpecial extends SightIconBase {
 }
 
 class SightIconInfo extends SightIconBase {
-  const SightIconInfo({Color color}): super(
-    asset: 'res/icons/icon_info',
-    color: color,
-  );
+  const SightIconInfo({Color color})
+      : super(
+          asset: 'res/icons/icon_info',
+          color: color,
+        );
 }

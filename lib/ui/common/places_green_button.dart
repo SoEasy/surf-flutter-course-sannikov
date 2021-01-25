@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/shared/places_colors.dart';
 
 /// Виджет для рисования большой зеленой кнопки на странице информации о месте
 /// Потом станет настоящей кнопкой

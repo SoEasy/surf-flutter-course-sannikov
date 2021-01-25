@@ -198,7 +198,9 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                   horizontal: 16,
                 ),
               ),
-              style: PlacesFonts.size16,
+              style: PlacesFonts.size16.copyWith(
+                color: Theme.of(context).textTheme.headline1.color,
+              ),
             ),
           ),
         ),
@@ -240,7 +242,9 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                         horizontal: 16,
                       ),
                     ),
-                    style: PlacesFonts.size16,
+                    style: PlacesFonts.size16.copyWith(
+                        color: Theme.of(context).textTheme.headline1.color,
+                    ),
                   ),
                 ),
               ),
@@ -279,7 +283,9 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                         horizontal: 16,
                       ),
                     ),
-                    style: PlacesFonts.size16,
+                    style: PlacesFonts.size16.copyWith(
+                        color: Theme.of(context).textTheme.headline1.color,
+                    ),
                   ),
                 ),
               ),
@@ -310,7 +316,9 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
             child: TextFormField(
               focusNode: detailsFocusNode,
               textInputAction: TextInputAction.done,
-              style: PlacesFonts.size16,
+              style: PlacesFonts.size16.copyWith(
+                  color: Theme.of(context).textTheme.headline1.color,
+              ),
               minLines: 2,
               maxLines: 2,
               onChanged: (String value) {
@@ -321,7 +329,7 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                   contentPadding: EdgeInsets.symmetric(
                 horizontal: 16,
                 vertical: 12,
-              )),
+              ),),
             ),
           ),
         ),
