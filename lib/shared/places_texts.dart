@@ -1,52 +1,52 @@
 /// Тексты, используемые в проекте "Список интересных мест"
 class PlacesTexts {
-  static const String appTitle = 'Places';
+  static final String appTitle = 'Places';
 
-  static const String sightListTitleBreak = 'Список\nинтересных мест';
+  static final String sightListTitleBreak = 'Список\nинтересных мест';
 
   static final String sightListTitle = PlacesTexts.sightListTitleBreak.replaceFirst('\n', ' ');
 
-  static const String favouritesTitle = 'Избранное';
+  static final String favouritesTitle = 'Избранное';
 
-  static const String settingsTitle = 'Настройки';
+  static final String settingsTitle = 'Настройки';
 
-  static const String schedulePlace = 'Запланировать';
+  static final String schedulePlace = 'Запланировать';
 
-  static const String markAsFavourite = 'В Избранное';
+  static final String markAsFavourite = 'В Избранное';
 
   static final String menuList = PlacesTexts.sightListTitle;
 
-  static const String menuFavourites = PlacesTexts.favouritesTitle;
+  static final String menuFavourites = PlacesTexts.favouritesTitle;
 
-  static const String menuSettings = PlacesTexts.settingsTitle;
+  static final String menuSettings = PlacesTexts.settingsTitle;
 
-  static const String visitingPlanned = 'Хочу посетить';
+  static final String visitingPlanned = 'Хочу посетить';
 
-  static const String visitingVisited = 'Посетил';
+  static final String visitingVisited = 'Посетил';
 
-  static const String plannedTo = 'Запланировано на';
+  static final String plannedTo = 'Запланировано на';
 
-  static const String achievedAt = 'Цель достигнута';
+  static final String achievedAt = 'Цель достигнута';
 
-  static const String emptyScreenTitle = 'Пусто';
-  static const String emptyPlannedText = 'Отмечайте понравившиеся\nместа и они появиятся здесь.';
-  static const String emptyVisitedText = 'Завершите маршрут,\nчтобы место попало сюда.';
+  static final String emptyScreenTitle = 'Пусто';
+  static final String emptyPlannedText = 'Отмечайте понравившиеся\nместа и они появиятся здесь.';
+  static final String emptyVisitedText = 'Завершите маршрут,\nчтобы место попало сюда.';
 
-  static const String filterDistanceTitle = 'Расстояние';
+  static final String filterDistanceTitle = 'Расстояние';
 
-  static const String sightTypeHotel = 'Отель';
-  static const String sightTypeRestaurant = 'Ресторан';
-  static const String sightTypeSpecial = 'Особое место';
-  static const String sightTypePark = 'Парк';
-  static const String sightTypeMuseum = 'Музей';
-  static const String sightTypeCafe = 'Кафе';
+  static final String sightTypeHotel = 'Отель';
+  static final String sightTypeRestaurant = 'Ресторан';
+  static final String sightTypeSpecial = 'Особое место';
+  static final String sightTypePark = 'Парк';
+  static final String sightTypeMuseum = 'Музей';
+  static final String sightTypeCafe = 'Кафе';
 
-  static const String settingsDarkTheme = 'Тёмная тема';
-  static const String settingsShowTutorial = 'Смотреть туториал';
+  static final String settingsDarkTheme = 'Тёмная тема';
+  static final String settingsShowTutorial = 'Смотреть туториал';
 
-  static const String addPlaceTitle = 'Новое место';
+  static final String addPlaceTitle = 'Новое место';
 
-  static const String actionCancel = 'Отмена';
-  static const String actionCreate = 'Создать';
-  static const String actionSelectOnMap = 'Указать на карте';
+  static final String actionCancel = 'Отмена';
+  static final String actionCreate = 'Создать';
+  static final String actionSelectOnMap = 'Указать на карте';
 }

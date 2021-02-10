@@ -177,7 +177,7 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
         InputWithLabel(
           label: 'Название',
           child: SizedBox(
-            height: 40,
+            height: PlacesSizes.textFormFieldHeight,
             child: TextFormField(
               focusNode: titleFocusNode,
               textInputAction: TextInputAction.next,
@@ -195,7 +195,7 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
               decoration: InputDecoration(
                 errorStyle: TextStyle(height: 0),
                 contentPadding: EdgeInsets.symmetric(
-                  horizontal: 16,
+                  horizontal: PlacesSizes.primaryPadding,
                 ),
               ),
               style: PlacesFonts.size16.copyWith(
@@ -213,7 +213,7 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
               child: InputWithLabel(
                 label: 'Широта',
                 child: SizedBox(
-                  height: 40,
+                  height: PlacesSizes.textFormFieldHeight,
                   child: TextFormField(
                     focusNode: latFocusNode,
                     textInputAction: TextInputAction.next,
@@ -250,13 +250,13 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
               ),
             ),
             SizedBox(
-              width: 16,
+              width: PlacesSizes.primaryPadding,
             ),
             Expanded(
               child: InputWithLabel(
                 label: 'Долгота',
                 child: SizedBox(
-                  height: 40,
+                  height: PlacesSizes.textFormFieldHeight,
                   child: TextFormField(
                     focusNode: lonFocusNode,
                     textInputAction: TextInputAction.next,
@@ -312,7 +312,7 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
         InputWithLabel(
           label: 'Описание',
           child: SizedBox(
-            height: 80,
+            height: PlacesSizes.textFormFieldHeight * 2,
             child: TextFormField(
               focusNode: detailsFocusNode,
               textInputAction: TextInputAction.done,
@@ -327,8 +327,8 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
               },
               decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 12,
+                horizontal: PlacesSizes.primaryPadding,
+                vertical: PlacesSizes.primaryPaddingWithoutFourth,
               ),),
             ),
           ),

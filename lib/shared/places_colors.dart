@@ -1,61 +1,33 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 /// Цветовая палитра для проекта "Список интересных мест"
 /// Цвета именуются в соответствии с метками в Figma для консистентности
 class PlacesColors {
-  static Color get bgMainLight {
-    return Color(0xffffffff);
-  }
+  static final Color bgMainLight = Color(0xffffffff);
 
-  static Color get bgMainDark {
-    return Color(0xff21222C);
-  }
+  static final Color bgMainDark = Color(0xff21222C);
 
-  static Color get textMainLight {
-    return Color(0xff252849);
-  }
+  static final Color textMainLight = Color(0xff252849);
 
-  static Color get textMainDark {
-    return Color(0xffffffff);
-  }
+  static final Color textMainDark = Color(0xffffffff);
 
-  static Color get tileBgLight {
-    return Color(0xfff5f5f5);
-  }
+  static final Color tileBgLight = Color(0xfff5f5f5);
 
-  static Color get tileBgDark {
-    return Color(0xff1a1a20);
-  }
+  static final Color tileBgDark = Color(0xff1a1a20);
 
-  static Color get secondaryLight {
-    return Color(0xff3b3e5b);
-  }
+  static final Color secondaryLight = Color(0xff3b3e5b);
 
-  static Color get secondaryDark {
-    return Color(0xffffffff);
-  }
+  static final Color secondaryDark = Color(0xffffffff);
 
-  static Color get textSecondary2 {
-    return Color(0xff7c7e92);
-  }
+  static final Color textSecondary2 = Color(0xff7c7e92);
 
-  static Color get textSecondary2Opacity {
-    return Color(0xff7c7e92).withOpacity(0.56);
-  }
+  static final Color textSecondary2Opacity = Color(0xff7c7e92).withOpacity(0.56);
 
-  static Color get primaryButtonLight {
-    return Color(0xff4caf50);
-  }
+  static final Color primaryButtonLight = Color(0xff4caf50);
 
-  static Color get primaryButtonDark {
-    return Color(0xff6ada6f);
-  }
+  static final Color primaryButtonDark = Color(0xff6ada6f);
 
-  static Color get green {
-    return Color(0xff6ada6f);
-  }
+  static final Color green = Color(0xff6ada6f);
 
-  static Color get whiteInactive {
-    return Color(0x907c7e92);
-  }
+  static final Color whiteInactive = Color(0x907c7e92);
 }
