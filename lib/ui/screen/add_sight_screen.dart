@@ -243,7 +243,7 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                       ),
                     ),
                     style: PlacesFonts.size16.copyWith(
-                        color: Theme.of(context).textTheme.headline1.color,
+                      color: Theme.of(context).textTheme.headline1.color,
                     ),
                   ),
                 ),
@@ -284,7 +284,7 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                       ),
                     ),
                     style: PlacesFonts.size16.copyWith(
-                        color: Theme.of(context).textTheme.headline1.color,
+                      color: Theme.of(context).textTheme.headline1.color,
                     ),
                   ),
                 ),
@@ -317,7 +317,7 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
               focusNode: detailsFocusNode,
               textInputAction: TextInputAction.done,
               style: PlacesFonts.size16.copyWith(
-                  color: Theme.of(context).textTheme.headline1.color,
+                color: Theme.of(context).textTheme.headline1.color,
               ),
               minLines: 2,
               maxLines: 2,
@@ -326,10 +326,11 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                 widget.onChangeForm(formData);
               },
               decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
-                horizontal: PlacesSizes.primaryPadding,
-                vertical: PlacesSizes.primaryPaddingWithoutFourth,
-              ),),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: PlacesSizes.primaryPadding,
+                  vertical: PlacesSizes.primaryPaddingWithoutFourth,
+                ),
+              ),
             ),
           ),
         ),
@@ -351,7 +352,9 @@ class _SightAddScreenState extends State<SightAddScreen> {
   void _handleChangeData(AddFormData newFormData) {
     setState(() {
       // Валидация пока херовенькая. Пройдем ключи - сделаю нормально, опираясь на валидность формы
-      isValid = newFormData.name != null && newFormData.lat != 0 && newFormData.lon != 0;
+      isValid = newFormData.name != null &&
+          newFormData.lat != 0 &&
+          newFormData.lon != 0;
       formData = newFormData;
     });
   }

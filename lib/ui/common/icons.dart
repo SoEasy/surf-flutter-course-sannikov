@@ -258,3 +258,21 @@ class SightIconInfo extends SightIconBase {
           color: color,
         );
 }
+
+class SightIconSearch extends SightIconBase {
+  const SightIconSearch()
+      : super(
+    asset: 'res/icons/icon_search',
+    width: 24,
+    height: 24,
+  );
+}
+
+class SightIconFilter extends SightIconBase {
+  const SightIconFilter()
+      : super(
+    asset: 'res/icons/icon_filter',
+    width: 24,
+    height: 24,
+  );
+}
