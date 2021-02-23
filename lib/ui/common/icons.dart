@@ -276,3 +276,21 @@ class SightIconFilter extends SightIconBase {
     height: 24,
   );
 }
+
+class SightIconDelete extends SightIconBase {
+  const SightIconDelete()
+      : super(
+    asset: 'res/icons/icon_delete',
+    width: 24,
+    height: 24,
+  );
+}
+
+class SightIconClear extends SightIconBase {
+  const SightIconClear()
+      : super(
+    asset: 'res/icons/icon_clear',
+    width: 24,
+    height: 24,
+  );
+}

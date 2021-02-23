@@ -49,4 +49,7 @@ class PlacesTexts {
   static final String actionCancel = 'Отмена';
   static final String actionCreate = 'Создать';
   static final String actionSelectOnMap = 'Указать на карте';
+
+  static final String searchHistoryTitle = 'Вы искали';
+  static final String searchHistoryClear = 'Очистить историю';
 }
