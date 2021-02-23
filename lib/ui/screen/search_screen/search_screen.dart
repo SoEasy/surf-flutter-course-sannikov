@@ -5,6 +5,7 @@ import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/navigation/sight_bottom_navigator.dart';
 import 'package:places/ui/screen/search_screen/search_history.dart';
+import 'package:places/ui/screen/search_screen/search_results.dart';
 import 'package:places/ui/screen/widgets/search_bar.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -52,14 +53,15 @@ class _SearchScreenState extends State<SearchScreen> {
               },
             ),
             Expanded(
-              child: SearchHistory(
-                items: [
-                  'Кофейня у Рустама в какой-то тьмутаракани',
-                  'Памятник',
-                  'Музей истории',
-                  'Зеленые рощи',
-                ],
-              ),
+              child: SearchResults(),
+              // child: SearchHistory(
+              //   items: [
+              //     'Кофейня у Рустама в какой-то тьмутаракани',
+              //     'Памятник',
+              //     'Музей истории',
+              //     'Зеленые рощи',
+              //   ],
+              // ),
             ),
           ],
         ),
