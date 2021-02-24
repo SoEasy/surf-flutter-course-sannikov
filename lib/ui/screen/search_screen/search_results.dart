@@ -55,6 +55,8 @@ class SearchTitleSelected extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RichText(
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
       text: TextSpan(
         children: [
           TextSpan(
