@@ -52,4 +52,6 @@ class PlacesTexts {
 
   static final String searchHistoryTitle = 'Вы искали';
   static final String searchHistoryClear = 'Очистить историю';
+  static final String nothingFoundTitle = 'Ничего не найдено';
+  static final String nothigFoundSubtitle = 'Попробуйте изменить параметры поиска';
 }

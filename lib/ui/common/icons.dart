@@ -260,37 +260,42 @@ class SightIconInfo extends SightIconBase {
 }
 
 class SightIconSearch extends SightIconBase {
-  const SightIconSearch()
-      : super(
-    asset: 'res/icons/icon_search',
-    width: 24,
-    height: 24,
-  );
+  const SightIconSearch({
+    width = 24.0,
+    height = 24.0,
+    withTheme = false,
+  }) : super(
+          asset: 'res/icons/icon_search',
+          width: width,
+          height: height,
+          withTheme: withTheme,
+        );
 }
 
 class SightIconFilter extends SightIconBase {
   const SightIconFilter()
       : super(
-    asset: 'res/icons/icon_filter',
-    width: 24,
-    height: 24,
-  );
+          asset: 'res/icons/icon_filter',
+          width: 24,
+          height: 24,
+        );
 }
 
 class SightIconDelete extends SightIconBase {
   const SightIconDelete()
       : super(
-    asset: 'res/icons/icon_delete',
-    width: 24,
-    height: 24,
-  );
+          asset: 'res/icons/icon_delete',
+          width: 24,
+          height: 24,
+        );
 }
 
 class SightIconClear extends SightIconBase {
-  const SightIconClear()
+  const SightIconClear({withTheme = false})
       : super(
-    asset: 'res/icons/icon_clear',
-    width: 24,
-    height: 24,
-  );
+          asset: 'res/icons/icon_clear',
+          width: 24,
+          height: 24,
+          withTheme: withTheme,
+        );
 }

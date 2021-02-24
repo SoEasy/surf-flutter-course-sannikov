@@ -4,6 +4,7 @@ import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/navigation/sight_bottom_navigator.dart';
+import 'package:places/ui/screen/search_screen/no_search_results.dart';
 import 'package:places/ui/screen/search_screen/search_history.dart';
 import 'package:places/ui/screen/search_screen/search_results.dart';
 import 'package:places/ui/screen/widgets/search_bar.dart';
@@ -47,21 +48,22 @@ class _SearchScreenState extends State<SearchScreen> {
           children: [
             SearchBar(
               controller: searchController,
-              icon: SightIconClear(),
+              icon: SightIconClear(withTheme: true,),
               onInputIconTap: () {
                 searchController.text = '';
               },
             ),
             Expanded(
-              child: SearchResults(),
-              // child: SearchHistory(
-              //   items: [
-              //     'Кофейня у Рустама в какой-то тьмутаракани',
-              //     'Памятник',
-              //     'Музей истории',
-              //     'Зеленые рощи',
-              //   ],
-              // ),
+              // child: NoSearchResults(),
+              // child: SearchResults(),
+              child: SearchHistory(
+                items: [
+                  'Кофейня у Рустама в какой-то тьмутаракани',
+                  'Памятник',
+                  'Музей истории',
+                  'Зеленые рощи',
+                ],
+              ),
             ),
           ],
         ),
