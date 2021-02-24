@@ -35,7 +35,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: true ? darkTheme : lightTheme,
+      theme: _isDarkTheme ? darkTheme : lightTheme,
       // theme: darkTheme,
       title: PlacesTexts.appTitle,
       // home: SightAddScreen(),

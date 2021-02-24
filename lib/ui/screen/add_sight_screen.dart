@@ -340,12 +340,12 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
 }
 
 /// Экран создания нового места
-class SightAddScreen extends StatefulWidget {
+class AddSightScreen extends StatefulWidget {
   @override
-  _SightAddScreenState createState() => _SightAddScreenState();
+  _AddSightScreenState createState() => _AddSightScreenState();
 }
 
-class _SightAddScreenState extends State<SightAddScreen> {
+class _AddSightScreenState extends State<AddSightScreen> {
   AddFormData formData;
   bool isValid = false;
 
