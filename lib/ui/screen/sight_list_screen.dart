@@ -6,8 +6,10 @@ import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/common/rainbow_button.dart';
 import 'package:places/ui/navigation/sight_bottom_navigator.dart';
+import 'package:places/ui/screen/add_sight_screen.dart';
 import 'package:places/ui/screen/cards/sight_list_card.dart';
 import 'package:places/ui/screen/sight_app_bar.dart';
+import 'package:places/ui/screen/widgets/search_bar.dart';
 
 /// Виджет экрана со списком карточек интересных мест
 class SightListScreen extends StatefulWidget {
@@ -16,9 +18,15 @@ class SightListScreen extends StatefulWidget {
 }
 
 class _SightListWidgetState extends State<SightListScreen> {
+  void _handleAddPlace() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => AddSightScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    print('build list');
     return Scaffold(
       appBar: SightAppBar(),
       body: Stack(
@@ -45,6 +53,7 @@ class _SightListWidgetState extends State<SightListScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 RainbowButton(
+                  onPressed: _handleAddPlace,
                   child: Row(
                     children: [
                       SightIconPlus(),

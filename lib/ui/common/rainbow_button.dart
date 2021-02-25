@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 class RainbowButton extends StatelessWidget {
   final Widget child;
+  final VoidCallback onPressed;
 
-  RainbowButton({this.child});
+  RainbowButton({
+    this.child,
+    this.onPressed
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +39,9 @@ class RainbowButton extends StatelessWidget {
               child: child,
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            onPressed?.call();
+          },
         ),
       ),
     );
