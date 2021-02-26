@@ -393,15 +393,15 @@ class _AddSightScreenState extends State<AddSightScreen> {
           ),
         ),
         leadingWidth: 90,
-        leading: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 18,
-          ),
-          child: GestureDetector(
-            onTap: () {
-              print('back');
-            },
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 18,
+            ),
             child: Text(
               PlacesTexts.actionCancel,
               style: PlacesFonts.size16Weight500.copyWith(
