@@ -81,7 +81,7 @@ class CategorySelector extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'КАТЕГОРИЯ',
+          PlacesTexts.addPlaceCategoryTitle,
           style: PlacesFonts.size12.copyWith(
             color: Theme.of(context).textTheme.subtitle2.color,
           ),
@@ -440,7 +440,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
             children: [
               Column(
                 children: [
-                  // CategorySelector(),
+                  CategorySelector(),
                   AddPlaceForm(
                     onChangeForm: _handleChangeData,
                   ),

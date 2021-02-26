@@ -30,4 +30,7 @@ class PlacesColors {
   static final Color green = Color(0xff6ada6f);
 
   static final Color whiteInactive = Color(0x907c7e92);
+
+  static final Color rainbowStart = Color(0xff6ADA6F);
+  static final Color rainbowEnd = Color(0xffFFE769);
 }

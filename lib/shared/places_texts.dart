@@ -45,6 +45,7 @@ class PlacesTexts {
   static final String settingsShowTutorial = 'Смотреть туториал';
 
   static final String addPlaceTitle = 'Новое место';
+  static final String addPlaceCategoryTitle = 'КАТЕГОРИЯ';
 
   static final String actionCancel = 'Отмена';
   static final String actionCreate = 'Создать';
