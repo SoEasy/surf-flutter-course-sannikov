@@ -157,6 +157,24 @@ class SightIconArrowLeft extends SightIconBase {
         );
 }
 
+class SightIconArrowRight extends SightIconBase {
+  const SightIconArrowRight({
+    color,
+    withTheme,
+  }) : super(
+          asset: 'res/icons/icon_arrow_right',
+          color: color,
+          withTheme: withTheme,
+        );
+}
+
+class SightIconPlus extends SightIconBase {
+  const SightIconPlus()
+      : super(
+          asset: 'res/icons/icon_plus',
+        );
+}
+
 class SightIconChoiceLight extends SightIconBase {
   const SightIconChoiceLight()
       : super(
@@ -234,8 +252,50 @@ class SightIconCatalogSpecial extends SightIconBase {
 }
 
 class SightIconInfo extends SightIconBase {
-  const SightIconInfo({Color color}): super(
-    asset: 'res/icons/icon_info',
-    color: color,
-  );
+  const SightIconInfo({Color color})
+      : super(
+          asset: 'res/icons/icon_info',
+          color: color,
+        );
+}
+
+class SightIconSearch extends SightIconBase {
+  const SightIconSearch({
+    width = 24.0,
+    height = 24.0,
+    withTheme = false,
+  }) : super(
+          asset: 'res/icons/icon_search',
+          width: width,
+          height: height,
+          withTheme: withTheme,
+        );
+}
+
+class SightIconFilter extends SightIconBase {
+  const SightIconFilter()
+      : super(
+          asset: 'res/icons/icon_filter',
+          width: 24,
+          height: 24,
+        );
+}
+
+class SightIconDelete extends SightIconBase {
+  const SightIconDelete()
+      : super(
+          asset: 'res/icons/icon_delete',
+          width: 24,
+          height: 24,
+        );
+}
+
+class SightIconClear extends SightIconBase {
+  const SightIconClear({withTheme = false})
+      : super(
+          asset: 'res/icons/icon_clear',
+          width: 24,
+          height: 24,
+          withTheme: withTheme,
+        );
 }

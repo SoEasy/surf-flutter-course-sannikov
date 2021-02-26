@@ -1,106 +1,58 @@
 /// Тексты, используемые в проекте "Список интересных мест"
 class PlacesTexts {
-  static String get appTitle {
-    return 'Places';
-  }
+  static final String appTitle = 'Places';
 
-  static String get sightListTitleBreak {
-    return 'Список\nинтересных мест';
-  }
+  static final String sightListTitleBreak = 'Список\nинтересных мест';
 
-  static String get sightListTitle {
-    return PlacesTexts.sightListTitleBreak.replaceFirst('\n', ' ');
-  }
+  static final String sightListTitle = PlacesTexts.sightListTitleBreak.replaceFirst('\n', ' ');
 
-  static String get favouritesTitle {
-    return 'Избранное';
-  }
+  static final String favouritesTitle = 'Избранное';
 
-  static String get settingsTitle {
-    return 'Настройки';
-  }
+  static final String settingsTitle = 'Настройки';
 
-  static String get schedulePlace {
-    return 'Запланировать';
-  }
+  static final String schedulePlace = 'Запланировать';
 
-  static String get markAsFavourite {
-    return 'В Избранное';
-  }
+  static final String markAsFavourite = 'В Избранное';
 
-  static String get menuList {
-    return PlacesTexts.sightListTitle;
-  }
+  static final String menuList = PlacesTexts.sightListTitle;
 
-  static String get menuFavourites {
-    return PlacesTexts.favouritesTitle;
-  }
+  static final String menuFavourites = PlacesTexts.favouritesTitle;
 
-  static String get menuSettings {
-    return PlacesTexts.settingsTitle;
-  }
+  static final String menuSettings = PlacesTexts.settingsTitle;
 
-  static String get visitingPlanned {
-    return 'Хочу посетить';
-  }
+  static final String visitingPlanned = 'Хочу посетить';
 
-  static String get visitingVisited {
-    return 'Посетил';
-  }
+  static final String visitingVisited = 'Посетил';
 
-  static String get plannedTo {
-    return 'Запланировано на';
-  }
+  static final String plannedTo = 'Запланировано на';
 
-  static String get achievedAt {
-    return 'Цель достигнута';
-  }
+  static final String achievedAt = 'Цель достигнута';
 
-  static String get emptyScreenTitle {
-    return 'Пусто';
-  }
+  static final String emptyScreenTitle = 'Пусто';
+  static final String emptyPlannedText = 'Отмечайте понравившиеся\nместа и они появиятся здесь.';
+  static final String emptyVisitedText = 'Завершите маршрут,\nчтобы место попало сюда.';
 
-  static String get emptyPlannedText {
-    return 'Отмечайте понравившиеся\nместа и они появиятся здесь.';
-  }
+  static final String filterDistanceTitle = 'Расстояние';
 
-  static String get emptyVisitedText {
-    return 'Завершите маршрут,\nчтобы место попало сюда.';
-  }
+  static final String sightTypeHotel = 'Отель';
+  static final String sightTypeRestaurant = 'Ресторан';
+  static final String sightTypeSpecial = 'Особое место';
+  static final String sightTypePark = 'Парк';
+  static final String sightTypeMuseum = 'Музей';
+  static final String sightTypeCafe = 'Кафе';
 
-  static String get filterDistanceTitle {
-    return 'Расстояние';
-  }
+  static final String settingsDarkTheme = 'Тёмная тема';
+  static final String settingsShowTutorial = 'Смотреть туториал';
 
-  static String get sightTypeHotel {
-    return 'Отель';
-  }
+  static final String addPlaceTitle = 'Новое место';
+  static final String addPlaceCategoryTitle = 'КАТЕГОРИЯ';
 
-  static String get sightTypeRestaurant {
-    return 'Ресторан';
-  }
+  static final String actionCancel = 'Отмена';
+  static final String actionCreate = 'Создать';
+  static final String actionSelectOnMap = 'Указать на карте';
 
-  static String get sightTypeSpecial {
-    return 'Особое место';
-  }
-
-  static String get sightTypePark {
-    return 'Парк';
-  }
-
-  static String get sightTypeMuseum {
-    return 'Музей';
-  }
-
-  static String get sightTypeCafe {
-    return 'Кафе';
-  }
-
-  static String get settingsDarkTheme {
-    return 'Тёмная тема';
-  }
-
-  static String get settingsShowTutorial {
-    return 'Смотреть туториал';
-  }
+  static final String searchHistoryTitle = 'Вы искали';
+  static final String searchHistoryClear = 'Очистить историю';
+  static final String nothingFoundTitle = 'Ничего не найдено';
+  static final String nothigFoundSubtitle = 'Попробуйте изменить параметры поиска';
 }

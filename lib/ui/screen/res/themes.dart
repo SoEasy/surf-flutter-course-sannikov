@@ -31,6 +31,7 @@ final lightTheme = ThemeData(
   ),
   sliderTheme: sightSliderTheme,
   buttonColor: PlacesColors.primaryButtonLight,
+  disabledColor: PlacesColors.tileBgLight,
 );
 
 /// темная тема
@@ -57,4 +58,5 @@ final darkTheme = ThemeData(
   ),
   sliderTheme: sightSliderTheme,
   buttonColor: PlacesColors.primaryButtonDark,
+  disabledColor: PlacesColors.tileBgDark,
 );

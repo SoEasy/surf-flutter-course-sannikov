@@ -1,22 +1,16 @@
 /// Основные размеры, используемые в проекте "Список интересных мест"
 class PlacesSizes {
-  static double get primaryPadding {
-    return 16;
-  }
+  static final double primaryPadding = 16;
 
-  static double get primaryAndHalfPadding {
-    return PlacesSizes.primaryPadding * 1.5;
-  }
+  static final double primaryAndHalfPadding = PlacesSizes.primaryPadding * 1.5;
 
-  static double get primaryHalfPadding {
-    return PlacesSizes.primaryPadding * 0.5;
-  }
+  static final double primaryHalfPadding = PlacesSizes.primaryPadding * 0.5;
 
-  static double get doublePrimaryPadding {
-    return PlacesSizes.primaryPadding * 2;
-  }
+  static final double doublePrimaryPadding = PlacesSizes.primaryPadding * 2;
 
-  static double get switchRadius {
-    return 40;
-  }
+  static final double primaryPaddingWithoutFourth = PlacesSizes.primaryPadding * 0.75;
+
+  static final double switchRadius = 40;
+
+  static final double textFormFieldHeight = 40;
 }

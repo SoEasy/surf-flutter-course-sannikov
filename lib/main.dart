@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:places/mocks.dart';
 import 'package:places/shared/places_texts.dart';
 import 'package:places/shared/theme_notifier.dart';
+import 'package:places/ui/screen/add_sight_screen.dart';
 import 'package:places/ui/screen/filters_screen.dart';
 import 'package:places/ui/screen/res/themes.dart';
 import 'package:places/ui/screen/settings_screen.dart';
@@ -37,8 +38,9 @@ class _AppState extends State<App> {
       theme: _isDarkTheme ? darkTheme : lightTheme,
       // theme: darkTheme,
       title: PlacesTexts.appTitle,
-      home: VisitingScreen(),
-      // home: SightListScreen(),
+      // home: SightAddScreen(),
+      // home: VisitingScreen(),
+      home: SightListScreen(),
       // home: SightDetails(mocks[2]),
       // home: FiltersScreen(),
       // home: SettingScreen(),
