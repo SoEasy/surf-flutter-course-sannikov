@@ -4,6 +4,7 @@ import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/icons.dart';
 
+/// Виджет для отрисовки элемента истории поиска
 class SearchHistoryItem extends StatelessWidget {
   final String title;
   final VoidCallback onDelete;
@@ -50,6 +51,7 @@ class SearchHistoryItem extends StatelessWidget {
   }
 }
 
+/// Виджет для отрисовки списка истории поиска
 class SearchHistory extends StatelessWidget {
   final List<String> items;
 

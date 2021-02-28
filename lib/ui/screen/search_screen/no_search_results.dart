@@ -4,6 +4,7 @@ import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/icons.dart';
 
+/// Виджет для отрисовки контента "ничего не найдено" на экране поиска
 class NoSearchResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

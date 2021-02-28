@@ -142,6 +142,7 @@ class AddFormData {
   }
 }
 
+/// Виджет, инкапсулирующий форму добавления нового места
 class AddPlaceForm extends StatefulWidget {
   final void Function(AddFormData data) onChangeForm;
 

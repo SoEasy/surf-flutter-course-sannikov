@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:places/shared/places_sizes.dart';
 
+/// Враппер для иконки в префиксе текстового поля, обладает нужными паддингами
 class TextFieldIconWrapper extends StatelessWidget {
   final Widget child;
 

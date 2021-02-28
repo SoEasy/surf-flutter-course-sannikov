@@ -9,6 +9,11 @@ import 'package:places/ui/screen/search_screen/search_history.dart';
 import 'package:places/ui/screen/search_screen/search_results.dart';
 import 'package:places/ui/screen/widgets/search_bar.dart';
 
+
+/// Виджет экрана поиска, по надобности влючает в себя один из трех виджетов:
+/// - историю поиска
+/// - ничего не найдено
+/// - найденные элементы
 class SearchScreen extends StatefulWidget {
   @override
   _SearchScreenState createState() => _SearchScreenState();

@@ -5,8 +5,12 @@ import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/ui/common/sigth_image_preloader.dart';
 
+/// Виджет для отрисовки текста с жирными выделениями
 class SearchTitleSelected extends StatelessWidget {
+  /// Текст, который надо нарисовать
   final String text;
+
+  /// текст, который надо выделить жирным
   final String textToSelect;
 
   SearchTitleSelected({
@@ -68,6 +72,7 @@ class SearchTitleSelected extends StatelessWidget {
   }
 }
 
+/// Виджет для отрисоки строки в результатах поиска
 class SearchResultItem extends StatelessWidget {
   final bool isLast;
   final Sight sight;
@@ -153,6 +158,7 @@ class SearchResultItem extends StatelessWidget {
   }
 }
 
+/// Виджет для отображения списка результатов поиска
 class SearchResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

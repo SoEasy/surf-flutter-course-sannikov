@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:places/shared/places_colors.dart';
 
+/// Разноцветная кнопка для главного экрана
 class RainbowButton extends StatelessWidget {
   final Widget child;
   final VoidCallback onPressed;
