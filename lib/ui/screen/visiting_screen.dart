@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/domain/sight.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
@@ -18,6 +19,18 @@ class VisitingScreen extends StatefulWidget {
 
 class _VisitingScreenState extends State<VisitingScreen>
     with SingleTickerProviderStateMixin {
+  List<Sight> _visitedPlaces = [
+    mocks[2],
+    mocks[1],
+    mocks[0],
+  ];
+
+  List<Sight> _plannedPlaces = [
+    mocks[0],
+    mocks[1],
+    mocks[2],
+  ];
+
   TabController tabController;
 
   @override
@@ -27,6 +40,22 @@ class _VisitingScreenState extends State<VisitingScreen>
       setState(() {});
     });
     super.initState();
+  }
+
+  void _handleDeletePlanned(Sight sightToDelete) {
+    setState(() {
+      _plannedPlaces = _plannedPlaces
+          .where((Sight element) => element != sightToDelete)
+          .toList();
+    });
+  }
+
+  void _handleDeleteVisited(Sight sightToDelete) {
+    setState(() {
+      _visitedPlaces = _visitedPlaces
+          .where((Sight element) => element != sightToDelete)
+          .toList();
+    });
   }
 
   @override
@@ -63,11 +92,13 @@ class _VisitingScreenState extends State<VisitingScreen>
                 padding: EdgeInsets.symmetric(
                     horizontal: PlacesSizes.primaryPadding),
                 child: Column(
-                  children: [
-                    SightFavouriteCard(mocks[2]),
-                    SightFavouriteCard(mocks[1]),
-                    SightFavouriteCard(mocks[0]),
-                  ],
+                  children: _plannedPlaces
+                      .map((Sight item) => SightFavouriteCard(
+                            item,
+                            key: ValueKey(item.id),
+                            onDelete: _handleDeletePlanned,
+                          ))
+                      .toList(),
                 ),
               ),
             ),
@@ -77,11 +108,13 @@ class _VisitingScreenState extends State<VisitingScreen>
                 padding: EdgeInsets.symmetric(
                     horizontal: PlacesSizes.primaryPadding),
                 child: Column(
-                  children: [
-                    SightVisitedCard(mocks[0]),
-                    SightVisitedCard(mocks[1]),
-                    SightVisitedCard(mocks[2]),
-                  ],
+                  children: _visitedPlaces
+                      .map((Sight item) => SightVisitedCard(
+                            item,
+                            key: ValueKey(item.id),
+                            onDelete: _handleDeleteVisited,
+                          ))
+                      .toList(),
                 ),
               ),
             ),

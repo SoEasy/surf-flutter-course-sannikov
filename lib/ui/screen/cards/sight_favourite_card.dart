@@ -8,6 +8,7 @@ import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/common/sight_card_action_button.dart';
 import 'package:places/ui/common/sight_card_base.dart';
+import 'package:places/ui/common/types.dart';
 
 class _FavouriteCardContent extends StatelessWidget {
   final Sight _sight;
@@ -52,14 +53,20 @@ class _FavouriteCardContent extends StatelessWidget {
 
 /// Виджет карточки интересного места для отображения в списке
 class SightFavouriteCard extends StatelessWidget {
+  final OnDeleteCardCallback onDelete;
+  final Key key;
   final Sight _sight;
 
-  SightFavouriteCard(this._sight);
+  SightFavouriteCard(
+    this._sight,
+    {this.key, this.onDelete}
+  );
 
   @override
   Widget build(BuildContext context) {
     return SightCardBase(
       _sight,
+      key: key,
       content: _FavouriteCardContent(_sight),
       actions: [
         SightCardActionButton(
@@ -71,7 +78,7 @@ class SightFavouriteCard extends StatelessWidget {
         SightCardActionButton(
           icon: SightIconClose(),
           onPressed: () {
-            print('Click remove on favourite card');
+            onDelete?.call(_sight);
           },
         ),
 

@@ -15,9 +15,11 @@ class SightCardBase extends StatelessWidget {
   final Widget content;
   final List<Widget> actions;
   final Function(Sight sight) onPressed;
+  final Key key;
 
   SightCardBase(
     this.sight, {
+    this.key,
     this.content,
     this.actions = const [],
     this.onPressed,
@@ -65,20 +67,20 @@ class SightCardBase extends StatelessWidget {
 
   Widget _content() {
     return Container(
-      padding: EdgeInsets.fromLTRB(
-        PlacesSizes.primaryPadding,
-        PlacesSizes.primaryPadding,
-        PlacesSizes.primaryPadding,
-        PlacesSizes.primaryAndHalfPadding,
-      ),
-      width: double.infinity,
-      child: this.content
-    );
+        padding: EdgeInsets.fromLTRB(
+          PlacesSizes.primaryPadding,
+          PlacesSizes.primaryPadding,
+          PlacesSizes.primaryPadding,
+          PlacesSizes.primaryAndHalfPadding,
+        ),
+        width: double.infinity,
+        child: this.content);
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: key,
       margin: EdgeInsets.only(bottom: PlacesSizes.primaryPadding),
       width: double.infinity,
       child: Material(
