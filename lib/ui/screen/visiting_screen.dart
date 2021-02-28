@@ -7,6 +7,8 @@ import 'package:places/ui/common/switch_tab_indicator.dart';
 import 'package:places/ui/navigation/sight_bottom_navigator.dart';
 import 'package:places/ui/screen/cards/sight_favourite_card.dart';
 import 'package:places/ui/screen/cards/sight_visited_card.dart';
+import 'package:places/ui/screen/empty_screens/planned_empty_screen.dart';
+import 'package:places/ui/screen/empty_screens/visited_empty_screen.dart';
 
 import '../../mocks.dart';
 
@@ -87,6 +89,7 @@ class _VisitingScreenState extends State<VisitingScreen>
           controller: tabController,
           children: [
             // PlannedEmptyScreen(),
+            _plannedPlaces.length == 0 ? PlannedEmptyScreen() :
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.symmetric(
@@ -102,8 +105,7 @@ class _VisitingScreenState extends State<VisitingScreen>
                 ),
               ),
             ),
-            // VisitedEmptyScreen(),
-            SingleChildScrollView(
+            _visitedPlaces.length == 0 ? VisitedEmptyScreen() : SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.symmetric(
                     horizontal: PlacesSizes.primaryPadding),
