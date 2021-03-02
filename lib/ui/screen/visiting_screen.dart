@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/domain/sight.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
@@ -6,6 +7,8 @@ import 'package:places/ui/common/switch_tab_indicator.dart';
 import 'package:places/ui/navigation/sight_bottom_navigator.dart';
 import 'package:places/ui/screen/cards/sight_favourite_card.dart';
 import 'package:places/ui/screen/cards/sight_visited_card.dart';
+import 'package:places/ui/screen/empty_screens/planned_empty_screen.dart';
+import 'package:places/ui/screen/empty_screens/visited_empty_screen.dart';
 
 import '../../mocks.dart';
 
@@ -18,6 +21,18 @@ class VisitingScreen extends StatefulWidget {
 
 class _VisitingScreenState extends State<VisitingScreen>
     with SingleTickerProviderStateMixin {
+  List<Sight> _visitedPlaces = [
+    mocks[2],
+    mocks[1],
+    mocks[0],
+  ];
+
+  List<Sight> _plannedPlaces = [
+    mocks[0],
+    mocks[1],
+    mocks[2],
+  ];
+
   TabController tabController;
 
   @override
@@ -27,6 +42,22 @@ class _VisitingScreenState extends State<VisitingScreen>
       setState(() {});
     });
     super.initState();
+  }
+
+  void _handleDeletePlanned(Sight sightToDelete) {
+    setState(() {
+      _plannedPlaces = _plannedPlaces
+          .where((Sight element) => element != sightToDelete)
+          .toList();
+    });
+  }
+
+  void _handleDeleteVisited(Sight sightToDelete) {
+    setState(() {
+      _visitedPlaces = _visitedPlaces
+          .where((Sight element) => element != sightToDelete)
+          .toList();
+    });
   }
 
   @override
@@ -58,30 +89,34 @@ class _VisitingScreenState extends State<VisitingScreen>
           controller: tabController,
           children: [
             // PlannedEmptyScreen(),
+            _plannedPlaces.length == 0 ? PlannedEmptyScreen() :
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.symmetric(
                     horizontal: PlacesSizes.primaryPadding),
                 child: Column(
-                  children: [
-                    SightFavouriteCard(mocks[2]),
-                    SightFavouriteCard(mocks[1]),
-                    SightFavouriteCard(mocks[0]),
-                  ],
+                  children: _plannedPlaces
+                      .map((Sight item) => SightFavouriteCard(
+                            item,
+                            key: ValueKey(item.id),
+                            onDelete: _handleDeletePlanned,
+                          ))
+                      .toList(),
                 ),
               ),
             ),
-            // VisitedEmptyScreen(),
-            SingleChildScrollView(
+            _visitedPlaces.length == 0 ? VisitedEmptyScreen() : SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.symmetric(
                     horizontal: PlacesSizes.primaryPadding),
                 child: Column(
-                  children: [
-                    SightVisitedCard(mocks[0]),
-                    SightVisitedCard(mocks[1]),
-                    SightVisitedCard(mocks[2]),
-                  ],
+                  children: _visitedPlaces
+                      .map((Sight item) => SightVisitedCard(
+                            item,
+                            key: ValueKey(item.id),
+                            onDelete: _handleDeleteVisited,
+                          ))
+                      .toList(),
                 ),
               ),
             ),

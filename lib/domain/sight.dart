@@ -43,6 +43,19 @@ class Sight {
     this.achievedAt,
   });
 
+  /// Временный идентификатор для ключей. При работе с сервером наверно
+  /// появится внятный primary key id с сервера
+  String get id {
+    return '$name$url$details';
+  }
+
+  bool operator ==(dynamic anotherSight) {
+    if (anotherSight.runtimeType != Sight) {
+      throw ArgumentError('Нельзя сравнивать место и что-то другое');
+    }
+    return id == anotherSight.id;
+  }
+
   String get typeVerbose {
     return sightTypeVerbose[type];
   }
