@@ -169,9 +169,11 @@ class SightIconArrowRight extends SightIconBase {
 }
 
 class SightIconPlus extends SightIconBase {
-  const SightIconPlus()
-      : super(
+  const SightIconPlus({
+    withTheme = false,
+  }) : super(
           asset: 'res/icons/icon_plus',
+          withTheme: withTheme,
         );
 }
 
@@ -291,11 +293,16 @@ class SightIconDelete extends SightIconBase {
 }
 
 class SightIconClear extends SightIconBase {
-  const SightIconClear({withTheme = false})
-      : super(
+  const SightIconClear({
+    withTheme = false,
+    color = null,
+    width = 24.0,
+    height = 24.0,
+  }) : super(
           asset: 'res/icons/icon_clear',
-          width: 24,
-          height: 24,
+          width: width,
+          height: height,
           withTheme: withTheme,
+          color: color,
         );
 }

@@ -18,6 +18,7 @@ dependencies:
   # Так и не нашел, как обновить dart sdk, поэтому зафиксировал на 1.0.0
   cupertino_icons: 1.0.0
   flutter_svg: 0.19.1
+  uuid:
 
 dev_dependencies:
   flutter_test:
