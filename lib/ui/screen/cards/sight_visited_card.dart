@@ -65,6 +65,9 @@ class SightVisitedCard extends StatelessWidget {
     return SightCardBase(
       _sight,
       key: key,
+      onDelete: () {
+        onDelete?.call(_sight);
+      },
       content: _VisitedCardContent(_sight),
       actions: [
         SightCardActionButton(

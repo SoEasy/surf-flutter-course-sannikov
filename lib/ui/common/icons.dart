@@ -292,6 +292,15 @@ class SightIconDelete extends SightIconBase {
         );
 }
 
+class SightIconTrash extends SightIconBase {
+  const SightIconTrash()
+      : super(
+    asset: 'res/icons/icon_trash',
+    width: 24,
+    height: 24,
+  );
+}
+
 class SightIconClear extends SightIconBase {
   const SightIconClear({
     withTheme = false,

@@ -88,13 +88,13 @@ class _VisitingScreenState extends State<VisitingScreen>
         child: TabBarView(
           controller: tabController,
           children: [
-            // PlannedEmptyScreen(),
             _plannedPlaces.length == 0 ? PlannedEmptyScreen() :
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.symmetric(
                     horizontal: PlacesSizes.primaryPadding),
-                child: Column(
+                child: Wrap(
+                  runSpacing: PlacesSizes.primaryPadding,
                   children: _plannedPlaces
                       .map((Sight item) => SightFavouriteCard(
                             item,
@@ -109,7 +109,8 @@ class _VisitingScreenState extends State<VisitingScreen>
               child: Container(
                 padding: EdgeInsets.symmetric(
                     horizontal: PlacesSizes.primaryPadding),
-                child: Column(
+                child: Wrap(
+                  runSpacing: PlacesSizes.primaryPadding,
                   children: _visitedPlaces
                       .map((Sight item) => SightVisitedCard(
                             item,

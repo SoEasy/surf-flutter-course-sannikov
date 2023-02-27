@@ -67,6 +67,9 @@ class SightFavouriteCard extends StatelessWidget {
     return SightCardBase(
       _sight,
       key: key,
+      onDelete: () {
+        onDelete?.call(_sight);
+      },
       content: _FavouriteCardContent(_sight),
       actions: [
         SightCardActionButton(
