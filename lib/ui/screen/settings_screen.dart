@@ -87,8 +87,10 @@ class SettingScreen extends StatelessWidget {
                   SizedBox(
                     width: 44,
                     height: 44,
-                    child: FlatButton(
-                      padding: EdgeInsets.all(10),
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.all(10),
+                      ),
                       onPressed: () {},
                       child: SightIconInfo(
                         color: Theme.of(context).buttonColor,

@@ -6,7 +6,8 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0" # Dart
+  flutter: "^3.7.5"
 
 dependencies:
   flutter:
@@ -16,8 +17,8 @@ dependencies:
   # The current Dart SDK version is 2.10.4.
   # Because places depends on cupertino_icons >=1.0.1 which requires SDK version >=2.12.0-0 <3.0.0, version solving failed.
   # Так и не нашел, как обновить dart sdk, поэтому зафиксировал на 1.0.0
-  cupertino_icons: 1.0.0
-  flutter_svg: 0.19.1
+  cupertino_icons: 1.0.5
+  flutter_svg: 2.0.2
   uuid:
 
 dev_dependencies:

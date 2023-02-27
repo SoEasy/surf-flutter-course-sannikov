@@ -211,8 +211,10 @@ class _FiltersScreenState extends State<FiltersScreen> {
       leading: SizedBox(
         width: 32,
         height: 32,
-        child: FlatButton(
-          padding: EdgeInsets.zero,
+        child: TextButton(
+          style: TextButton.styleFrom(
+            padding: EdgeInsets.zero,
+          ),
           onPressed: () {
             print('Click back on filters');
           },
@@ -222,7 +224,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
         ),
       ),
       actions: [
-        FlatButton(
+        TextButton(
           onPressed: _handleResetClick,
           child: Text(
             'Очистить',

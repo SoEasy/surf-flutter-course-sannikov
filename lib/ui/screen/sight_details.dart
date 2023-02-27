@@ -33,16 +33,18 @@ class _DetailsGallery extends StatelessWidget {
           child: SizedBox(
             width: 32,
             height: 32,
-            child: RaisedButton(
-              color: Colors.white,
-              padding: EdgeInsets.zero,
-              elevation: 0,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                padding: EdgeInsets.zero,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
               onPressed: () {
                 print('Back from gallery');
               },
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
               child: Center(child: SightIconArrowLeft()),
             ),
           ),
@@ -149,7 +151,7 @@ class _DetailsActions extends StatelessWidget {
                 child: Container(
                   height: 40,
                   width: double.infinity,
-                  child: FlatButton(
+                  child: TextButton(
                     onPressed: () {
                       print('Schedule');
                     },
@@ -178,7 +180,7 @@ class _DetailsActions extends StatelessWidget {
                 flex: 1,
                 child: Container(
                   height: 40,
-                  child: FlatButton(
+                  child: TextButton(
                     onPressed: () {
                       print('Favourite');
                     },
