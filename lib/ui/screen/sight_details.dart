@@ -33,16 +33,18 @@ class _DetailsGallery extends StatelessWidget {
           child: SizedBox(
             width: 32,
             height: 32,
-            child: RaisedButton(
-              color: Colors.white,
-              padding: EdgeInsets.zero,
-              elevation: 0,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                padding: EdgeInsets.zero,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
               onPressed: () {
                 print('Back from gallery');
               },
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
               child: Center(child: SightIconArrowLeft()),
             ),
           ),
@@ -72,7 +74,7 @@ class _DetailsContent extends StatelessWidget {
           Text(
             this._sight.name,
             style: PlacesFonts.size24WeightBold.copyWith(
-              color: Theme.of(context).textTheme.bodyText1.color,
+              color: Theme.of(context).textTheme.bodyText1?.color,
             ),
           ),
           Padding(
@@ -93,7 +95,7 @@ class _DetailsContent extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  _sight.workTime,
+                  _sight.workTime ?? '',
                   style: PlacesFonts.size14
                       .copyWith(color: PlacesColors.textSecondary2Opacity),
                 )
@@ -149,7 +151,7 @@ class _DetailsActions extends StatelessWidget {
                 child: Container(
                   height: 40,
                   width: double.infinity,
-                  child: FlatButton(
+                  child: TextButton(
                     onPressed: () {
                       print('Schedule');
                     },
@@ -178,7 +180,7 @@ class _DetailsActions extends StatelessWidget {
                 flex: 1,
                 child: Container(
                   height: 40,
-                  child: FlatButton(
+                  child: TextButton(
                     onPressed: () {
                       print('Favourite');
                     },
@@ -195,7 +197,7 @@ class _DetailsActions extends StatelessWidget {
                         Text(
                           PlacesTexts.markAsFavourite,
                           style: PlacesFonts.size14.copyWith(
-                            color: Theme.of(context).textTheme.bodyText1.color,
+                            color: Theme.of(context).textTheme.bodyText1?.color,
                           ),
                         )
                       ],

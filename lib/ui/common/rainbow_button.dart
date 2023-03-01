@@ -7,18 +7,20 @@ class RainbowButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   RainbowButton({
-    this.child,
-    this.onPressed
+    required this.child,
+    required this.onPressed
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 48,
-      child: RaisedButton(
-        padding: const EdgeInsets.all(0.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.all(0.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
         ),
         child: Ink(
           decoration: BoxDecoration(

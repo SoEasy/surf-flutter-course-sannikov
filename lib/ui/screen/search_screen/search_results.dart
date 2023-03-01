@@ -14,8 +14,8 @@ class SearchTitleSelected extends StatelessWidget {
   final String textToSelect;
 
   SearchTitleSelected({
-    @required this.text,
-    @required this.textToSelect,
+    required this.text,
+    required this.textToSelect,
   });
 
   /// С помощью релугярки, игнорирующей регистр, найдем все вхождения подстроки
@@ -39,14 +39,14 @@ class SearchTitleSelected extends StatelessWidget {
               return TextSpan(
                 text: element.replaceAll('±', ''),
                 style: PlacesFonts.size16.copyWith(
-                  color: Theme.of(context).textTheme.headline1.color,
+                  color: Theme.of(context).textTheme.headline1?.color,
                   fontWeight: FontWeight.bold,
                 ),
               );
             } else {
               return TextSpan(
                 style: PlacesFonts.size16.copyWith(
-                  color: Theme.of(context).textTheme.headline1.color,
+                  color: Theme.of(context).textTheme.headline1?.color,
                 ),
                 text: element,
               );
@@ -80,10 +80,10 @@ class SearchResultItem extends StatelessWidget {
   final String sSelect;
 
   SearchResultItem({
-    @required this.sight,
+    required this.sight,
+    required this.sText,
+    required this.sSelect,
     this.isLast = false,
-    this.sText,
-    this.sSelect,
   });
 
   @override
@@ -124,7 +124,7 @@ class SearchResultItem extends StatelessWidget {
                     ? null
                     : Border(
                         bottom: BorderSide(
-                          color: Theme.of(context).textTheme.subtitle2.color,
+                          color: Theme.of(context).textTheme.subtitle2?.color ?? Colors.black,
                         ),
                       ),
               ),
@@ -145,7 +145,7 @@ class SearchResultItem extends StatelessWidget {
                   Text(
                     sight.typeVerbose,
                     style: PlacesFonts.size14.copyWith(
-                      color: Theme.of(context).textTheme.subtitle1.color,
+                      color: Theme.of(context).textTheme.subtitle1?.color,
                     ),
                   ),
                 ],

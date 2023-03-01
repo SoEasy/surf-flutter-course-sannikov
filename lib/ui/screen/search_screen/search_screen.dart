@@ -39,7 +39,7 @@ class _SearchScreenState extends State<SearchScreen> {
         title: Text(
           PlacesTexts.sightListTitle,
           style: PlacesFonts.size16.copyWith(
-            color: Theme.of(context).textTheme.headline1.color,
+            color: Theme.of(context).textTheme.headline1?.color,
           ),
         ),
       ),

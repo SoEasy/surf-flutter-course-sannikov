@@ -21,11 +21,11 @@ class SightFilterCheckbox extends StatefulWidget {
   final String title;
 
   SightFilterCheckbox({
-    @required this.icon,
-    @required this.value,
-    @required this.sightType,
-    this.onChanged,
-    this.title,
+    required this.icon,
+    required this.value,
+    required this.sightType,
+    required this.onChanged,
+    required this.title,
   });
 
   @override

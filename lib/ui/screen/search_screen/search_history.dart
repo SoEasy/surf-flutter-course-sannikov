@@ -7,11 +7,11 @@ import 'package:places/ui/common/icons.dart';
 /// Виджет для отрисовки элемента истории поиска
 class SearchHistoryItem extends StatelessWidget {
   final String title;
-  final VoidCallback onDelete;
+  final VoidCallback? onDelete;
   final bool isLast;
 
   SearchHistoryItem({
-    @required this.title,
+    required this.title,
     this.isLast = false,
     this.onDelete,
   });
@@ -31,7 +31,7 @@ class SearchHistoryItem extends StatelessWidget {
                 child: Text(
                   title,
                   style: PlacesFonts.size16.copyWith(
-                    color: Theme.of(context).textTheme.subtitle1.color,
+                    color: Theme.of(context).textTheme.subtitle1?.color,
                   ),
                 ),
               ),
@@ -55,7 +55,7 @@ class SearchHistoryItem extends StatelessWidget {
 class SearchHistory extends StatelessWidget {
   final List<String> items;
 
-  SearchHistory({@required this.items});
+  SearchHistory({required this.items});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class SearchHistory extends StatelessWidget {
         Text(
           PlacesTexts.searchHistoryTitle.toUpperCase(),
           style: PlacesFonts.size12.copyWith(
-            color: Theme.of(context).textTheme.subtitle2.color,
+            color: Theme.of(context).textTheme.subtitle2?.color,
           ),
         ),
         Expanded(

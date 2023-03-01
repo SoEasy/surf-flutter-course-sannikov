@@ -16,8 +16,8 @@ class InputWithLabel extends StatelessWidget {
   final Widget child;
 
   InputWithLabel({
-    @required this.label,
-    @required this.child,
+    required this.label,
+    required this.child,
   });
 
   @override
@@ -33,7 +33,7 @@ class InputWithLabel extends StatelessWidget {
         Text(
           label.toUpperCase(),
           style: PlacesFonts.size12.copyWith(
-            color: Theme.of(context).textTheme.subtitle2.color,
+            color: Theme.of(context).textTheme.subtitle2?.color,
           ),
         ),
         SizedBox(
@@ -83,7 +83,7 @@ class CategorySelector extends StatelessWidget {
         Text(
           PlacesTexts.addPlaceCategoryTitle,
           style: PlacesFonts.size12.copyWith(
-            color: Theme.of(context).textTheme.subtitle2.color,
+            color: Theme.of(context).textTheme.subtitle2?.color,
           ),
         ),
         SizedBox(
@@ -126,10 +126,10 @@ class AddFormData {
   final String details;
 
   AddFormData({
-    this.name,
-    this.lat,
-    this.lon,
-    this.details,
+    required this.name,
+    required this.lat,
+    required this.lon,
+    required this.details,
   });
 
   AddFormData update({name, lat, lon, details}) {
@@ -150,7 +150,7 @@ class AddPlaceForm extends StatefulWidget {
   _AddPlaceFormState createState() => _AddPlaceFormState();
 
   AddPlaceForm({
-    @required this.onChangeForm,
+    required this.onChangeForm,
   });
 }
 
@@ -186,8 +186,10 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                 _changeFocus(titleFocusNode, latFocusNode);
               },
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: (String value) {
-                return value.length > 0 ? null : '';
+              validator: (String? value) {
+                return value != null
+                  ? value.length > 0 ? null : 'Invalid'
+                  : null;
               },
               onChanged: (String value) {
                 formData = formData.update(name: value);
@@ -200,7 +202,7 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                 ),
               ),
               style: PlacesFonts.size16.copyWith(
-                color: Theme.of(context).textTheme.headline1.color,
+                color: Theme.of(context).textTheme.headline1?.color,
               ),
             ),
           ),
@@ -226,11 +228,11 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                       _changeFocus(latFocusNode, lonFocusNode);
                     },
                     autovalidateMode: AutovalidateMode.onUserInteraction,
-                    validator: (String value) {
-                      return latRegExp.hasMatch(value) ? null : '';
+                    validator: (String? value) {
+                      return value != null && latRegExp.hasMatch(value) ? null : '';
                     },
                     onChanged: (String value) {
-                      double newValue = double.tryParse(value);
+                      double? newValue = double.tryParse(value);
                       if (newValue == null) {
                         return;
                       }
@@ -244,7 +246,7 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                       ),
                     ),
                     style: PlacesFonts.size16.copyWith(
-                      color: Theme.of(context).textTheme.headline1.color,
+                      color: Theme.of(context).textTheme.headline1?.color,
                     ),
                   ),
                 ),
@@ -267,11 +269,11 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                       _changeFocus(lonFocusNode, detailsFocusNode);
                     },
                     autovalidateMode: AutovalidateMode.onUserInteraction,
-                    validator: (String value) {
-                      return lonRegExp.hasMatch(value) ? null : '';
+                    validator: (String? value) {
+                      return value != null && lonRegExp.hasMatch(value) ? null : '';
                     },
                     onChanged: (String value) {
-                      double newValue = double.tryParse(value);
+                      double? newValue = double.tryParse(value);
                       if (newValue == null) {
                         return;
                       }
@@ -285,7 +287,7 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
                       ),
                     ),
                     style: PlacesFonts.size16.copyWith(
-                      color: Theme.of(context).textTheme.headline1.color,
+                      color: Theme.of(context).textTheme.headline1?.color,
                     ),
                   ),
                 ),
@@ -318,7 +320,7 @@ class _AddPlaceFormState extends State<AddPlaceForm> {
               focusNode: detailsFocusNode,
               textInputAction: TextInputAction.done,
               style: PlacesFonts.size16.copyWith(
-                color: Theme.of(context).textTheme.headline1.color,
+                color: Theme.of(context).textTheme.headline1?.color,
               ),
               minLines: 2,
               maxLines: 2,
@@ -347,7 +349,7 @@ class AddSightScreen extends StatefulWidget {
 }
 
 class _AddSightScreenState extends State<AddSightScreen> {
-  AddFormData formData;
+  AddFormData? formData;
   bool isValid = false;
 
   void _handleChangeData(AddFormData newFormData) {
@@ -367,11 +369,11 @@ class _AddSightScreenState extends State<AddSightScreen> {
 
     mocks.add(
       Sight(
-        name: formData.name,
-        lat: formData.lat,
-        lon: formData.lon,
+        name: formData!.name,
+        lat: formData!.lat,
+        lon: formData!.lon,
         url: 'https://',
-        details: formData.details,
+        details: formData!.details,
         type: SightType.special,
       ),
     );
@@ -390,7 +392,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
         title: Text(
           PlacesTexts.addPlaceTitle,
           style: PlacesFonts.size18Weight500.copyWith(
-            color: Theme.of(context).textTheme.headline1.color,
+            color: Theme.of(context).textTheme.headline1?.color,
           ),
         ),
         leadingWidth: 90,

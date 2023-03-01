@@ -16,7 +16,7 @@ class SwitchTabIndicator extends StatelessWidget {
   final TabController _tabController;
   final List<String> items;
 
-  SwitchTabIndicator(this._tabController, {this.items})
+  SwitchTabIndicator(this._tabController, {required this.items})
       : assert(items.length == _tabController.length);
 
   @override

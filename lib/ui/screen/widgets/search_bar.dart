@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/common/text_field_icon_wrapper.dart';
-import 'package:places/ui/screen/filters_screen.dart';
-import 'package:places/ui/screen/search_screen/search_screen.dart';
 
 /// Прсотенький мьютекс, исполняющий только первого входящего в синхронном режиме,
 /// отпускается асинхронно в микротаске
@@ -25,16 +23,16 @@ class Mutex {
 /// Виджет поиска для главного экрана, уводит на страницу поиска при клике,
 /// или на фильтры при клике на иконку
 class SearchBar extends StatefulWidget {
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final VoidCallback onInputIconTap;
   final Widget icon;
   final bool disabled;
-  final TextEditingController controller;
+  final TextEditingController? controller;
 
   SearchBar({
+    required this.onInputIconTap,
+    required this.icon,
     this.onTap,
-    this.onInputIconTap,
-    this.icon,
     this.disabled = false,
     this.controller,
   });
@@ -58,7 +56,7 @@ class _SearchBarState extends State<SearchBar> {
 
   void handleInputIconTap() {
     clickMutex.execute(() {
-      widget.onInputIconTap?.call();
+      widget.onInputIconTap.call();
     });
   }
 

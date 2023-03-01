@@ -27,17 +27,17 @@ class Sight {
   final String url;
   final String details;
   final SightType type;
-  final String workTime;
-  final String plannedTo;
-  final String achievedAt;
+  final String? workTime;
+  final String? plannedTo;
+  final String? achievedAt;
 
   Sight({
-    this.name,
-    this.lat,
-    this.lon,
-    this.url,
-    this.details,
-    this.type,
+    required this.name,
+    required this.lat,
+    required this.lon,
+    required this.url,
+    required this.details,
+    required this.type,
     this.workTime,
     this.plannedTo,
     this.achievedAt,
