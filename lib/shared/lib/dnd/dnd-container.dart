@@ -30,7 +30,7 @@ class DnDContainerState<T extends Object> extends State<DnDContainer<T>> {
   bool isDrags = false;
 
   // Тротлить мелкие подергивания пальца, чтоб не мелькал дропПЛейсхолдер вверх-вниз
-  Throttler _changeDirectionThrottler = Throttler(300);
+  Throttler _changeDirectionThrottler = Throttler(600);
   // Наши данные. Нужны чтобы фильтровать падение на самого себя на всякий случай
   DnDDataWrapper<T>? _ownDragData;
   // Данные проплывающего сверху кандидата, нужны для билдера плейсхолдера и фильтрации
@@ -103,7 +103,6 @@ class DnDContainerState<T extends Object> extends State<DnDContainer<T>> {
             LongPressDraggable(
               data: _ownDragData!,
               onDragUpdate: (DragUpdateDetails dragDetails) {
-                print(dragDetails.delta.dy);
                 _changeDirectionThrottler.run(() {
                   _ownDragData!.setMoveDirection(dragDetails.delta.dy > 0 ? VerticalDirection.down : VerticalDirection.up);
                 });

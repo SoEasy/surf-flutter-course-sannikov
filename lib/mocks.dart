@@ -38,5 +38,18 @@ final List<Sight> mocks = [
     workTime: 'Круглосуточно',
     plannedTo: '31 фев. 2222',
     achievedAt: 'вчера',
+  ),
+  new Sight(
+    name: 'Телебашня Тбилиси',
+    lat: 48.881389,
+    lon: 2.096389,
+    url:
+    'https://sova.news/wp-content/uploads/2018/06/Tbilisi_Tower.jpg',
+    details:
+    'Ночью светится',
+    type: SightType.park,
+    workTime: 'Круглосуточно',
+    plannedTo: '31 фев. 2222',
+    achievedAt: 'вчера',
   )
 ];

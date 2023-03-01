@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/shared/lib.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
@@ -22,6 +23,7 @@ class VisitingScreen extends StatefulWidget {
 class _VisitingScreenState extends State<VisitingScreen>
     with SingleTickerProviderStateMixin {
   List<Sight> _visitedPlaces = [
+    mocks[3],
     mocks[2],
     mocks[1],
     mocks[0],
@@ -31,6 +33,7 @@ class _VisitingScreenState extends State<VisitingScreen>
     mocks[0],
     mocks[1],
     mocks[2],
+    mocks[3],
   ];
 
   TabController? tabController;
@@ -92,15 +95,33 @@ class _VisitingScreenState extends State<VisitingScreen>
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.symmetric(
-                    horizontal: PlacesSizes.primaryPadding),
-                child: Wrap(
-                  runSpacing: PlacesSizes.primaryPadding,
+                horizontal: PlacesSizes.primaryPadding),
+                child: Column(
                   children: _plannedPlaces
-                      .map((Sight item) => SightFavouriteCard(
-                            item,
-                            key: ValueKey(item.id),
-                            onDelete: _handleDeletePlanned,
-                          ))
+                      .map((Sight item) {
+                        return DnDContainer(
+                            data: item,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 8),
+                              child: SightFavouriteCard(
+                                item,
+                                onDelete: _handleDeletePlanned,
+                              ),
+                            ),
+                            dropPlaceholderBuilder: (Sight? data) {
+                              return Opacity(
+                                opacity: .3,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 8),
+                                  child: SightFavouriteCard(
+                                    data!,
+                                    onDelete: _handleDeletePlanned,
+                                  ),
+                                ),
+                              );
+                            }
+                        );
+                      })
                       .toList(),
                 ),
               ),
@@ -109,14 +130,35 @@ class _VisitingScreenState extends State<VisitingScreen>
               child: Container(
                 padding: EdgeInsets.symmetric(
                     horizontal: PlacesSizes.primaryPadding),
-                child: Wrap(
-                  runSpacing: PlacesSizes.primaryPadding,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: _visitedPlaces
-                      .map((Sight item) => SightVisitedCard(
-                            item,
-                            key: ValueKey(item.id),
-                            onDelete: _handleDeleteVisited,
-                          ))
+                      .map((Sight item) {
+                        return DnDContainer(
+                            data: item,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 8),
+                              child: SightVisitedCard(
+                                item,
+                                key: ValueKey(item.id),
+                                onDelete: _handleDeleteVisited,
+                              ),
+                            ),
+                            dropPlaceholderBuilder: (Sight? data) {
+                              return Opacity(
+                                opacity: .3,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 8),
+                                  child: SightFavouriteCard(
+                                    data!,
+                                    onDelete: _handleDeletePlanned,
+                                  ),
+                                ),
+                              );
+                            }
+                        );
+                      })
                       .toList(),
                 ),
               ),

@@ -54,19 +54,18 @@ class _FavouriteCardContent extends StatelessWidget {
 /// Виджет карточки интересного места для отображения в списке
 class SightFavouriteCard extends StatelessWidget {
   final OnDeleteCardCallback onDelete;
-  final Key key;
+  final Key? key;
   final Sight _sight;
 
   SightFavouriteCard(
     this._sight,
-    {required this.key, required this.onDelete}
+    {this.key, required this.onDelete}
   );
 
   @override
   Widget build(BuildContext context) {
     return SightCardBase(
       _sight,
-      key: key,
       onDelete: () {
         onDelete?.call(_sight);
       },
@@ -84,7 +83,6 @@ class SightFavouriteCard extends StatelessWidget {
             onDelete?.call(_sight);
           },
         ),
-
       ],
     );
   }
