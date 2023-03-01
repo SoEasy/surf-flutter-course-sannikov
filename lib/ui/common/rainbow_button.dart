@@ -7,8 +7,8 @@ class RainbowButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   RainbowButton({
-    this.child,
-    this.onPressed
+    required this.child,
+    required this.onPressed
   });
 
   @override

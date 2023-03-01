@@ -5,7 +5,7 @@ import 'package:places/shared/places_sizes.dart';
 class TextFieldIconWrapper extends StatelessWidget {
   final Widget child;
 
-  TextFieldIconWrapper({@required this.child});
+  TextFieldIconWrapper({required this.child});
 
   @override
   Widget build(BuildContext context) {

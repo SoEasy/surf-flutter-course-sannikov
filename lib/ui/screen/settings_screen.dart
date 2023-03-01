@@ -44,7 +44,7 @@ class SettingScreen extends StatelessWidget {
         title: Text(
           PlacesTexts.settingsTitle,
           style: PlacesFonts.size18.copyWith(
-            color: Theme.of(context).textTheme.bodyText1.color,
+            color: Theme.of(context).textTheme.bodyText1?.color,
           ),
         ),
         centerTitle: true,

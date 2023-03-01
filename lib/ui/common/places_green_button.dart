@@ -9,8 +9,8 @@ class PlacesGreenButton extends StatelessWidget {
   bool disabled = false;
 
   PlacesGreenButton({
-    @required this.child,
-    @required this.onPressed,
+    required this.child,
+    required this.onPressed,
     this.disabled = false,
   });
 

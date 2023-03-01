@@ -23,25 +23,15 @@ class SightIconBase extends StatelessWidget {
 
   /// Необязательный параметр, позволяет хардкорно задать цвет и игнорировать
   /// тему и disabled
-  final Color color;
+  final Color? color;
 
   final double width;
   final double height;
 
-  const SightIconBase({
-    this.asset,
-    this.withTheme = false,
-    this.isActive = false,
-    this.disabled = false,
-    this.width = 24,
-    this.height = 24,
-    this.color,
-  });
-
   @override
   Widget build(BuildContext context) {
     final _isLight = Theme.of(context).brightness == Brightness.light;
-    Color iconColor;
+    Color? iconColor;
 
     if (disabled) {
       iconColor = PlacesColors.textSecondary2Opacity;
@@ -62,6 +52,16 @@ class SightIconBase extends StatelessWidget {
       color: iconColor,
     );
   }
+
+  const SightIconBase({
+    required this.asset,
+    this.withTheme = false,
+    this.isActive = false,
+    this.disabled = false,
+    this.width = 24,
+    this.height = 24,
+    this.color,
+  });
 }
 
 /// Класс иконки избранного
@@ -254,7 +254,7 @@ class SightIconCatalogSpecial extends SightIconBase {
 }
 
 class SightIconInfo extends SightIconBase {
-  const SightIconInfo({Color color})
+  const SightIconInfo({Color? color})
       : super(
           asset: 'res/icons/icon_info',
           color: color,

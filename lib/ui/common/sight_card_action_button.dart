@@ -8,8 +8,8 @@ class SightCardActionButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   SightCardActionButton({
-    this.icon,
-    this.onPressed
+    required this.icon,
+    required this.onPressed
   });
 
   @override
