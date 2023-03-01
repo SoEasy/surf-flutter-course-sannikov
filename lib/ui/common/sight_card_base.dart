@@ -22,7 +22,6 @@ class SightCardBase extends StatelessWidget {
 
   SightCardBase(
     this.sight, {
-    this.onDelete,
     this.key,
     required this.content,
     this.actions = const [],
@@ -122,7 +121,7 @@ class SightCardBase extends StatelessWidget {
         direction: DismissDirection.endToStart,
         key: ValueKey(sight.name),
         onDismissed: (DismissDirection _) {
-          onDelete();
+          onDelete?.call();
         },
         child: Container(
           key: key,
