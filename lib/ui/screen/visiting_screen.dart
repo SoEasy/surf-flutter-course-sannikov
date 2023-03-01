@@ -63,6 +63,26 @@ class _VisitingScreenState extends State<VisitingScreen>
     });
   }
 
+  void _moveVisitedItemTo(Sight item, Sight target) {
+    final itemIndex = _visitedPlaces.indexOf(item);
+    int targetIndex = _visitedPlaces.indexOf(target);
+
+    setState(() {
+      _visitedPlaces.removeAt(itemIndex);
+      _visitedPlaces.insert(targetIndex, item);
+    });
+  }
+
+  void _movePlannedItemTo(Sight item, Sight target) {
+    final itemIndex = _plannedPlaces.indexOf(item);
+    int targetIndex = _plannedPlaces.indexOf(target);
+
+    setState(() {
+      _plannedPlaces.removeAt(itemIndex);
+      _plannedPlaces.insert(targetIndex, item);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,6 +121,9 @@ class _VisitingScreenState extends State<VisitingScreen>
                       .map((Sight item) {
                         return DnDContainer(
                             data: item,
+                            onAccept: (Sight data) {
+                              _movePlannedItemTo(data, item);
+                            },
                             child: Padding(
                               padding: const EdgeInsets.symmetric(vertical: 8),
                               child: SightFavouriteCard(
@@ -137,6 +160,9 @@ class _VisitingScreenState extends State<VisitingScreen>
                       .map((Sight item) {
                         return DnDContainer(
                             data: item,
+                            onAccept: (Sight data) {
+                              _moveVisitedItemTo(data, item);
+                            },
                             child: Padding(
                               padding: const EdgeInsets.symmetric(vertical: 8),
                               child: SightVisitedCard(
