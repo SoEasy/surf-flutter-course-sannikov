@@ -5,10 +5,10 @@ class AddFormData {
   final String details;
 
   AddFormData({
-    this.name,
-    this.lat,
-    this.lon,
-    this.details,
+    required this.name,
+    required this.lat,
+    required this.lon,
+    required this.details,
   });
 
   AddFormData update({name, lat, lon, details}) {
