@@ -74,7 +74,7 @@ class _DetailsContent extends StatelessWidget {
           Text(
             this._sight.name,
             style: PlacesFonts.size24WeightBold.copyWith(
-              color: Theme.of(context).textTheme.bodyText1.color,
+              color: Theme.of(context).textTheme.bodyText1?.color,
             ),
           ),
           Padding(
@@ -95,7 +95,7 @@ class _DetailsContent extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  _sight.workTime,
+                  _sight.workTime ?? '',
                   style: PlacesFonts.size14
                       .copyWith(color: PlacesColors.textSecondary2Opacity),
                 )
@@ -197,7 +197,7 @@ class _DetailsActions extends StatelessWidget {
                         Text(
                           PlacesTexts.markAsFavourite,
                           style: PlacesFonts.size14.copyWith(
-                            color: Theme.of(context).textTheme.bodyText1.color,
+                            color: Theme.of(context).textTheme.bodyText1?.color,
                           ),
                         )
                       ],

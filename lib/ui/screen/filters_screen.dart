@@ -46,7 +46,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
 
   void _handleSelectType(SightType selectedType) {
     setState(() {
-      _selectedTypes[selectedType] = !_selectedTypes[selectedType];
+      bool actualValue = _selectedTypes[selectedType]!;
+      _selectedTypes[selectedType] = !actualValue;
     });
   }
 
@@ -107,21 +108,21 @@ class _FiltersScreenState extends State<FiltersScreen> {
             children: [
               SightFilterCheckbox(
                 icon: SightIconCatalogHotel(),
-                value: _selectedTypes[SightType.hotel],
+                value: _selectedTypes[SightType.hotel]!,
                 sightType: SightType.hotel,
                 onChanged: _handleSelectType,
                 title: PlacesTexts.sightTypeHotel,
               ),
               SightFilterCheckbox(
                 icon: SightIconCatalogRestaurant(),
-                value: _selectedTypes[SightType.restaurant],
+                value: _selectedTypes[SightType.restaurant]!,
                 sightType: SightType.restaurant,
                 onChanged: _handleSelectType,
                 title: PlacesTexts.sightTypeRestaurant,
               ),
               SightFilterCheckbox(
                 icon: SightIconCatalogSpecial(),
-                value: _selectedTypes[SightType.special],
+                value: _selectedTypes[SightType.special]!,
                 sightType: SightType.special,
                 onChanged: _handleSelectType,
                 title: PlacesTexts.sightTypeSpecial,
@@ -136,21 +137,21 @@ class _FiltersScreenState extends State<FiltersScreen> {
             children: [
               SightFilterCheckbox(
                 icon: SightIconCatalogPark(),
-                value: _selectedTypes[SightType.park],
+                value: _selectedTypes[SightType.park]!,
                 sightType: SightType.park,
                 onChanged: _handleSelectType,
                 title: PlacesTexts.sightTypePark,
               ),
               SightFilterCheckbox(
                 icon: SightIconCatalogMuseum(),
-                value: _selectedTypes[SightType.museum],
+                value: _selectedTypes[SightType.museum]!,
                 sightType: SightType.museum,
                 onChanged: _handleSelectType,
                 title: PlacesTexts.sightTypeMuseum,
               ),
               SightFilterCheckbox(
                 icon: SightIconCatalogCafe(),
-                value: _selectedTypes[SightType.cafe],
+                value: _selectedTypes[SightType.cafe]!,
                 sightType: SightType.cafe,
                 onChanged: _handleSelectType,
                 title: PlacesTexts.sightTypeCafe,
@@ -174,7 +175,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               Text(
                 PlacesTexts.filterDistanceTitle,
                 style: PlacesFonts.size16.copyWith(
-                  color: Theme.of(context).textTheme.headline1.color,
+                  color: Theme.of(context).textTheme.headline1?.color,
                 ),
               ),
               Spacer(),
@@ -204,7 +205,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
     );
   }
 
-  Widget _filterAppBar() {
+  PreferredSizeWidget _filterAppBar() {
     return AppBar(
       backgroundColor: Colors.transparent,
       shadowColor: Colors.transparent,

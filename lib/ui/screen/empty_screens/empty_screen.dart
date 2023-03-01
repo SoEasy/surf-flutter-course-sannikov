@@ -12,9 +12,9 @@ class EmptyScreen extends StatelessWidget {
   final String text;
 
   EmptyScreen({
-    this.icon,
-    this.title,
-    this.text,
+    required this.icon,
+    required this.title,
+    required this.text,
   });
 
   @override

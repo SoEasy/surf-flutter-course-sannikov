@@ -26,14 +26,14 @@ class NoSearchResults extends StatelessWidget {
           child: Text(
             PlacesTexts.nothingFoundTitle,
             style: PlacesFonts.size18Weight500.copyWith(
-              color: Theme.of(context).textTheme.subtitle2.color,
+              color: Theme.of(context).textTheme.subtitle2?.color,
             ),
           ),
         ),
         Text(
           PlacesTexts.nothigFoundSubtitle,
           style: PlacesFonts.size14.copyWith(
-            color: Theme.of(context).textTheme.subtitle2.color,
+            color: Theme.of(context).textTheme.subtitle2?.color,
           ),
         )
       ],

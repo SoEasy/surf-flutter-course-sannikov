@@ -25,7 +25,7 @@ class _FavouriteCardContent extends StatelessWidget {
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: PlacesFonts.size16Weight500.copyWith(
-            color: Theme.of(context).textTheme.bodyText1.color,
+            color: Theme.of(context).textTheme.bodyText1?.color,
           ),
         ),
         Text(
@@ -59,7 +59,7 @@ class SightFavouriteCard extends StatelessWidget {
 
   SightFavouriteCard(
     this._sight,
-    {this.key, this.onDelete}
+    {required this.key, required this.onDelete}
   );
 
   @override

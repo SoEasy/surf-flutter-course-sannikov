@@ -33,12 +33,12 @@ class _VisitingScreenState extends State<VisitingScreen>
     mocks[2],
   ];
 
-  TabController tabController;
+  TabController? tabController;
 
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
-    tabController.addListener(() {
+    tabController?.addListener(() {
       setState(() {});
     });
     super.initState();
@@ -68,7 +68,7 @@ class _VisitingScreenState extends State<VisitingScreen>
         shadowColor: Colors.transparent,
         bottom: PreferredSize(
           child: SwitchTabIndicator(
-            tabController,
+            tabController!,
             items: [
               PlacesTexts.visitingPlanned,
               PlacesTexts.visitingVisited,
@@ -79,7 +79,7 @@ class _VisitingScreenState extends State<VisitingScreen>
         title: Text(
           PlacesTexts.favouritesTitle,
           style: PlacesFonts.size18.copyWith(
-            color: Theme.of(context).textTheme.bodyText1.color,
+            color: Theme.of(context).textTheme.bodyText1?.color,
           ),
         ),
       ),

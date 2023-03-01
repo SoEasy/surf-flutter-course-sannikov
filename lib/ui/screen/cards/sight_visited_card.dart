@@ -25,7 +25,7 @@ class _VisitedCardContent extends StatelessWidget {
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: PlacesFonts.size16Weight500.copyWith(
-            color: Theme.of(context).textTheme.bodyText1.color,
+            color: Theme.of(context).textTheme.bodyText1?.color,
           ),
         ),
         Text(
@@ -58,7 +58,7 @@ class SightVisitedCard extends StatelessWidget {
   final Key key;
   final Sight _sight;
 
-  SightVisitedCard(this._sight, {this.key, this.onDelete});
+  SightVisitedCard(this._sight, {required this.key, required this.onDelete});
 
   @override
   Widget build(BuildContext context) {

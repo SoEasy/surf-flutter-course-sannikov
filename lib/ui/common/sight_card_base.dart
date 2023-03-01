@@ -14,19 +14,20 @@ import 'package:places/ui/common/sigth_image_preloader.dart';
 /// TODO onDelete - коллбэк на удаление карточки
 class SightCardBase extends StatelessWidget {
   final Sight sight;
-  final void Function() onDelete;
+  final void Function()? onDelete;
   final Widget content;
   final List<Widget> actions;
-  final Function(Sight sight) onPressed;
-  final Key key;
+  final Function(Sight sight)? onPressed;
+  final Key? key;
 
   SightCardBase(
     this.sight, {
     this.onDelete,
     this.key,
-    this.content,
+    required this.content,
     this.actions = const [],
     this.onPressed,
+    this.onDelete
   });
 
   Widget _image() {

@@ -27,7 +27,7 @@ class _ListCardContent extends StatelessWidget {
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: PlacesFonts.size16Weight500.copyWith(
-              color: Theme.of(context).textTheme.bodyText1.color,
+              color: Theme.of(context).textTheme.bodyText1?.color,
             ),
           ),
         ),

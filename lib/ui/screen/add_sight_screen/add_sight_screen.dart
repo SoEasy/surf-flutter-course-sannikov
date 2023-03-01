@@ -23,7 +23,7 @@ class CategorySelector extends StatelessWidget {
         Text(
           PlacesTexts.addPlaceCategoryTitle,
           style: PlacesFonts.size12.copyWith(
-            color: Theme.of(context).textTheme.subtitle2.color,
+            color: Theme.of(context).textTheme.subtitle2?.color,
           ),
         ),
         SizedBox(
@@ -66,7 +66,7 @@ class AddSightScreen extends StatefulWidget {
 }
 
 class _AddSightScreenState extends State<AddSightScreen> {
-  AddFormData formData;
+  AddFormData? formData;
   bool isValid = false;
 
   void _handleChangeData(AddFormData newFormData) {
@@ -86,11 +86,11 @@ class _AddSightScreenState extends State<AddSightScreen> {
 
     mocks.add(
       Sight(
-        name: formData.name,
-        lat: formData.lat,
-        lon: formData.lon,
+        name: formData!.name,
+        lat: formData!.lat,
+        lon: formData!.lon,
         url: 'https://',
-        details: formData.details,
+        details: formData!.details,
         type: SightType.special,
       ),
     );
@@ -109,7 +109,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
         title: Text(
           PlacesTexts.addPlaceTitle,
           style: PlacesFonts.size18Weight500.copyWith(
-            color: Theme.of(context).textTheme.headline1.color,
+            color: Theme.of(context).textTheme.headline1?.color,
           ),
         ),
         leadingWidth: 90,

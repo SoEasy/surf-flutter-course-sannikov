@@ -12,7 +12,7 @@ class PhotoAddButton extends StatelessWidget {
   final VoidCallback onAdd;
 
   PhotoAddButton({
-    this.onAdd,
+    required this.onAdd,
   });
 
   @override
@@ -54,8 +54,8 @@ class PhotoItem extends StatelessWidget {
   final VoidCallback onRemove;
 
   PhotoItem({
-    @required this.id,
-    this.onRemove,
+    required this.id,
+    required this.onRemove,
   });
 
   @override
