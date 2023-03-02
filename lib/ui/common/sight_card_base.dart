@@ -84,6 +84,7 @@ class SightCardBase extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: MediaQuery.of(context).size.width - PlacesSizes.doublePrimaryPadding,
+        margin: EdgeInsets.only(bottom: PlacesSizes.cardBottomMargin),
         child: Stack(
           children: [
             Positioned.fill(

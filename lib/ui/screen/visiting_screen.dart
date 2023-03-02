@@ -124,22 +124,16 @@ class _VisitingScreenState extends State<VisitingScreen>
                             onAccept: (Sight data) {
                               _movePlannedItemTo(data, item);
                             },
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 8),
-                              child: SightFavouriteCard(
-                                item,
-                                onDelete: _handleDeletePlanned,
-                              ),
+                            child: SightFavouriteCard(
+                              item,
+                              onDelete: _handleDeletePlanned,
                             ),
                             dropPlaceholderBuilder: (Sight? data) {
                               return Opacity(
                                 opacity: .3,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 8),
-                                  child: SightFavouriteCard(
-                                    data!,
-                                    onDelete: _handleDeletePlanned,
-                                  ),
+                                child: SightFavouriteCard(
+                                  data!,
+                                  onDelete: _handleDeletePlanned,
                                 ),
                               );
                             }
