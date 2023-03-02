@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/shared/lib.dart';
@@ -111,78 +113,77 @@ class _VisitingScreenState extends State<VisitingScreen>
         child: TabBarView(
           controller: tabController,
           children: [
-            _plannedPlaces.length == 0 ? PlannedEmptyScreen() :
-            SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.symmetric(
-                horizontal: PlacesSizes.primaryPadding),
-                child: Column(
-                  children: _plannedPlaces
-                      .map((Sight item) {
+            _plannedPlaces.length == 0
+                ? PlannedEmptyScreen()
+                : Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: PlacesSizes.primaryPadding,
+                    ),
+                    child: ListView.builder(
+                      physics: Platform.isIOS
+                          ? BouncingScrollPhysics()
+                          : ClampingScrollPhysics(),
+                      itemCount: _plannedPlaces.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        Sight item = _plannedPlaces[index];
                         return DnDContainer(
-                            data: item,
-                            onAccept: (Sight data) {
-                              _movePlannedItemTo(data, item);
-                            },
-                            child: SightFavouriteCard(
-                              item,
-                              onDelete: _handleDeletePlanned,
-                            ),
-                            dropPlaceholderBuilder: (Sight? data) {
-                              return Opacity(
-                                opacity: .3,
-                                child: SightFavouriteCard(
-                                  data!,
-                                  onDelete: _handleDeletePlanned,
-                                ),
-                              );
-                            }
-                        );
-                      })
-                      .toList(),
-                ),
-              ),
-            ),
-            _visitedPlaces.length == 0 ? VisitedEmptyScreen() : SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: PlacesSizes.primaryPadding),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: _visitedPlaces
-                      .map((Sight item) {
-                        return DnDContainer(
-                            data: item,
-                            onAccept: (Sight data) {
-                              _moveVisitedItemTo(data, item);
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 8),
-                              child: SightVisitedCard(
-                                item,
-                                key: ValueKey(item.id),
-                                onDelete: _handleDeleteVisited,
+                          data: item,
+                          onAccept: (Sight data) {
+                            _movePlannedItemTo(data, item);
+                          },
+                          child: SightFavouriteCard(
+                            item,
+                            onDelete: _handleDeletePlanned,
+                          ),
+                          dropPlaceholderBuilder: (Sight? data) {
+                            return Opacity(
+                              opacity: .3,
+                              child: SightFavouriteCard(
+                                data!,
+                                onDelete: _handleDeletePlanned,
                               ),
-                            ),
-                            dropPlaceholderBuilder: (Sight? data) {
-                              return Opacity(
-                                opacity: .3,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 8),
-                                  child: SightFavouriteCard(
-                                    data!,
-                                    onDelete: _handleDeletePlanned,
-                                  ),
-                                ),
-                              );
-                            }
+                            );
+                          },
                         );
-                      })
-                      .toList(),
-                ),
-              ),
-            ),
+                      },
+                    ),
+                  ),
+            _visitedPlaces.length == 0
+                ? VisitedEmptyScreen()
+                : Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: PlacesSizes.primaryPadding,
+                    ),
+                    child: ListView.builder(
+                      physics: Platform.isIOS
+                          ? BouncingScrollPhysics()
+                          : ClampingScrollPhysics(),
+                      itemCount: _visitedPlaces.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        Sight item = _visitedPlaces[index];
+                        return DnDContainer(
+                          data: item,
+                          onAccept: (Sight data) {
+                            _moveVisitedItemTo(data, item);
+                          },
+                          child: SightVisitedCard(
+                            item,
+                            key: ValueKey(item.id),
+                            onDelete: _handleDeleteVisited,
+                          ),
+                          dropPlaceholderBuilder: (Sight? data) {
+                            return Opacity(
+                              opacity: .3,
+                              child: SightFavouriteCard(
+                                data!,
+                                onDelete: _handleDeletePlanned,
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  ),
           ],
         ),
       ),
