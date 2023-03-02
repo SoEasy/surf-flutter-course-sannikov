@@ -43,18 +43,6 @@ class _SightListWidgetState extends State<SightListScreen> {
               }
             ),
           ),
-          // Container(
-          //   padding:
-          //       EdgeInsets.symmetric(horizontal: PlacesSizes.primaryPadding),
-          //   child: Column(
-          //     children: [
-          //       for (var i = 0; i < mocks.length; i++) SightListCard(mocks[i])
-          //       // SightListCard(mocks[2]),
-          //       // SightListCard(mocks[1]),
-          //       // SightListCard(mocks[0]),
-          //     ],
-          //   ),
-          // ),
           Positioned(
             bottom: 16,
             left: 0,
