@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_sizes.dart';
@@ -5,7 +7,6 @@ import 'package:places/ui/common/icons.dart';
 import 'package:uuid/uuid.dart';
 
 var uuid = Uuid();
-
 
 /// Зеленая кнопка, которая будет вызвать галерею для выбора фоток
 class PhotoAddButton extends StatelessWidget {
@@ -46,7 +47,6 @@ class PhotoAddButton extends StatelessWidget {
     );
   }
 }
-
 
 /// Превьюшка для фотографии в выборе фотографий
 class PhotoItem extends StatelessWidget {
@@ -123,15 +123,14 @@ class _PhotoSelectorState extends State<PhotoSelector> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        bottom: PlacesSizes.primaryAndHalfPadding,
-      ),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
+    return Container(
+        margin: EdgeInsets.only(
+          bottom: PlacesSizes.primaryAndHalfPadding,
+        ),
+        height: 72,
+        width: double.infinity,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
           children: [
             PhotoAddButton(
               onAdd: () {
@@ -140,17 +139,26 @@ class _PhotoSelectorState extends State<PhotoSelector> {
                 });
               },
             ),
-            for (var i = 0, l = photos.length; i < l; i += 1)
-              PhotoItem(
-                  id: photos[i].toString(),
-                  onRemove: () {
-                    setState(() {
-                      photos.removeAt(i);
-                    });
-                  }),
+            Expanded(
+              child: Container(
+                child: ListView.builder(
+                  physics: Platform.isIOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: photos.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return PhotoItem(
+                      id: photos[index].toString(),
+                      onRemove: () {
+                        setState(() {
+                          photos.removeAt(index);
+                        });
+                      },
+                    );
+                  },
+                ),
+              ),
+            )
           ],
-        ),
-      ),
-    );
+        ));
   }
 }

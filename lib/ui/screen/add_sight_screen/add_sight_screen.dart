@@ -158,18 +158,15 @@ class _AddSightScreenState extends State<AddSightScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                children: [
-                  PhotoSelector(),
-                  CategorySelector(),
-                  AddPlaceForm(
-                    onChangeForm: _handleChangeData,
-                  ),
-                ],
+              PhotoSelector(),
+              CategorySelector(),
+              AddPlaceForm(
+                onChangeForm: _handleChangeData,
               ),
             ],
           ),
         ),
+        // ),
       ),
     );
   }
