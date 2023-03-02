@@ -18,11 +18,10 @@ class SightCardBase extends StatelessWidget {
   final Widget content;
   final List<Widget> actions;
   final Function(Sight sight)? onPressed;
-  final Key? key;
+  final GlobalKey globKey = GlobalKey();
 
   SightCardBase(
     this.sight, {
-    this.key,
     required this.content,
     this.actions = const [],
     this.onPressed,
@@ -83,67 +82,70 @@ class SightCardBase extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Для того, чтобы круглые углы самого виджета при смахивании соответствовали дизайну - использую не background от Dismissable,
-    // а виджет в стеке под карточкой с такими же углами
-    return Stack(children: [
-      Positioned.fill(
-        child: Container(
-          decoration: BoxDecoration(
-            color: PlacesColors.bgDismiss,
-            borderRadius: BorderRadius.circular(PlacesSizes.primaryPadding),
-          ),
-          child: Row(
-            children: [
-              Expanded(child: SizedBox.shrink()),
-              Padding(
-                padding: EdgeInsets.only(right: PlacesSizes.primaryPadding),
-                // Колонка переполняется при исчезновении Dismissable, поэтому использую Wrap
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [SightIconTrash()]),
-                    SizedBox(height: 10),
-                    Text('Удалить',
-                        style: PlacesFonts.size12.copyWith(
-                            color: PlacesColors.textMainDark,
-                            fontWeight: FontWeight.w500)
-                    )
-                  ],
+    return Container(
+        width: MediaQuery.of(context).size.width - PlacesSizes.doublePrimaryPadding,
+        margin: EdgeInsets.only(bottom: PlacesSizes.cardBottomMargin),
+        child: Stack(
+          children: [
+            Positioned.fill(
+                child: Container(
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    color: PlacesColors.bgDismiss,
+                    borderRadius: BorderRadius.circular(PlacesSizes.primaryPadding),
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(child: SizedBox.shrink()),
+                      Padding(
+                        padding: EdgeInsets.only(right: PlacesSizes.primaryPadding),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [SightIconTrash()]),
+                            SizedBox(height: 10),
+                            Text('Удалить',
+                              style: PlacesFonts.size12.copyWith(
+                              color: PlacesColors.textMainDark,
+                              fontWeight: FontWeight.w500)
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                )
+            ),
+            Dismissible(
+              direction: DismissDirection.endToStart,
+              key: globKey,
+              onDismissed: (DismissDirection _) {
+                onDelete?.call();
+              },
+              child: Container(
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(PlacesSizes.primaryPadding),
                 ),
-              )
-            ],
-          ),
-        )
-      ),
-      Dismissible(
-        direction: DismissDirection.endToStart,
-        key: ValueKey(sight.name),
-        onDismissed: (DismissDirection _) {
-          onDelete?.call();
-        },
-        child: Container(
-          key: key,
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(PlacesSizes.primaryPadding),
-          ),
-          child: Material(
-            child: Ink(
-              child: InkWell(
-                onTap: () {
-                  print('On pressed card');
-                  onPressed?.call(sight);
-                },
-                child: Column(
-                  children: [_image(), _content()],
+                child: Material(
+                  child: Ink(
+                    child: InkWell(
+                      onTap: () {
+                        print('On pressed card');
+                        onPressed?.call(sight);
+                      },
+                      child: Column(
+                        children: [_image(), _content()],
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
+            )
+          ],
         ),
-      ),
-    ]);
+    );
   }
 }
