@@ -15,6 +15,10 @@ final lightTheme = ThemeData(
   brightness: Brightness.light,
   scaffoldBackgroundColor: PlacesColors.bgMainLight,
   backgroundColor: PlacesColors.tileBgLight,
+  // Для себя - попробовал убрать ripple, не нравится
+  // splashColor: Colors.transparent,
+  // highlightColor: Colors.transparent,
+  // Так же можно передавать кастомную splashFactory https://stackoverflow.com/a/54084137
   textTheme: TextTheme(
     headline1: TextStyle(
       color: PlacesColors.textMainLight,

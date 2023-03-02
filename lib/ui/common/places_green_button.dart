@@ -21,10 +21,10 @@ class PlacesGreenButton extends StatelessWidget {
       height: 48,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Theme.of(context).buttonColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
+          backgroundColor: Theme.of(context).buttonColor,
         ),
         child: child,
         onPressed: disabled ? null : onPressed,

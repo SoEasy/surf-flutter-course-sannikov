@@ -10,6 +10,8 @@ class PlacesSizes {
 
   static final double primaryPaddingWithoutFourth = PlacesSizes.primaryPadding * 0.75;
 
+  static final double cardBottomMargin = 24;
+
   static final double switchRadius = 40;
 
   static final double textFormFieldHeight = 40;

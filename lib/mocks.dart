@@ -19,7 +19,7 @@ final List<Sight> mocks = [
     lat: 49.738889,
     lon: 142.861111,
     url:
-        'https://avatars.mds.yandex.net/get-zen_doc/1586459/pub_5dec9bdd3d873600ae285314_5dec9c03e6cb9b00aee527e9/scale_1200',
+        'https://www.angrymetalguy.com/wp-content/uploads/2017/11/Vhaldemar-Against-All-Kings-01.jpg',
     details: 'Аэропорт на острове',
     type: SightType.special,
     workTime: 'Круглостуочно',
@@ -34,6 +34,19 @@ final List<Sight> mocks = [
         'https://upload.wikimedia.org/wikipedia/commons/3/31/Ch%C3%A2teau_de_Saint-Germain-en-Laye01.jpg',
     details:
         'Знаменитый дворец во Франции, в окрестностях которого писал великий Виктор Гюго',
+    type: SightType.park,
+    workTime: 'Круглосуточно',
+    plannedTo: '31 фев. 2222',
+    achievedAt: 'вчера',
+  ),
+  new Sight(
+    name: 'Телебашня Тбилиси',
+    lat: 48.881389,
+    lon: 2.096389,
+    url:
+    'https://sova.news/wp-content/uploads/2018/06/Tbilisi_Tower.jpg',
+    details:
+    'Ночью светится',
     type: SightType.park,
     workTime: 'Круглосуточно',
     plannedTo: '31 фев. 2222',
