@@ -315,3 +315,27 @@ class SightIconClear extends SightIconBase {
           color: color,
         );
 }
+
+class SightIconOnboardingFirst extends SightIconBase {
+  const SightIconOnboardingFirst(): super(
+    asset: 'res/icons/icon_onboarding_first',
+    width: 104,
+    height: 104
+  );
+}
+
+class SightIconOnboardingSecond extends SightIconBase {
+  const SightIconOnboardingSecond(): super(
+      asset: 'res/icons/icon_onboarding_second',
+      width: 104,
+      height: 104
+  );
+}
+
+class SightIconOnboardingThird extends SightIconBase {
+  const SightIconOnboardingThird(): super(
+      asset: 'res/icons/icon_onboarding_third',
+      width: 104,
+      height: 104
+  );
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
+import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/common/places_green_button.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -14,9 +15,11 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   PageController _controller = PageController();
   bool _isLastStep = false;
+  int _currentPage = 0;
 
   _handleControllerChange(int page) {
     setState(() {
+      _currentPage = page;
       _isLastStep = page == 2;
     });
   }
@@ -40,7 +43,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             children: [
-              OnboardingTopBar(isVisible: !_isLastStep,),
+              OnboardingTopBar(
+                isVisible: !_isLastStep,
+              ),
               Expanded(
                 child: Stack(
                   children: [
@@ -48,14 +53,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       controller: _controller,
                       onPageChanged: _handleControllerChange,
                       children: [
-                        Container(
-                          color: Colors.red,
+                        OnboardingContent(
+                          icon: SightIconOnboardingFirst(),
+                          title: 'Добро пожаловать в Путеводитель',
+                          subtitle:
+                              'Ищи новые локации и сохраняй самые любимые.',
                         ),
-                        Container(
-                          color: Colors.blue,
+                        OnboardingContent(
+                          icon: SightIconOnboardingSecond(),
+                          title: 'Построй маршрут и отправляйся в путь',
+                          subtitle:
+                              'Достигай цели максимально быстро и комфортно.',
                         ),
-                        Container(
-                          color: Colors.green,
+                        OnboardingContent(
+                          icon: SightIconOnboardingThird(),
+                          title: 'Добавляй места, которые нашёл сам',
+                          subtitle:
+                              'Делись самыми интересными и помоги нам стать лучше!',
                         ),
                       ],
                     ),
@@ -65,13 +79,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       right: 0,
                       child: OnboardingIndicator(
                         length: 3,
-                        index: 2,
+                        index: _currentPage,
                       ),
                     ),
                   ],
                 ),
               ),
-              OnboardingBottomBar(isVisible: _isLastStep,)
+              OnboardingBottomBar(
+                isVisible: _isLastStep,
+              )
             ],
           ),
         ),
@@ -82,6 +98,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
 class OnboardingTopBar extends StatelessWidget {
   final bool isVisible;
+
   const OnboardingTopBar({
     Key? key,
     this.isVisible = false,
@@ -95,21 +112,23 @@ class OnboardingTopBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          isVisible ? TextButton(
-            style: ButtonStyle(
-              padding: MaterialStateProperty.all(
-                EdgeInsets.all(
-                  PlacesSizes.primaryPadding,
-                ),
-              ),
-            ),
-            onPressed: () {},
-            child: Text(
-              'Пропустить',
-              style: PlacesFonts.size16Weight500
-                  .copyWith(color: PlacesColors.primaryButtonLight),
-            ),
-          ) : SizedBox.shrink(),
+          isVisible
+              ? TextButton(
+                  style: ButtonStyle(
+                    padding: MaterialStateProperty.all(
+                      EdgeInsets.all(
+                        PlacesSizes.primaryPadding,
+                      ),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Text(
+                    'Пропустить',
+                    style: PlacesFonts.size16Weight500
+                        .copyWith(color: PlacesColors.primaryButtonLight),
+                  ),
+                )
+              : SizedBox.shrink(),
         ],
       ),
     );
@@ -118,6 +137,7 @@ class OnboardingTopBar extends StatelessWidget {
 
 class OnboardingBottomBar extends StatelessWidget {
   final bool isVisible;
+
   const OnboardingBottomBar({
     Key? key,
     this.isVisible = false,
@@ -131,20 +151,62 @@ class OnboardingBottomBar extends StatelessWidget {
         vertical: PlacesSizes.primaryHalfPadding,
         horizontal: PlacesSizes.primaryPadding,
       ),
-      child: isVisible ? PlacesGreenButton(
-        onPressed: () {},
-        child: Text('НА СТАРТ'),
-      ) : SizedBox.shrink(),
+      child: isVisible
+          ? PlacesGreenButton(
+              onPressed: () {},
+              child: Text('НА СТАРТ'),
+            )
+          : SizedBox.shrink(),
     );
   }
 }
 
 class OnboardingContent extends StatelessWidget {
-  const OnboardingContent({Key? key}) : super(key: key);
+  final Widget icon;
+  final String title;
+  final String subtitle;
+
+  const OnboardingContent({
+    Key? key,
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 58,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          icon,
+          SizedBox(
+            height: 40,
+          ),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: PlacesFonts.size24WeightBold.copyWith(
+              color: Theme.of(context).textTheme.headline1?.color,
+            ),
+          ),
+          SizedBox(
+            height: PlacesSizes.primaryHalfPadding,
+          ),
+          Text(
+            subtitle,
+            textAlign: TextAlign.center,
+            style: PlacesFonts.size14.copyWith(
+              color: Theme.of(context).textTheme.subtitle1?.color,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
