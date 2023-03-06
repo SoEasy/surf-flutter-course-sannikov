@@ -149,7 +149,7 @@ class SightIconGo extends SightIconBase {
 class SightIconArrowLeft extends SightIconBase {
   const SightIconArrowLeft({
     color,
-    withTheme,
+    withTheme = false,
   }) : super(
           asset: 'res/icons/icon_arrow_left',
           color: color,

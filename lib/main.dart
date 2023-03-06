@@ -38,10 +38,10 @@ class _AppState extends State<App> {
       theme: _isDarkTheme ? darkTheme : lightTheme,
       // theme: darkTheme,
       title: PlacesTexts.appTitle,
-      home: AddSightScreen(),
+      // home: AddSightScreen(),
       // home: VisitingScreen(),
       // home: SightListScreen(),
-      // home: SightDetails(mocks[2]),
+      home: SightDetails(mocks[2]),
       // home: FiltersScreen(),
       // home: SettingScreen(),
     );
