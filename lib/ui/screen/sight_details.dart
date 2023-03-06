@@ -26,11 +26,10 @@ class _DetailsGalleryState extends State<_DetailsGallery> {
 
   PageController _controller = PageController();
 
-  void _handleControllerChange() {
-    final double? page = _controller.page;
-    if (page != null && page.round() == page && page != _currentIndex) {
+  void _handleControllerChange(int page) {
+    if (page != _currentIndex) {
       setState(() {
-        _currentIndex = page.toInt();
+        _currentIndex = page;
         _tickTimer(_currentIndex == _galleryLength - 1 ? 0 : _currentIndex + 1);
       });
     }
@@ -56,14 +55,12 @@ class _DetailsGalleryState extends State<_DetailsGallery> {
 
   @override
   void initState() {
-    _controller.addListener(_handleControllerChange);
     _tickTimer(1);
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller.removeListener(_handleControllerChange);
     _scrollTimer?.cancel();
     super.dispose();
   }
@@ -78,6 +75,7 @@ class _DetailsGalleryState extends State<_DetailsGallery> {
               height: 360,
               child: PageView.builder(
                 controller: _controller,
+                onPageChanged: _handleControllerChange,
                 itemCount: _galleryLength,
                 itemBuilder: (BuildContext context, int index) {
                   return Image.network(
