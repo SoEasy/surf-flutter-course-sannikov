@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/mocks.dart';
@@ -168,30 +170,16 @@ class SearchResults extends StatelessWidget {
           height: PlacesSizes.doublePrimaryPadding,
         ),
         Expanded(
-          child: ListView(
-            children: [
-              SearchResultItem(
+          child: ListView.builder(
+            physics: Platform.isIOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
+            itemCount: 15,
+            itemBuilder: (BuildContext context, int index) {
+              return SearchResultItem(
                 sight: mocks[0],
                 sText: 'Кофе',
                 sSelect: 'Кофе',
-              ),
-              SearchResultItem(
-                sight: mocks[0],
-                sText: 'Кофейный ресторан',
-                sSelect: 'Кофе',
-              ),
-              SearchResultItem(
-                sight: mocks[0],
-                sText: 'Кофейный кофекофейный ресторан',
-                sSelect: 'Кофе',
-              ),
-              SearchResultItem(
-                sight: mocks[0],
-                isLast: true,
-                sText: 'Кофейный-кофе',
-                sSelect: 'Кофе',
-              ),
-            ],
+              );
+            }
           ),
         ),
       ],

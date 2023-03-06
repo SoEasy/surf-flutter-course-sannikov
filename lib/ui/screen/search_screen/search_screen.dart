@@ -60,15 +60,15 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
             Expanded(
               // child: NoSearchResults(),
-              // child: SearchResults(),
-              child: SearchHistory(
-                items: [
-                  'Кофейня у Рустама в какой-то тьмутаракани',
-                  'Памятник',
-                  'Музей истории',
-                  'Зеленые рощи',
-                ],
-              ),
+              child: SearchResults(),
+              // child: SearchHistory(
+              //   items: [
+              //     'Кофейня у Рустама в какой-то тьмутаракани',
+              //     'Памятник',
+              //     'Музей истории',
+              //     'Зеленые рощи',
+              //   ],
+              // ),
             ),
           ],
         ),

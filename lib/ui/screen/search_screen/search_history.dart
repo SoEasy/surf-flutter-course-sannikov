@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
@@ -72,33 +74,37 @@ class SearchHistory extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: ListView(
-            children: [
-              for (var i = 0, l = items.length; i < l; i += 1)
-                SearchHistoryItem(
-                  title: items[i],
+          child: ListView.builder(
+            physics: Platform.isIOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
+            itemCount: items.length + 1,
+            itemBuilder: (BuildContext context, int index) {
+              if (index != items.length) {
+                return SearchHistoryItem(
+                  title: items[index],
                   onDelete: () {
-                    print('Remove ${items[i]}');
+                    print('Remove ${items[index]}');
                   },
-                  isLast: i == l - 1,
-                ),
-              InkWell(
-                onTap: () {
-                  print('clear history');
-                },
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: PlacesSizes.primaryPadding,
-                  ),
-                  child: Text(
-                    PlacesTexts.searchHistoryClear,
-                    style: PlacesFonts.size16Weight500.copyWith(
-                      color: Theme.of(context).buttonColor,
+                  isLast: index == items.length - 1,
+                );
+              } else {
+                return InkWell(
+                  onTap: () {
+                    print('clear history');
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: PlacesSizes.primaryPadding,
+                    ),
+                    child: Text(
+                      PlacesTexts.searchHistoryClear,
+                      style: PlacesFonts.size16Weight500.copyWith(
+                        color: Theme.of(context).buttonColor,
+                      ),
                     ),
                   ),
-                ),
-              )
-            ],
+                );
+              }
+            },
           ),
         )
       ],
