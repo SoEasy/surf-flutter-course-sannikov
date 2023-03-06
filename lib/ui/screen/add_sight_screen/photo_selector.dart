@@ -140,22 +140,20 @@ class _PhotoSelectorState extends State<PhotoSelector> {
               },
             ),
             Expanded(
-              child: Container(
-                child: ListView.builder(
-                  physics: Platform.isIOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: photos.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return PhotoItem(
-                      id: photos[index].toString(),
-                      onRemove: () {
-                        setState(() {
-                          photos.removeAt(index);
-                        });
-                      },
-                    );
-                  },
-                ),
+              child: ListView.builder(
+                physics: Platform.isIOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemCount: photos.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return PhotoItem(
+                    id: photos[index].toString(),
+                    onRemove: () {
+                      setState(() {
+                        photos.removeAt(index);
+                      });
+                    },
+                  );
+                },
               ),
             )
           ],

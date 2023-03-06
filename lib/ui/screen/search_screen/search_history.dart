@@ -22,7 +22,7 @@ class SearchHistoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        Padding(
           padding: EdgeInsets.only(top: 15, bottom: 13),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
