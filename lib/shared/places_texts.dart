@@ -55,4 +55,13 @@ class PlacesTexts {
   static final String searchHistoryClear = 'Очистить историю';
   static final String nothingFoundTitle = 'Ничего не найдено';
   static final String nothigFoundSubtitle = 'Попробуйте изменить параметры поиска';
+
+  static final String onboardingTitle1 = 'Добро пожаловать в Путеводитель';
+  static final String onboardingSubtitle1 = 'Ищи новые локации и сохраняй самые любимые.';
+  static final String onboardingTitle2 = 'Построй маршрут и отправляйся в путь';
+  static final String onboardingSubtitle2 = 'Достигай цели максимально быстро и комфортно.';
+  static final String onboardingTitle3 = 'Добавляй места, которые нашёл сам';
+  static final String onboardingSubtitle3 = 'Делись самыми интересными и помоги нам стать лучше!';
+  static final String onboardingSkip = 'Пропустить';
+  static final String onboardingStart = 'НА СТАРТ';
 }

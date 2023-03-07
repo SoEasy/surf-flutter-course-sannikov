@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
+import 'package:places/shared/places_texts.dart';
 import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/common/places_green_button.dart';
 
@@ -25,71 +26,56 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              OnboardingTopBar(
-                isVisible: !_isLastStep,
-              ),
-              Expanded(
-                child: Stack(
-                  children: [
-                    PageView(
-                      controller: _controller,
-                      onPageChanged: _handleControllerChange,
-                      children: [
-                        OnboardingContent(
-                          icon: SightIconOnboardingFirst(),
-                          title: 'Добро пожаловать в Путеводитель',
-                          subtitle:
-                              'Ищи новые локации и сохраняй самые любимые.',
-                        ),
-                        OnboardingContent(
-                          icon: SightIconOnboardingSecond(),
-                          title: 'Построй маршрут и отправляйся в путь',
-                          subtitle:
-                              'Достигай цели максимально быстро и комфортно.',
-                        ),
-                        OnboardingContent(
-                          icon: SightIconOnboardingThird(),
-                          title: 'Добавляй места, которые нашёл сам',
-                          subtitle:
-                              'Делись самыми интересными и помоги нам стать лучше!',
-                        ),
-                      ],
-                    ),
-                    Positioned(
-                      bottom: 24,
-                      left: 0,
-                      right: 0,
-                      child: OnboardingIndicator(
-                        length: 3,
-                        index: _currentPage,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            OnboardingTopBar(
+              isVisible: !_isLastStep,
+            ),
+            Expanded(
+              child: Stack(
+                children: [
+                  PageView(
+                    controller: _controller,
+                    onPageChanged: _handleControllerChange,
+                    children: [
+                      OnboardingContent(
+                        icon: SightIconOnboardingFirst(),
+                        title: PlacesTexts.onboardingTitle1,
+                        subtitle: PlacesTexts.onboardingSubtitle1,
                       ),
+                      OnboardingContent(
+                        icon: SightIconOnboardingSecond(),
+                        title: PlacesTexts.onboardingTitle2,
+                        subtitle: PlacesTexts.onboardingSubtitle2,
+                      ),
+                      OnboardingContent(
+                        icon: SightIconOnboardingThird(),
+                        title: PlacesTexts.onboardingTitle3,
+                        subtitle: PlacesTexts.onboardingSubtitle3,
+                      ),
+                    ],
+                  ),
+                  Positioned(
+                    bottom: 24,
+                    left: 0,
+                    right: 0,
+                    child: OnboardingIndicator(
+                      length: 3,
+                      index: _currentPage,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              OnboardingBottomBar(
-                isVisible: _isLastStep,
-              )
-            ],
-          ),
+            ),
+            OnboardingBottomBar(
+              isVisible: _isLastStep,
+            )
+          ],
         ),
       ),
     );
@@ -106,7 +92,7 @@ class OnboardingTopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 56,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -123,7 +109,7 @@ class OnboardingTopBar extends StatelessWidget {
                   ),
                   onPressed: () {},
                   child: Text(
-                    'Пропустить',
+                    PlacesTexts.onboardingSkip,
                     style: PlacesFonts.size16Weight500
                         .copyWith(color: PlacesColors.primaryButtonLight),
                   ),
@@ -154,7 +140,9 @@ class OnboardingBottomBar extends StatelessWidget {
       child: isVisible
           ? PlacesGreenButton(
               onPressed: () {},
-              child: Text('НА СТАРТ'),
+              child: Text(
+                PlacesTexts.onboardingStart,
+              ),
             )
           : SizedBox.shrink(),
     );
