@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/shared/places_colors.dart';
@@ -8,24 +10,106 @@ import 'package:places/ui/common/icons.dart';
 import 'package:places/ui/common/places_green_button.dart';
 import 'package:places/ui/common/sigth_image_preloader.dart';
 
-class _DetailsGallery extends StatelessWidget {
+class _DetailsGallery extends StatefulWidget {
   final Sight _sight;
 
   _DetailsGallery(this._sight);
 
   @override
+  State<_DetailsGallery> createState() => _DetailsGalleryState();
+}
+
+class _DetailsGalleryState extends State<_DetailsGallery> {
+  final int _galleryLength = 5;
+  Timer? _scrollTimer;
+  int _currentIndex = 0;
+
+  PageController _controller = PageController();
+
+  void _handleControllerChange(int page) {
+    if (page != _currentIndex) {
+      setState(() {
+        _currentIndex = page;
+        _tickTimer(_currentIndex == _galleryLength - 1 ? 0 : _currentIndex + 1);
+      });
+    }
+  }
+
+  _tickTimer(int nextSlide) {
+    _scrollTimer?.cancel();
+    _scrollTimer = Timer(Duration(milliseconds: 1500), () {
+      if (nextSlide == 0) {
+        _controller.jumpToPage(
+          nextSlide
+        );
+      } else {
+        _controller.animateToPage(
+          nextSlide,
+          duration: Duration(milliseconds: 200),
+          curve: Curves.linear,
+        );
+      }
+
+    });
+  }
+
+  @override
+  void initState() {
+    _tickTimer(1);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _scrollTimer?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          constraints: BoxConstraints(
-            minHeight: 360,
-          ),
-          child: Image.network(
-            _sight.url,
-            fit: BoxFit.cover,
-            loadingBuilder: sightImagePreloader,
-          ),
+        Stack(
+          children: [
+            Container(
+              height: 360,
+              child: PageView.builder(
+                controller: _controller,
+                onPageChanged: _handleControllerChange,
+                itemCount: _galleryLength,
+                itemBuilder: (BuildContext context, int index) {
+                  return Image.network(
+                    widget._sight.url,
+                    fit: BoxFit.cover,
+                    loadingBuilder: sightImagePreloader,
+                  );
+                },
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: SizedBox(
+                height: 8,
+                child: Row(
+                  children: [
+                    for (int i = 0; i < _galleryLength; i += 1)
+                      Expanded(
+                        child: i == _currentIndex
+                            ? Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: PlacesColors.textMainLight,
+                                ),
+                              )
+                            : SizedBox.shrink(),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
         Positioned(
           left: 16,
