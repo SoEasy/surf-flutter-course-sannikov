@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
@@ -8,15 +9,12 @@ import 'package:places/ui/screen/search_screen/search_screen.dart';
 import 'package:places/ui/screen/widgets/search_bar.dart';
 
 /// Кастомный аппбар, чтобы научитсья работать с размерами
-class SightAppBar extends StatelessWidget implements PreferredSizeWidget {
-  @override
-  Size get preferredSize {
-    return Size.fromHeight(188);
-  }
+class SightAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      color: Theme.of(context).scaffoldBackgroundColor,
       padding: EdgeInsets.only(
         top: 60,
         bottom: PlacesSizes.primaryPadding,
@@ -26,6 +24,7 @@ class SightAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: 10,),
           Text(
             PlacesTexts.sightListTitleBreak,
             textAlign: TextAlign.start,
@@ -34,6 +33,7 @@ class SightAppBar extends StatelessWidget implements PreferredSizeWidget {
               color: Theme.of(context).textTheme.headline1?.color,
             ),
           ),
+          SizedBox(height: 30,),
           SearchBar(
             onTap: () {
               Navigator.push(

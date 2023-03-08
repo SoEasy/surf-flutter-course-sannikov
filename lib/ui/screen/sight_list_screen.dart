@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:places/mocks.dart';
+import 'package:places/shared/places_colors.dart';
 import 'package:places/shared/places_fonts.dart';
 import 'package:places/shared/places_sizes.dart';
 import 'package:places/shared/places_texts.dart';
@@ -30,18 +32,51 @@ class _SightListWidgetState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SightAppBar(),
       body: Stack(
         children: [
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: PlacesSizes.primaryPadding),
-            child: ListView.builder(
-              physics: Platform.isIOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
-              itemCount: mocks.length,
-              itemBuilder: (BuildContext context, int index) {
-                return SightListCard(mocks[index]);
-              }
-            ),
+          CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                pinned: true,
+                centerTitle: true,
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                shadowColor: Colors.transparent,
+                expandedHeight: 188,
+                collapsedHeight: 56,
+                flexibleSpace: LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                    final top = constraints.biggest.height;
+                    return FlexibleSpaceBar(
+                      title: top == 115
+                          ? Text(
+                              PlacesTexts.sightListTitle,
+                              style: PlacesFonts.size18Weight500.copyWith(
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline1
+                                    ?.color,
+                              ),
+                            )
+                          : null,
+                      background: SightAppBar(),
+                    );
+                  },
+                ),
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    return Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: PlacesSizes.primaryPadding,
+                      ),
+                      child: SightListCard(mocks[index]),
+                    );
+                  },
+                  childCount: mocks.length,
+                ),
+              ),
+            ],
           ),
           Positioned(
             bottom: 16,
@@ -51,20 +86,21 @@ class _SightListWidgetState extends State<SightListScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 RainbowButton(
-                  onPressed: _handleAddPlace,
-                  child: Row(
-                    children: [
-                      SightIconPlus(),
-                      SizedBox(width: PlacesSizes.primaryHalfPadding,),
-                      Text(
-                        PlacesTexts.addPlaceTitle.toUpperCase(),
-                        style: PlacesFonts.size14WeightBold.copyWith(
-                          color: Colors.white,
+                    onPressed: _handleAddPlace,
+                    child: Row(
+                      children: [
+                        SightIconPlus(),
+                        SizedBox(
+                          width: PlacesSizes.primaryHalfPadding,
                         ),
-                      )
-                    ],
-                  )
-                ),
+                        Text(
+                          PlacesTexts.addPlaceTitle.toUpperCase(),
+                          style: PlacesFonts.size14WeightBold.copyWith(
+                            color: Colors.white,
+                          ),
+                        )
+                      ],
+                    )),
               ],
             ),
           ),
