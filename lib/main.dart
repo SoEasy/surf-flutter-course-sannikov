@@ -42,10 +42,10 @@ class _AppState extends State<App> {
       // home: AddSightScreen(),
       // home: VisitingScreen(),
       // home: SightListScreen(),
-      // home: SightDetails(mocks[2]),
+      home: SightDetails(mocks[0]),
       // home: FiltersScreen(),
       // home: SettingScreen(),
-      home: OnboardingScreen(),
+      // home: OnboardingScreen(),
     );
   }
 }
