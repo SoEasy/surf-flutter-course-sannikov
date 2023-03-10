@@ -35,4 +35,7 @@ class PlacesColors {
   static final Color rainbowEnd = Color(0xffFFE769);
 
   static final Color bgDismiss = Color(0xffEF4343);
+
+  static final Color splashGradientStart = Color(0xffFCDD3D);
+  static final Color splashGradientEnd = Color(0xff4CAF50);
 }

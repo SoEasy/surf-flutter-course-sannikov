@@ -9,6 +9,7 @@ import 'package:places/ui/screen/res/themes.dart';
 import 'package:places/ui/screen/settings_screen.dart';
 import 'package:places/ui/screen/sight_details.dart';
 import 'package:places/ui/screen/sight_list_screen.dart';
+import 'package:places/ui/screen/splash_screen.dart';
 import 'package:places/ui/screen/visiting_screen.dart';
 
 void main() {
@@ -41,11 +42,18 @@ class _AppState extends State<App> {
       title: PlacesTexts.appTitle,
       // home: AddSightScreen(),
       // home: VisitingScreen(),
-      home: SightListScreen(),
+      // home: SightListScreen(),
       // home: SightDetails(mocks[0]),
       // home: FiltersScreen(),
       // home: SettingScreen(),
       // home: OnboardingScreen(),
+      home: SplashScreen(
+        isInitialized: Future.delayed(
+          Duration(
+            seconds: 2,
+          ),
+        ),
+      ),
     );
   }
 }
