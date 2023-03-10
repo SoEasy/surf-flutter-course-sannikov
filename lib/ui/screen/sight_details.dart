@@ -311,21 +311,50 @@ class SightDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _DetailsGallery(_sight),
-              _DetailsContent(_sight),
-              Divider(
-                color: PlacesColors.textSecondary2Opacity,
-              ),
-              _DetailsActions(),
-            ],
-          ),
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            SliverPersistentHeader(
+              delegate: _DetailsHeaderDelegate(sight: _sight),
+            ),
+            SliverFillRemaining(
+              child: Wrap(
+                children: [
+                  _DetailsContent(_sight),
+                  Divider(
+                    color: PlacesColors.textSecondary2Opacity,
+                  ),
+                  _DetailsActions(),
+                ],
+              )
+            )
+          ],
         ),
       ),
     );
   }
+}
+
+class _DetailsHeaderDelegate extends SliverPersistentHeaderDelegate {
+  final Sight sight;
+  _DetailsHeaderDelegate({required Sight this.sight});
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return _DetailsGallery(sight);
+  }
+
+  @override
+  // TODO: implement maxExtent
+  double get maxExtent => 360;
+
+  @override
+  // TODO: implement minExtent
+  double get minExtent => 0;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
+  }
+
 }
