@@ -339,3 +339,11 @@ class SightIconOnboardingThird extends SightIconBase {
       height: 104
   );
 }
+
+class SightIconSplashscreen extends SightIconBase {
+  const SightIconSplashscreen(): super(
+      asset: 'res/icons/icon_splashscreen',
+      width: 160,
+      height: 160
+  );
+}
